@@ -2,7 +2,7 @@
 
 
 
-Game::Game(int _screenHeight, int _screenWidht, string _screenName) : GameBase(_screenHeight,_screenWidht,_screenName) // constructor de la clase padre
+Game::Game(int _screenWidht, int _screenHeight, string _screenName) : GameBase(_screenWidht, _screenHeight,_screenName) // constructor de la clase padre
 {
 	loopCount = 0;
 }

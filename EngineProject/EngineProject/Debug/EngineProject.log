@@ -1,8 +1,5 @@
 ﻿  main.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\gamebase.h(17): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xstring(4054): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\window.h(6): fatal error C1083: No se puede abrir el archivo incluir: 'GLFW\glfw3.h': No such file or directory
   Game.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\gamebase.h(17): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xstring(4054): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\window.h(6): fatal error C1083: No se puede abrir el archivo incluir: 'GLFW\glfw3.h': No such file or directory
   Generando código...
-  EngineProject.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineProject.exe

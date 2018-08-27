@@ -16,7 +16,7 @@ protected:
 	int screenWidth;
 	string screenName;
 public:
-	GameBase(int _screenHeight,int _screenWidht,string _screenName);
+	GameBase(int _screenWidht, int _screenHeight,string _screenName);
 	virtual ~GameBase();
 	bool Start();
 	bool Stop();

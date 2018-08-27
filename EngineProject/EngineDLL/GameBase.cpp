@@ -1,8 +1,8 @@
 #include "GameBase.h"
+#include "TypeDefs.h"
 
 
-
-GameBase::GameBase(int _screenHeight, int _screenWidht, string _screenName) :
+GameBase::GameBase(int _screenWidht, int _screenHeight, string _screenName) :
 	screenHeight(_screenHeight),
 	screenWidth(_screenWidht),
 	screenName(_screenName)
