@@ -50,5 +50,6 @@ void GameBase::Loop()
 	do
 	{
 		aux = OnUpdate();
-	} while (aux);
+		window->PollEvents();
+	} while (aux && !window->ShouldClose());
 }

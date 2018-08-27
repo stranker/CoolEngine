@@ -27,7 +27,7 @@ bool Game::OnUpdate()
 {
 	loopCount++;
 	std::cout << "Loop" << loopCount << std::endl;
-	if (loopCount > 100)
+	if (loopCount > 10000)
 		return false;
 
 	return true;

@@ -8,8 +8,7 @@ int main()
 	if (game->Start())
 	{
 		game->Loop();		
-	}
-	std::cin.get();
+	}		
 	game->Stop();
 	std::cin.get();
 	std::cin.get();

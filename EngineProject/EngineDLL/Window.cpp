@@ -6,7 +6,7 @@
 
 Window::Window(int _height, int _width, string &(_name)) :
 	height(_height),
-	width(_width)
+	width(_width)	
 {	
 	name = _name.c_str();
 }
@@ -37,10 +37,22 @@ bool Window::Start()
 bool Window::Stop() 
 {
 	cout << "Window::Stop()" << endl;
+	if (window != NULL)	
+		glfwDestroyWindow((GLFWwindow*)window);
+
+		window = NULL;
+		glfwTerminate();	
+	return true;
+}
+bool Window::ShouldClose()
+{
 	if (window)
 	{
-		glfwDestroyWindow((GLFWwindow*)window);
-		window = NULL;
+		return glfwWindowShouldClose((GLFWwindow*)window);
 	}
-	return true;
+		return true;	
+}
+void Window::PollEvents()
+{
+	glfwPollEvents();
 }

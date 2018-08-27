@@ -19,5 +19,7 @@ public:
 	~Window();
 	bool Start();
 	bool Stop();
+	bool ShouldClose();
+	void PollEvents();
 };
 
