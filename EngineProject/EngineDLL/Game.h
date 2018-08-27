@@ -10,7 +10,7 @@ protected:
 	bool OnUpdate() override;
 	int loopCount;
 public:
-	Game();
+	Game(int _screenHeight, int _screenWidht, string _screenName);
 	~Game();
 };
 

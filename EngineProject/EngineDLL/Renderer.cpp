@@ -11,12 +11,12 @@ Renderer::~Renderer()
 {
 }
 
-bool Renderer::Start()
+bool Renderer::Start() const
 {
 	cout << "Renderer::Start()" << endl;
 	return true;
 }
-bool Renderer::Stop()
+bool Renderer::Stop() const
 {
 	cout << "Renderer::Stop()" << endl;
 	return true;

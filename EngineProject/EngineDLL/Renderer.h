@@ -7,7 +7,7 @@ class ENGINEDLL_API Renderer
 public:
 	Renderer();
 	~Renderer();
-	bool Start();
-	bool Stop();
+	bool Start() const;
+	bool Stop() const;
 };
 

@@ -1,6 +1,8 @@
-﻿  Game.cpp
+﻿  main.cpp
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\gamebase.h(17): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xstring(4054): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  Game.cpp
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\gamebase.h(17): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xstring(4054): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
   Generando código...
-  Compilando...
-  main.cpp
-  Generando código...
-  EngineProject.vcxproj -> C:\Users\Administrador\source\repos\EngineProject\Debug\EngineProject.exe
+  EngineProject.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineProject.exe

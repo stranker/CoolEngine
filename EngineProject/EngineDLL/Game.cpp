@@ -2,7 +2,7 @@
 
 
 
-Game::Game()
+Game::Game(int _screenHeight, int _screenWidht, string _screenName) : GameBase(_screenHeight,_screenWidht,_screenName) // constructor de la clase padre
 {
 	loopCount = 0;
 }
@@ -24,7 +24,7 @@ bool Game::OnStop()
 	return false;
 }
 bool Game::OnUpdate()
-{	
+{
 	loopCount++;
 	std::cout << "Loop" << loopCount << std::endl;
 	if (loopCount > 100)

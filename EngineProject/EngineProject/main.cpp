@@ -3,7 +3,7 @@
 
 int main()
 {
-	Game* game = new Game();
+	Game* game = new Game(800,600,"Test");
 
 	if (game->Start())
 	{
