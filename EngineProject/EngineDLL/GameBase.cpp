@@ -50,6 +50,9 @@ void GameBase::Loop()
 	do
 	{
 		aux = OnUpdate();
+		renderer->SetClearColor(0.0f, 1, 0, 1.0f);
+		renderer->ClearScreen();
+		renderer->SwapBuffers();
 		window->PollEvents();
 	} while (aux && !window->ShouldClose());
 }

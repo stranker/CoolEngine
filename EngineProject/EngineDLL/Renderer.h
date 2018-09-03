@@ -1,6 +1,7 @@
 #pragma once
 #include "Exports.h"
 #include "Window.h"
+#include "Entity.h"
 #include <iostream>
 using namespace std;
 class ENGINEDLL_API Renderer
@@ -12,8 +13,11 @@ public:
 	bool Stop() const;
 	void SetClearColor(float r, float g, float b,float a);
 	void ClearScreen();
-	void SwapBuffers();
+	void SwapBuffers();	
+	unsigned int GenBuffer(float* buffer, int size);
+	void DrawBuffer(unsigned int bufferID, int vtxCount);
 private:
-	Window* window;
+	Window* window;		
+	unsigned int vertexArrayID;
 };
 
