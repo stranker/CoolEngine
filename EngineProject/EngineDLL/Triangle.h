@@ -4,10 +4,10 @@
 class Triangle : public Entity
 {
 public:
-	Triangle(Material* _material,Renderer* _renderer);
+	Triangle(Renderer* _renderer);
 	~Triangle();		
-	void SetVertices(float* _vertices, int count);
 	void Draw() override;
+	void SetVertices(float* _vertices, int count);
 	void Dispose();
 private:
 	Material * material;

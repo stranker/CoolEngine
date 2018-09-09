@@ -8,6 +8,6 @@ public:
 	~Entity();		
 	virtual void Draw() = 0;
 protected:
-	Renderer * renderer;	
+	Renderer* renderer;
 };
 

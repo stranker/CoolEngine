@@ -10,7 +10,8 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate() override;
 	int loopCount;
-	Entity* triangle;
+	Triangle* triangle;
+	float* coord;
 public:
 	Game(int _screenHeight, int _screenWidht, string _screenName);
 	~Game();

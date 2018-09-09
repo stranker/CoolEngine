@@ -1,11 +1,11 @@
 #include "Renderer.h"
-#include <GLFW\glfw3.h>
 #include "Triangle.h"
-#include <GL\GL.h>
 #include <GL\glew.h>
+#include <GLFW\glfw3.h>
 Renderer::Renderer(Window* _window) :
 	window(_window)
 {	
+	vertexArrayID = 0;
 }
 
 
@@ -21,8 +21,9 @@ bool Renderer::Start() const
 		glfwMakeContextCurrent((GLFWwindow*)window->GetWindowPrt());		
 		glGenVertexArrays(1, (GLuint*)&vertexArrayID);
 		glBindVertexArray(vertexArrayID);
+		return true;
 	}
-	return true;
+	
 }
 bool Renderer::Stop() const
 {

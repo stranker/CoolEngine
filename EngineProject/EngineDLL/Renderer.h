@@ -17,7 +17,7 @@ public:
 	unsigned int GenBuffer(float* buffer, int size);
 	void DrawBuffer(unsigned int bufferID, int vtxCount);
 private:
-	Window* window;		
+	Window* window;
 	unsigned int vertexArrayID;
 };
 

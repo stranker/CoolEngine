@@ -1,23 +1,14 @@
 ﻿  Entity.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Renderer.h(17): error C2061: error de sintaxis: identificador 'Entity'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Renderer.h(18): error C2061: error de sintaxis: identificador 'Entity'
   GameBase.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(7): error C2061: error de sintaxis: identificador 'Renderer'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(12): error C2143: error de sintaxis: falta ';' delante de '*'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(12): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(12): error C2238: símbolos (token) inesperados delante de ';'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\GameBase.h(15): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.12.25827\include\xstring(4054): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(7): error C2061: error de sintaxis: identificador 'Renderer'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2143: error de sintaxis: falta ';' delante de '*'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2238: símbolos (token) inesperados delante de ';'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\gamebase.h(15): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(4273): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
   Renderer.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(7): error C2061: error de sintaxis: identificador 'Renderer'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(12): error C2143: error de sintaxis: falta ';' delante de '*'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(12): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Entity.h(12): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\external\glew-2.1.0\include\GL\glew.h(85): fatal error C1189: #error:  gl.h included before glew.h
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(7): error C2061: error de sintaxis: identificador 'Renderer'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2143: error de sintaxis: falta ';' delante de '*'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2238: símbolos (token) inesperados delante de ';'
   Triangle.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Renderer.h(17): error C2061: error de sintaxis: identificador 'Entity'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Renderer.h(18): error C2061: error de sintaxis: identificador 'Entity'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Triangle.h(15): warning C4200: se ha utilizado una extensión no estándar: matriz de tamaño cero en struct/union
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Triangle.h(15): note: Un constructor con valor predeterminado o un operador de asignación de copia o movimiento ignorará a este miembro.
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Triangle.h(15): error C2997: 'Triangle::g_vertex_buffer_data': no se puede deducir el límite de la matriz desde un inicializador de miembro predeterminado
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\Triangle.h(11): note: vea la declaración de 'Triangle::g_vertex_buffer_data'

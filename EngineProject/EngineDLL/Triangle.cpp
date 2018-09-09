@@ -1,8 +1,7 @@
 #include "Triangle.h"
 
 
-Triangle::Triangle(Material* _material,Renderer* _renderer) : 
-	material(_material),
+Triangle::Triangle(Renderer* _renderer) :
 	Entity(_renderer)
 {
 	bufferData = -1;
@@ -15,13 +14,15 @@ Triangle::~Triangle()
 	Dispose();
 }
 void Triangle::Draw()
-{	
+{		
+	renderer->DrawBuffer(bufferData, vtxCount);
 }
 void Triangle::SetVertices(float* _vertices, int count)
 {	
 	Dispose();
 	vertices = _vertices;
-	vtxCount = count;
+	vtxCount = count;	
+	bufferData = (renderer->GenBuffer(vertices, vtxCount));
 	shouldDispose = true;
 }
 void Triangle::Dispose()
