@@ -8,7 +8,9 @@ public:
 	~Triangle();		
 	void Draw() override;
 	void SetVertices(float* _vertices, int count);
+	void SetMaterial(Material* _material);	
 	void Dispose();
+	void BindMaterial();
 private:
 	Material * material;
 	unsigned int bufferData;	
@@ -16,5 +18,6 @@ private:
 	int vtxCount;
 	bool shouldDispose;
 	int vtxSize;
+	unsigned int programID;
 };
 

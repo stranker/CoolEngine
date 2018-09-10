@@ -16,6 +16,7 @@ public:
 	unsigned int GenBuffer(float* buffer, int size);
 	void DrawBuffer(unsigned int bufferID, int vtxCount);
 	void DeleteBuffers(unsigned int _buffer);
+	void BindMaterial(unsigned int programID);
 private:
 	Window* window;
 	unsigned int vertexArrayID;

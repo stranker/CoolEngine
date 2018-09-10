@@ -13,7 +13,10 @@ Game::~Game()
 bool Game::OnStart()
 {
 	cout << "Game::OnStart()" << endl;	
+	mat = new Material();
 	triangle = new Triangle(renderer);
+	if(triangle && mat)
+	triangle->SetMaterial(mat);
 	return true;
 }
 
@@ -26,9 +29,9 @@ bool Game::OnUpdate()
 {
 	loopCount++;	
 	std::cout << "Loop" << loopCount << std::endl;
+	triangle->Draw();
 	if (loopCount > 10000)
 	{		
-		triangle->Draw();
 		return false;
 	}
 

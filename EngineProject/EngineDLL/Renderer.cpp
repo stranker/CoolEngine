@@ -17,13 +17,15 @@ bool Renderer::Start()
 	if (window)
 	{
 		glfwMakeContextCurrent((GLFWwindow*)window->GetWindowPrt());		
-		if (!glewInit())
+		if (glewInit() == GLEW_OK)
 		{
 			glGenVertexArrays(1, (&vertexArrayID));
 			glBindVertexArray(vertexArrayID);
 			return true;
 		}
 	}
+
+	return false;
 }
 bool Renderer::Stop()
 {
@@ -36,7 +38,7 @@ void Renderer::SetClearColor(float r, float g, float b, float a)
 }
 void Renderer::ClearScreen()
 {	
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 void Renderer::SwapBuffers() 
 {
@@ -73,4 +75,8 @@ void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount)
 void Renderer::DeleteBuffers(unsigned int _buffer)
 {
 	glDeleteBuffers(1, &_buffer);
+}
+void Renderer::BindMaterial(unsigned int programID)
+{
+	glUseProgram(programID);
 }
