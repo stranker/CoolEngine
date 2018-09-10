@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Material.h"
-class Triangle : public Entity
+class ENGINEDLL_API Triangle : public Entity
 {
 public:
 	Triangle(Renderer* _renderer);

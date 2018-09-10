@@ -1,14 +1,9 @@
-﻿  Entity.cpp
-  GameBase.cpp
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(7): error C2061: error de sintaxis: identificador 'Renderer'
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2143: error de sintaxis: falta ';' delante de '*'
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2238: símbolos (token) inesperados delante de ';'
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\gamebase.h(15): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(4273): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-  Renderer.cpp
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(7): error C2061: error de sintaxis: identificador 'Renderer'
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2143: error de sintaxis: falta ';' delante de '*'
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(11): error C2238: símbolos (token) inesperados delante de ';'
-  Triangle.cpp
+﻿  Triangle.cpp
+Triangle.cpp(10): warning C4244: 'inicializando': conversión de 'float' a 'unsigned int'; posible pérdida de datos
+     Creando biblioteca C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Release\EngineDLL.lib y objeto C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Release\EngineDLL.exp
+  Generando código
+  0 of 117 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  EngineDLL.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Release\EngineDLL.dll

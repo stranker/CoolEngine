@@ -1,11 +1,9 @@
 #include "Renderer.h"
-#include "Triangle.h"
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 Renderer::Renderer(Window* _window) :
 	window(_window)
 {	
-	vertexArrayID = 0;
 }
 
 
@@ -13,19 +11,21 @@ Renderer::~Renderer()
 {
 }
 
-bool Renderer::Start() const
+bool Renderer::Start()
 {
-	cout << "Renderer::Start()" << endl;	
+	cout << "Renderer::Start()" << endl;
 	if (window)
 	{
 		glfwMakeContextCurrent((GLFWwindow*)window->GetWindowPrt());		
-		glGenVertexArrays(1, (GLuint*)&vertexArrayID);
-		glBindVertexArray(vertexArrayID);
-		return true;
+		if (!glewInit())
+		{
+			glGenVertexArrays(1, (&vertexArrayID));
+			glBindVertexArray(vertexArrayID);
+			return true;
+		}
 	}
-	
 }
-bool Renderer::Stop() const
+bool Renderer::Stop()
 {
 	cout << "Renderer::Stop()" << endl;
 	return true;
@@ -69,4 +69,8 @@ void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount)
 	// Dibujar el triángulo !
 	glDrawArrays(GL_TRIANGLES, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
 	glDisableVertexAttribArray(0);
+}
+void Renderer::DeleteBuffers(unsigned int _buffer)
+{
+	glDeleteBuffers(1, &_buffer);
 }

@@ -3,9 +3,14 @@
 
 Triangle::Triangle(Renderer* _renderer) :
 	Entity(_renderer)
-{
-	bufferData = -1;
-	vertices = 0;
+{	
+	float* coord = new float[
+		-1.0f, -1.0f, 0.0f,
+			1.0f, -1.0f, 0.0f,
+			0.0f, 1.0f, 0.0f
+	];
+	SetVertices(coord, 3);
+	Dispose();
 }
 
 
@@ -22,14 +27,15 @@ void Triangle::SetVertices(float* _vertices, int count)
 	Dispose();
 	vertices = _vertices;
 	vtxCount = count;	
-	bufferData = (renderer->GenBuffer(vertices, vtxCount));
 	shouldDispose = true;
+	bufferData = (renderer->GenBuffer(vertices, vtxCount*3*sizeof(float)));
 }
 void Triangle::Dispose()
 {
 	if (shouldDispose)
 	{
-		//glDeleteBuffers(1, (GLuint*)bufferData);
+		renderer->DeleteBuffers(bufferData);		
+		if(vertices)
 		delete[] vertices;
 		shouldDispose = false;
 	}
