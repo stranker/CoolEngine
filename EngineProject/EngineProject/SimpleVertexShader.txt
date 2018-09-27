@@ -1,5 +1,4 @@
 #version 330 core
-<<<<<<< HEAD
 
 layout(location = 0) in vec3 vertexPosition_modelspace;
 layout(location = 1) in vec3 vertexColor;
@@ -9,10 +8,4 @@ void main(){
   
 gl_Position = MVP* vec4(vertexPosition_modelspace,1);
  fragmentColor = vertexColor;
-=======
-layout(location = 0) in vec3 vertexPosition_modelspace;
-void main(){
-  gl_Position.xyz = vertexPosition_modelspace;
-  gl_Position.w = 1.0;
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }

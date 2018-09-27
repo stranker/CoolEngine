@@ -17,12 +17,8 @@ bool Game::OnStart()
 	triangle = new Triangle(renderer);
 	if(triangle && mat)
 	triangle->SetMaterial(mat);
-<<<<<<< HEAD
 	x = 0;
 	return true;	
-=======
-	return true;
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }
 
 bool Game::OnStop()
@@ -33,13 +29,9 @@ bool Game::OnStop()
 bool Game::OnUpdate()
 {
 	loopCount++;	
-<<<<<<< HEAD
 	std::cout << "Loop" << loopCount << std::endl;		
 	x += 0.1f;
 	triangle->SetRotateY(x);
-=======
-	std::cout << "Loop" << loopCount << std::endl;
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 	triangle->Draw();
 	if (loopCount > 10000)
 	{		

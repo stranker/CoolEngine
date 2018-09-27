@@ -4,15 +4,11 @@
 #include <glm\gtc\matrix_transform.hpp>
 Renderer::Renderer(Window* _window) :
 	window(_window)
-<<<<<<< HEAD
 {		
 	MVP = glm::mat4(1.0f);
 	model = glm::mat4(1.0f);
 	projection = glm::ortho(-5.0f, 5.0f, -5.0f, 5.0f, 0.0f, 100.0f);
 	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.0f), glm::vec3(-2.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-=======
-{	
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }
 
 
@@ -30,12 +26,9 @@ bool Renderer::Start()
 		{
 			glGenVertexArrays(1, (&vertexArrayID));
 			glBindVertexArray(vertexArrayID);
-<<<<<<< HEAD
 			glEnable(GL_DEPTH_TEST);
 			// Aceptar el fragmento si está más cerca de la cámara que el fragmento anterior
 			glDepthFunc(GL_LESS);
-=======
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 			return true;
 		}
 	}
@@ -115,17 +108,7 @@ void Renderer::MultiplyModelMatrix(glm::mat4 mat)
 	model *= mat;
 	UpdateMVP();
 }
-<<<<<<< HEAD
 void Renderer::UpdateMVP()
 {	
 	MVP = projection * view * model;
-=======
-void Renderer::DeleteBuffers(unsigned int _buffer)
-{
-	glDeleteBuffers(1, &_buffer);
-}
-void Renderer::BindMaterial(unsigned int programID)
-{
-	glUseProgram(programID);
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }

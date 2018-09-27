@@ -1,14 +1,8 @@
 #version 330 core
-<<<<<<< HEAD
 
 in vec3 fragmentColor;
 out vec3 color;
 void main(){
  
    color = fragmentColor;
-=======
-out vec3 color;
-void main(){
-  color = vec3(1,1,0);
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }

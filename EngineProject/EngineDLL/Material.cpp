@@ -1,9 +1,6 @@
 #include "Material.h"
 #include <GL\glew.h>
-<<<<<<< HEAD
 
-=======
->>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 #include <iostream>
 #include <fstream>
 #include <sstream>
