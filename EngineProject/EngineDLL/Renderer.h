@@ -23,11 +23,10 @@ public:
 	void SetClearColor(float r, float g, float b,float a);
 	void ClearScreen();
 	void SwapBuffers();
-	unsigned int GenBuffer(float* buffer, int size);
-	void DrawBuffer(unsigned int bufferID, int vtxCount);
+	unsigned int GenBuffer(float* buffer, int size);	
+	void DrawBuffer(unsigned int bufferID, int vtxCount, int enableVertexIndex);
 	void DeleteBuffers(unsigned int _buffer);
 	void BindMaterial(unsigned int programID);
-
 	void LoadIdentityMatrix();
 	void SetModelMatrix(glm::mat4 mat);
 	void MultiplyModelMatrix(glm::mat4 mat);

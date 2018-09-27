@@ -31,7 +31,7 @@ bool Game::OnUpdate()
 	loopCount++;	
 	std::cout << "Loop" << loopCount << std::endl;		
 	x += 0.1f;
-	triangle->SetScale(x, x, x);
+	triangle->SetRotateY(x);
 	triangle->Draw();
 	if (loopCount > 10000)
 	{		

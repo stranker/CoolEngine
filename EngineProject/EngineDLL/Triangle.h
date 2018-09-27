@@ -16,14 +16,17 @@ public:
 	void SetRotateX(float x);
 	void SetRotateY(float y);
 	void SetRotateZ(float z);
+	void SetColorVertices(float* vertices);
 private:
 	Material * material;
 	unsigned int bufferData;	
-	float* vertices;
-	int vtxCount;
-	bool shouldDispose;
-	int vtxSize;
+	unsigned int bufferColor;
 	unsigned int programID;
+	float* vertices;
+	float* verticesColor;
+	bool shouldDispose;
+	int vtxCount;
+	int vtxSize;
 	void UpdateModelMatrix();
 };
 
