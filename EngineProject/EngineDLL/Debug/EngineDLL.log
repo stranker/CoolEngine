@@ -1,4 +1,5 @@
 ﻿  Triangle.cpp
+<<<<<<< HEAD
 c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
@@ -26,3 +27,6 @@ c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(1
 c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
   c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
   EngineDLL.vcxproj -> C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\EngineDLL.dll
+=======
+  EngineDLL.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineDLL.dll
+>>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97

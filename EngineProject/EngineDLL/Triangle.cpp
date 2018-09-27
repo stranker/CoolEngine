@@ -5,6 +5,7 @@
 Triangle::Triangle(Renderer* _renderer) :
 	Entity(_renderer)
 {
+<<<<<<< HEAD
 	float g_vertex_buffer_data[] = {
 		-1.0f,-1.0f,-1.0f, // triángulo 1 : comienza
 		-1.0f,-1.0f, 1.0f,
@@ -85,6 +86,16 @@ Triangle::Triangle(Renderer* _renderer) :
 	shouldDispose = false;
 	SetColorVertices(g_color_buffer_data);
 	SetVertices(g_vertex_buffer_data, 12*3);
+=======
+	float* coord = new float[9] {
+		-1.0f, -1.0f, 0.0f,
+			1.0f, -1.0f, 0.0f,
+			0.0f, 1.0f, 0.0f
+	};
+
+	shouldDispose = false;
+	SetVertices(coord, 3);	
+>>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }
 
 
@@ -94,6 +105,7 @@ Triangle::~Triangle()
 }
 void Triangle::Draw()
 {
+<<<<<<< HEAD
 	renderer->LoadIdentityMatrix();
 	renderer->MultiplyModelMatrix(model);
 	if (material)
@@ -103,6 +115,11 @@ void Triangle::Draw()
 	}
 	renderer->DrawBuffer(bufferData, vtxCount,0);
 	renderer->DrawBuffer(bufferColor, vtxCount,1);
+=======
+	if (material)
+		BindMaterial();
+	renderer->DrawBuffer(bufferData, vtxCount);
+>>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }
 void Triangle::SetVertices(float* _vertices, int count)
 {
@@ -110,24 +127,35 @@ void Triangle::SetVertices(float* _vertices, int count)
 	vertices = _vertices;
 	vtxCount = count;
 	shouldDispose = true;
+<<<<<<< HEAD
 	bufferData = (renderer->GenBuffer(vertices, vtxCount * 3 * sizeof(float)));		
 	bufferColor = (renderer->GenBuffer(verticesColor, vtxCount * 3 * sizeof(float)));
 }
 void Triangle::SetColorVertices(float* vertices)
 {
 	verticesColor = vertices;
+=======
+	bufferData = (renderer->GenBuffer(vertices, vtxCount * 3 * sizeof(float)));
+>>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 }
 void Triangle::Dispose()
 {
 	if (shouldDispose)
 	{
 		renderer->DeleteBuffers(bufferData);
+<<<<<<< HEAD
 		renderer->DeleteBuffers(bufferColor);
+=======
+>>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 		if (vertices)
 		{
 			delete[] vertices;
 			vertices = NULL;
+<<<<<<< HEAD
 		}		
+=======
+		}
+>>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
 		shouldDispose = false;
 	}
 }
@@ -140,6 +168,7 @@ void Triangle::BindMaterial()
 {
 	renderer->BindMaterial(programID);
 }
+<<<<<<< HEAD
 void Triangle::SetPosition(float x, float y, float z)
 {
 	pos[0] = x;
@@ -188,3 +217,5 @@ void Triangle::UpdateModelMatrix()
 {
 	model = translate * rotateX * rotateY * rotateZ * scale;
 }
+=======
+>>>>>>> d7e329e810e22936c4fce1969a38f7f0758fde97
