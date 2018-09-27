@@ -1,7 +1,10 @@
 #include "Material.h"
 #include <GL\glew.h>
-#include <GLFW\glfw3.h>
+
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
 
 Material::Material()
 {
@@ -12,8 +15,7 @@ Material::~Material()
 {
 }
 
-unsigned int LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
-
+unsigned int Material::LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
 	// Crear los shaders
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
@@ -83,26 +85,33 @@ unsigned int LoadShaders(const char * vertex_file_path, const char * fragment_fi
 
 	// Vincular el programa por medio del ID
 	printf("Linking program\n");
-	GLuint ProgramID = glCreateProgram();
-	glAttachShader(ProgramID, VertexShaderID);
-	glAttachShader(ProgramID, FragmentShaderID);
-	glLinkProgram(ProgramID);
+	programID = glCreateProgram();
+	glAttachShader(programID, VertexShaderID);
+	glAttachShader(programID, FragmentShaderID);
+	glLinkProgram(programID);
 
 	// Revisar el programa
-	glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
-	glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
+	glGetProgramiv(programID, GL_LINK_STATUS, &Result);
+	glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &InfoLogLength);
 	if (InfoLogLength > 0) {
 		std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
-		glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
+		glGetProgramInfoLog(programID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
 		printf("%s\n", &ProgramErrorMessage[0]);
 	}
 
 
-	glDetachShader(ProgramID, VertexShaderID);
-	glDetachShader(ProgramID, FragmentShaderID);
+	glDetachShader(programID, VertexShaderID);
+	glDetachShader(programID, FragmentShaderID);
 
 	glDeleteShader(VertexShaderID);
 	glDeleteShader(FragmentShaderID);
 
-	return ProgramID;
+	return programID;
 }
+
+void Material::SetMatrixProperty(const char*name, glm::mat4& mat)
+{
+	matrixID = glGetUniformLocation(programID, name);
+	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &mat[0][0]);
+}
+

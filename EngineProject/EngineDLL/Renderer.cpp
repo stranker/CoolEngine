@@ -1,11 +1,14 @@
 #include "Renderer.h"
-#include "Triangle.h"
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
+#include <glm\gtc\matrix_transform.hpp>
 Renderer::Renderer(Window* _window) :
 	window(_window)
-{	
-	vertexArrayID = 0;
+{		
+	MVP = glm::mat4(1.0f);
+	model = glm::mat4(1.0f);
+	projection = glm::ortho(-5.0f, 5.0f, -5.0f, 5.0f, 0.0f, 100.0f);
+	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
 
@@ -13,19 +16,23 @@ Renderer::~Renderer()
 {
 }
 
-bool Renderer::Start() const
+bool Renderer::Start()
 {
-	cout << "Renderer::Start()" << endl;	
+	cout << "Renderer::Start()" << endl;
 	if (window)
 	{
 		glfwMakeContextCurrent((GLFWwindow*)window->GetWindowPrt());		
-		glGenVertexArrays(1, (GLuint*)&vertexArrayID);
-		glBindVertexArray(vertexArrayID);
-		return true;
+		if (glewInit() == GLEW_OK)
+		{
+			glGenVertexArrays(1, (&vertexArrayID));
+			glBindVertexArray(vertexArrayID);
+			return true;
+		}
 	}
-	
+
+	return false;
 }
-bool Renderer::Stop() const
+bool Renderer::Stop()
 {
 	cout << "Renderer::Stop()" << endl;
 	return true;
@@ -36,7 +43,7 @@ void Renderer::SetClearColor(float r, float g, float b, float a)
 }
 void Renderer::ClearScreen()
 {	
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 void Renderer::SwapBuffers() 
 {
@@ -69,4 +76,32 @@ void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount)
 	// Dibujar el triángulo !
 	glDrawArrays(GL_TRIANGLES, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
 	glDisableVertexAttribArray(0);
+}
+void Renderer::DeleteBuffers(unsigned int _buffer)
+{
+	glDeleteBuffers(1, &_buffer);
+}
+void Renderer::BindMaterial(unsigned int programID)
+{
+	glUseProgram(programID);
+}
+
+void Renderer::LoadIdentityMatrix()
+{			
+	model = glm::mat4(1.0f);
+	UpdateMVP();
+}
+void Renderer::SetModelMatrix(glm::mat4 mat)
+{
+	model = mat;
+	UpdateMVP();
+}
+void Renderer::MultiplyModelMatrix(glm::mat4 mat)
+{
+	model *= mat;
+	UpdateMVP();
+}
+void Renderer::UpdateMVP()
+{	
+	MVP = projection * view * model;
 }
