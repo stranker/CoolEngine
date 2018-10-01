@@ -1,6 +1,7 @@
 #pragma once
 #include "GameBase.h"
 #include "Triangle.h"
+#include "Square.h"
 #include "Material.h"
 
 #include <iostream>
@@ -12,7 +13,7 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate() override;
 	int loopCount;
-	Triangle* triangle;	
+	Square* triangle;	
 	Material* mat;
 	float* coord;
 	float x;
