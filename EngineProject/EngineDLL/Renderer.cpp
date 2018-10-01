@@ -63,27 +63,50 @@ unsigned int Renderer::GenBuffer(float* buffer, int size)
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 	return vertexbuffer;
 }
-void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount, int enableVertexIndex, DrawTypes typeOfDraw)
+//void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount, int enableVertexIndex, DrawTypes typeOfDraw)
+//{
+//	// 1rst attribute buffer : vértices
+//	glEnableVertexAttribArray(enableVertexIndex);
+//	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
+//	glVertexAttribPointer(
+//		enableVertexIndex,                  // atributo 0. No hay razón particular para el 0, pero debe corresponder en el shader.
+//		3,                  // tamaño
+//		GL_FLOAT,           // tipo
+//		GL_FALSE,           // normalizado?
+//		0,                    // Paso
+//		(void*)0            // desfase del buffer
+//	);
+//	// Dibujar el triángulo !
+//	if (enableVertexIndex == 0)
+//	{		
+//		glDrawArrays((GLenum)typeOfDraw, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
+//		glDisableVertexAttribArray(0);
+//	}
+//}
+void Renderer::Draw(int vtxCount, DrawTypes typeOfDraw) 
 {
-	// 1rst attribute buffer : vértices
-	glEnableVertexAttribArray(enableVertexIndex);
+	glDrawArrays((GLenum)typeOfDraw, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
+}
+void Renderer::EnableBuffer(int bufferEnableIndex) 
+{
+	glEnableVertexAttribArray(bufferEnableIndex);
+}
+void Renderer::BindBuffer(unsigned int bufferID, int bufferEnableIndex) 
+{
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 	glVertexAttribPointer(
-		enableVertexIndex,                  // atributo 0. No hay razón particular para el 0, pero debe corresponder en el shader.
+		bufferEnableIndex,                  // atributo 0. No hay razón particular para el 0, pero debe corresponder en el shader.
 		3,                  // tamaño
 		GL_FLOAT,           // tipo
 		GL_FALSE,           // normalizado?
 		0,                    // Paso
 		(void*)0            // desfase del buffer
 	);
-	// Dibujar el triángulo !
-	if (enableVertexIndex == 0)
-	{		
-		glDrawArrays((GLenum)typeOfDraw, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
-		glDisableVertexAttribArray(0);
-	}
 }
-
+void Renderer::DisableBuffer(int bufferDisableIndex)
+{
+	glDisableVertexAttribArray(bufferDisableIndex);
+}
 void Renderer::DeleteBuffers(unsigned int _buffer)
 {
 	glDeleteBuffers(1, &_buffer);

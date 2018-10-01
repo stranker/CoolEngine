@@ -34,6 +34,11 @@ void Triangle::Draw()
 		BindMaterial();
 		material->SetMatrixProperty("MVP", renderer->GetMVP());
 	}
-	renderer->DrawBuffer(bufferData, vtxCount,0,typeOfShape);	
-	renderer->DrawBuffer(bufferColor, vtxCount, 1, typeOfShape);
+	renderer->EnableBuffer(0);
+	renderer->EnableBuffer(1);
+	renderer->BindBuffer(bufferData, 0);
+	renderer->BindBuffer(bufferColor, 1);
+	renderer->Draw(vtxCount, typeOfShape);
+	renderer->DisableBuffer(0);
+	renderer->DisableBuffer(1);
 }

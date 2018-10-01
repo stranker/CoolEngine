@@ -27,8 +27,10 @@ public:
 	void ClearScreen();
 	void SwapBuffers();
 	unsigned int GenBuffer(float* buffer, int size);	
-	void DrawBuffer(unsigned int bufferID, int vtxCount, int enableVertexIndex, DrawTypes typeOfDraw);
-	void EnableBuffer(int enableIndex);
+	void Draw(int vtxCount,DrawTypes typeOfDraw);
+	void EnableBuffer(int bufferEnableIndex);
+	void BindBuffer(unsigned int bufferID, int bufferEnableIndex);
+	void DisableBuffer(int bufferDisableIndex);
 	void DeleteBuffers(unsigned int _buffer);
 	void BindMaterial(unsigned int programID);
 	void LoadIdentityMatrix();
