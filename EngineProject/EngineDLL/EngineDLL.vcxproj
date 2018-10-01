@@ -124,6 +124,7 @@
     <ClInclude Include="GameBase.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="TypeDefs.h" />
     <ClInclude Include="Window.h" />
@@ -133,6 +134,7 @@
     <ClCompile Include="GameBase.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>

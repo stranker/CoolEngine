@@ -7,8 +7,8 @@ Renderer::Renderer(Window* _window) :
 {		
 	MVP = glm::mat4(1.0f);
 	model = glm::mat4(1.0f);
-	projection = glm::ortho(-5.0f, 5.0f, -5.0f, 5.0f, 0.0f, 100.0f);
-	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.0f), glm::vec3(-2.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	projection = glm::ortho(-5.0f, 5.0f, -5.0f, 5.0f, -100.0f, 1000.0f);
+	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.0f), glm::vec3(-2.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
 }
 
 
@@ -63,7 +63,7 @@ unsigned int Renderer::GenBuffer(float* buffer, int size)
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 	return vertexbuffer;
 }
-void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount,int enableVertexIndex)
+void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount, int enableVertexIndex, DrawTypes typeOfDraw)
 {
 	// 1rst attribute buffer : vértices
 	glEnableVertexAttribArray(enableVertexIndex);
@@ -78,8 +78,8 @@ void Renderer::DrawBuffer(unsigned int bufferID, int vtxCount,int enableVertexIn
 	);
 	// Dibujar el triángulo !
 	if (enableVertexIndex == 0)
-	{
-		glDrawArrays(GL_TRIANGLES, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
+	{		
+		glDrawArrays((GLenum)typeOfDraw, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
 		glDisableVertexAttribArray(0);
 	}
 }

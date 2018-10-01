@@ -16,6 +16,9 @@ private:
 	glm::mat4 MVP;
 	void UpdateMVP();
 public:
+	enum DrawTypes {GL_TRIANGLES = 0x0004, 
+		GL_TRIANGLE_STRIP = 0x0005,
+		GL_TRIANGLE_FAN = 0x0006};
 	Renderer(Window* _window);
 	~Renderer();
 	bool Start();
@@ -24,7 +27,8 @@ public:
 	void ClearScreen();
 	void SwapBuffers();
 	unsigned int GenBuffer(float* buffer, int size);	
-	void DrawBuffer(unsigned int bufferID, int vtxCount, int enableVertexIndex);
+	void DrawBuffer(unsigned int bufferID, int vtxCount, int enableVertexIndex, DrawTypes typeOfDraw);
+	void EnableBuffer(int enableIndex);
 	void DeleteBuffers(unsigned int _buffer);
 	void BindMaterial(unsigned int programID);
 	void LoadIdentityMatrix();
