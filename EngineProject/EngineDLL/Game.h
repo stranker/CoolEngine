@@ -2,6 +2,7 @@
 #include "GameBase.h"
 #include "Triangle.h"
 #include "Square.h"
+#include "Circle.h"
 #include "Material.h"
 
 #include <iostream>
@@ -13,7 +14,8 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate() override;
 	int loopCount;
-	Square* triangle;	
+	Square* triangle;
+	Circle* circle;
 	Material* mat;
 	float* coord;
 	float x;

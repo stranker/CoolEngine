@@ -15,8 +15,11 @@ bool Game::OnStart()
 	cout << "Game::OnStart()" << endl;	
 	mat = new Material();
 	triangle = new Square(renderer);
+	circle = new Circle(renderer);
 	if(triangle && mat)
 	triangle->SetMaterial(mat);
+	if (circle && mat)
+		circle->SetMaterial(mat);
 	x = 0;
 	return true;	
 }
@@ -30,8 +33,9 @@ bool Game::OnUpdate()
 {
 	loopCount++;	
 	std::cout << "Loop" << loopCount << std::endl;		
-	x += 0.1f;	
-	triangle->Draw();
+	x += 0.1f;		
+	circle->Draw();
+	circle->SetRotateZ(x);
 	if (loopCount > 10000)
 	{		
 		return false;
