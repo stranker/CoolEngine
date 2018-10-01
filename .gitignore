@@ -4,3 +4,11 @@
 \.vs
 \Debug
 \Release
+EngineProject\Debug
+EngineProject\Release
+EngineProject\EngineDLL\Debug
+EngineProject\EngineDLL\Release
+EngineProject\EngineProject\Debug
+EngineProject\EngineProject\Release
+EngineProject/.vs/EngineProject/v15/.suo
+EngineProject/Debug/EngineDLL.dll
