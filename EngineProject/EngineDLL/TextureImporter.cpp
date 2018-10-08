@@ -32,6 +32,8 @@ unsigned int TextureImporter::loadBMP_custom(const char * imagepath){
 		delete dataStruct.data;
 	dataStruct.data = new unsigned char[dataStruct.imageSize];
 
+	fseek(file, dataStruct.dataPos, 0);
+
 	// Leemos la información del archivo y la ponemos en el buffer
 	fread(dataStruct.data, 1, dataStruct.imageSize, file);
 

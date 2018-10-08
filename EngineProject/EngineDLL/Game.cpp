@@ -16,12 +16,18 @@ bool Game::OnStart()
 	mat = new Material();
 	triangle = new Square(renderer);
 	circle = new Circle(renderer);
+	sprite = new Sprite(renderer);
 	if(triangle && mat)
 	triangle->SetMaterial(mat);
 	if (circle && mat)
 		circle->SetMaterial(mat);
+	if (sprite && mat)
+	{
+		sprite->SetMaterial(mat);
+		sprite->SetTexture("bitmap2.bmp");
+	}
 	x = 0;
-	return true;	
+	return true;
 }
 
 bool Game::OnStop()
@@ -34,8 +40,7 @@ bool Game::OnUpdate()
 	loopCount++;	
 	std::cout << "Loop" << loopCount << std::endl;		
 	x += 0.1f;		
-	circle->Draw();
-	circle->SetRotateZ(x);
+	sprite->Draw();
 	if (loopCount > 10000)
 	{		
 		return false;

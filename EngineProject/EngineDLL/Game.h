@@ -4,7 +4,7 @@
 #include "Square.h"
 #include "Circle.h"
 #include "Material.h"
-
+#include "Sprite.h"
 #include <iostream>
 using namespace std;
 class Game : public GameBase
@@ -17,6 +17,7 @@ protected:
 	Square* triangle;
 	Circle* circle;
 	Material* mat;
+	Sprite* sprite;
 	float* coord;
 	float x;
 public:

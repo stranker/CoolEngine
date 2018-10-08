@@ -10,7 +10,7 @@ public:
 	~Shape();
 	virtual void Draw() = 0;
 	void SetVertices(float* _vertices, int count);
-	void SetMaterial(Material* _material);
+	virtual void SetMaterial(Material* _material);
 	void Dispose();
 	void BindMaterial();
 	void SetPosition(float x, float y, float z);
