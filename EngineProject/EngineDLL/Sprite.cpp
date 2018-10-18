@@ -6,17 +6,17 @@ Sprite::Sprite(Renderer* _renderer) :
 	Shape(_renderer)
 {
 	float g_vertex_buffer_data[] = {
-		0.0f,0.0f,
-		1.0f,0.0f,
-		1.0f,1.0f,
-		0.0f,1.0f
+		0.0f,1.0f,0.0f,
+		0.0f,0.0f,0.0f,
+		1.0f,1.0f,0.0f,
+		1.0f,0.0f,0.0f,
 	};
 
 	float g_uv_buffer_data[] = {
+		0.0f,1.0f,
 		0.0f,0.0f,
-		0.0f,0.0f,
-		0.0f,0.0f,
-		0.0f,0.0f,
+		1.0f,1.0f,
+		1.0f,0.0f,
 	};
 	typeOfShape = Renderer::GL_TRIANGLE_STRIP;
 	shouldDispose = false;
