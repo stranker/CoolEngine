@@ -10,8 +10,17 @@ public:
 	void SetTexture(const char * imagepath);
 	void SetMaterial(Material* _material) override;
 	void SetVerticesUV(float* vertices);
+	void SetFrame(unsigned int id);
+	void SetFrameType(int frameWidth, int frameHeight, int framesCountPerRow);
+	int heightFrame;
+	int widthFrame;
+	int heightTotal;
+	int widthTotal;
+	int framesTotal;
 private:
 	unsigned int texture;
 	unsigned int verticesUV;
+	float GetOffsetX(unsigned int id);
+	float GetOffsetY(unsigned int id);
 };
 

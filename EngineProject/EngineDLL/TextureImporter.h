@@ -12,7 +12,7 @@ public:
 								  // Información RGB
 		unsigned char * data;
 	};
-private:
 	static BMPData dataStruct;
+private:
 };
 

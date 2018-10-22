@@ -25,6 +25,8 @@ bool Game::OnStart()
 	{
 		sprite->SetMaterial(mat);
 		sprite->SetTexture("bitmap2.bmp");
+		sprite->SetFrameType(64, 64, 4);
+		sprite->SetFrame(4);
 	}
 	x = 0;
 	return true;

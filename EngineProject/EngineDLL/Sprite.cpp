@@ -7,8 +7,8 @@ Sprite::Sprite(Renderer* _renderer) :
 {
 	float g_vertex_buffer_data[] = {
 		0.0f,1.0f,0.0f,
-		0.0f,0.0f,0.0f,
 		1.0f,1.0f,0.0f,
+		0.0f,0.0f,0.0f,
 		1.0f,0.0f,0.0f,
 	};
 
@@ -21,7 +21,7 @@ Sprite::Sprite(Renderer* _renderer) :
 	typeOfShape = Renderer::GL_TRIANGLE_STRIP;
 	shouldDispose = false;
 	SetVertices(g_vertex_buffer_data, 4);	
-	SetVerticesUV(g_uv_buffer_data);
+	SetVerticesUV(g_uv_buffer_data);	
 }
 void Sprite::SetVerticesUV(float* vertices)
 {
@@ -39,6 +39,10 @@ void Sprite::SetMaterial(Material* _material)
 void Sprite::SetTexture(const char * imagepath)
 {
 	texture = TextureImporter::loadBMP_custom(imagepath);
+	heightFrame = 64;
+	widthFrame = 64;
+	heightTotal = TextureImporter::dataStruct.height;
+	widthTotal = TextureImporter::dataStruct.width;
 }
 
 void Sprite::Draw()
@@ -58,4 +62,29 @@ void Sprite::Draw()
 	renderer->Draw(vtxCount, typeOfShape);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
+}
+void Sprite::SetFrame(unsigned int id)
+{
+	float vertices[] =
+	{
+		GetOffsetX(id) / widthTotal, 1 - (GetOffsetY(id) / heightTotal) ,
+		(GetOffsetX(id) + widthFrame) / widthTotal, 1 - GetOffsetY(id) / heightTotal,
+		GetOffsetX(id) / widthTotal, 1 - ( GetOffsetY(id) + heightFrame) / heightTotal,
+		(GetOffsetX(id) + widthFrame) / widthTotal, 1 - (GetOffsetY(id) + heightFrame) / heightTotal		
+	};
+	SetVerticesUV(vertices);
+}
+void Sprite::SetFrameType(int frameWidth,int frameHeight,int framesCountPerRow)
+{
+	widthFrame = frameWidth;
+	heightFrame = frameHeight;
+	framesTotal = framesCountPerRow;
+}
+float Sprite::GetOffsetX(unsigned int id)
+{
+	return (id % framesTotal)*widthFrame;
+}
+float Sprite::GetOffsetY(unsigned int id)
+{
+	return (id/ framesTotal)*heightFrame;
 }
