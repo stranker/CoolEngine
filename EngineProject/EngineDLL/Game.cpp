@@ -40,7 +40,7 @@ bool Game::OnUpdate()
 	loopCount++;	
 	std::cout << "Loop" << loopCount << std::endl;		
 	x += 0.1f;		
-	sprite->Draw();
+	sprite->Draw();		
 	if (loopCount > 10000)
 	{		
 		return false;

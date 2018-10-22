@@ -40,8 +40,8 @@ void Square::Draw()
 	}		
 	renderer->EnableBuffer(0);
 	renderer->EnableBuffer(1);
-	renderer->BindBuffer(bufferData,0);
-	renderer->BindBuffer(bufferColor, 1);
+	renderer->BindBuffer(bufferData,3,0);
+	renderer->BindBuffer(bufferColor,3, 1);
 	renderer->Draw(vtxCount, typeOfShape);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);

@@ -8,7 +8,7 @@ Renderer::Renderer(Window* _window) :
 	MVP = glm::mat4(1.0f);
 	model = glm::mat4(1.0f);
 	projection = glm::ortho(-5.0f, 5.0f, -5.0f, 5.0f, -10.0f, 1000.0f);
-	view = glm::lookAt(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
+	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
 }
 
 
@@ -71,12 +71,12 @@ void Renderer::EnableBuffer(int bufferEnableIndex)
 {
 	glEnableVertexAttribArray(bufferEnableIndex);
 }
-void Renderer::BindBuffer(unsigned int bufferID, int bufferEnableIndex) 
+void Renderer::BindBuffer(unsigned int bufferID, int size, int bufferEnableIndex) 
 {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 	glVertexAttribPointer(
 		bufferEnableIndex,                  // atributo 0. No hay razón particular para el 0, pero debe corresponder en el shader.
-		3,                  // tamaño
+		size,               // tamaño
 		GL_FLOAT,           // tipo
 		GL_FALSE,           // normalizado?
 		0,                    // Paso

@@ -16,7 +16,7 @@ Sprite::Sprite(Renderer* _renderer) :
 		0.0f,1.0f,
 		0.0f,0.0f,
 		1.0f,1.0f,
-		1.0f,0.0f,
+		1.0f,0.0f
 	};
 	typeOfShape = Renderer::GL_TRIANGLE_STRIP;
 	shouldDispose = false;
@@ -53,8 +53,8 @@ void Sprite::Draw()
 	}
 	renderer->EnableBuffer(0);
 	renderer->EnableBuffer(1);
-	renderer->BindBuffer(bufferData, 0);
-	renderer->BindBuffer(verticesUV, 1);
+	renderer->BindBuffer(bufferData,3, 0);
+	renderer->BindBuffer(verticesUV,2,1);
 	renderer->Draw(vtxCount, typeOfShape);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);

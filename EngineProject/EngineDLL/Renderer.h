@@ -29,7 +29,7 @@ public:
 	unsigned int GenBuffer(float* buffer, int size);	
 	void Draw(int vtxCount,DrawTypes typeOfDraw);
 	void EnableBuffer(int bufferEnableIndex);
-	void BindBuffer(unsigned int bufferID, int bufferEnableIndex);
+	void BindBuffer(unsigned int bufferID, int size, int bufferEnableIndex);
 	void DisableBuffer(int bufferDisableIndex);
 	void DeleteBuffers(unsigned int _buffer);
 	void BindMaterial(unsigned int programID);
