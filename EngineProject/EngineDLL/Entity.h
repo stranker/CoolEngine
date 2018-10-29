@@ -15,10 +15,13 @@ protected:
 	glm::mat4 rotateZ;
 	glm::mat4 scale;
 
+	float BBWidth;
+	float BBHeight;
 	Renderer* renderer;	
 public:
 	Entity(Renderer* _renderer);
 	~Entity();		
 	virtual void Draw() = 0;
+	virtual void OnCollision() = 0;
 };
 
