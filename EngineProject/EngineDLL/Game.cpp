@@ -16,7 +16,7 @@ bool Game::OnStart()
 	mat = new Material();
 	triangle = new Square(renderer);
 	circle = new Circle(renderer);
-	sprite = new Sprite(renderer);
+	sprite = new Sprite(renderer);	
 	if(triangle && mat)
 	triangle->SetMaterial(mat);
 	if (circle && mat)
@@ -28,8 +28,14 @@ bool Game::OnStart()
 		sprite->SetFrameType(64, 64, 4);
 		sprite->SetFrame(4);
 	}
+
 	x = 0;
+	sprite->CreateCollider(1, 1, false, false);
+	triangle->CreateCollider(1, 1, false, false);
+	CollisionManager::GetInstance()->AddToGroup("A", sprite);
+	CollisionManager::GetInstance()->AddToGroup("B", triangle);
 	return true;
+		
 }
 
 bool Game::OnStop()
@@ -40,9 +46,15 @@ bool Game::OnStop()
 bool Game::OnUpdate()
 {
 	loopCount++;	
-	std::cout << "Loop" << loopCount << std::endl;		
-	x += 0.1f;		
-	sprite->Draw();		
+	//std::cout << "Loop" << loopCount << std::endl;		
+	x += 0.1f;
+	CollisionManager::GetInstance()->Update();
+	triangle->SetPosition(5, 0,0);
+	sprite->SetPosition(x, 0, 0);
+	sprite->Draw();
+
+	triangle->Draw();	
+
 	if (loopCount > 10000)
 	{		
 		return false;

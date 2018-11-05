@@ -6,4 +6,5 @@ public:
 	Triangle(Renderer* _renderer);
 	~Triangle();
 	void Draw() override;
+	void OnCollision() override {};
 };

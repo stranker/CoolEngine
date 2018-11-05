@@ -17,6 +17,7 @@ public:
 	int heightTotal;
 	int widthTotal;
 	int framesTotal;
+	void OnCollision() override {};
 private:
 	unsigned int texture;
 	unsigned int verticesUV;

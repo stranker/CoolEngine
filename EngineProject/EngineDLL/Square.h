@@ -7,5 +7,6 @@ public:
 	Square(Renderer* _renderer);
 	~Square();
 	void Draw() override;
+	void OnCollision() override {};
 };
 

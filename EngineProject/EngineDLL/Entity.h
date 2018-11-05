@@ -1,5 +1,6 @@
 #pragma once
 #include "Renderer.h"
+#include "BoxCollider.h"
 
 class ENGINEDLL_API Entity
 {
@@ -18,10 +19,15 @@ protected:
 	float BBWidth;
 	float BBHeight;
 	Renderer* renderer;	
+	BoxCollider* collider;
+
 public:
 	Entity(Renderer* _renderer);
 	~Entity();		
 	virtual void Draw() = 0;
+	glm::vec3 GetPos() { return pos; }	
+	void CreateCollider(float width, float height, bool trigger, bool _isStatic);
+	BoxCollider* GetCollider() { return collider; }
 	virtual void OnCollision() = 0;
 };
 

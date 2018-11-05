@@ -1,5 +1,6 @@
 #pragma once
 #include "GameBase.h"
+#include "CollisionManager.h"
 #include "Triangle.h"
 #include "Square.h"
 #include "Circle.h"
@@ -19,7 +20,7 @@ protected:
 	Material* mat;
 	Sprite* sprite;
 	float* coord;
-	float x;
+	float x;	
 public:
 	Game(int _screenHeight, int _screenWidht, string _screenName);
 	~Game();

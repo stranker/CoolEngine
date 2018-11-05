@@ -16,6 +16,10 @@ Entity::Entity(Renderer* _renderer) :
 	scale = glm::mat4(1.0f);
 }
 
+void Entity::CreateCollider(float width, float height, bool trigger, bool _isStatic)
+{
+	collider = new BoxCollider(width, height, trigger, _isStatic);
+}
 
 Entity::~Entity()
 {

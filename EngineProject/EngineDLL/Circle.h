@@ -8,6 +8,7 @@ public:
 	~Circle();
 	void Draw() override;
 	void CalculateCircleVertex();
+	void OnCollision() override {};
 private:
 	float radius;
 	float vertexSeparationInDegrees;

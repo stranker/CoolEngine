@@ -46,6 +46,7 @@ bool GameBase::Stop()
 void GameBase::Loop()
 {
 	cout << "GameBase::Loop()" << endl;
+
 	bool aux = true;
 	do
 	{
