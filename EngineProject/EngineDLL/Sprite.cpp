@@ -22,6 +22,7 @@ Sprite::Sprite(Renderer* _renderer) :
 	shouldDispose = false;
 	SetVertices(g_vertex_buffer_data, 4);	
 	SetVerticesUV(g_uv_buffer_data);	
+
 }
 void Sprite::SetVerticesUV(float* vertices)
 {

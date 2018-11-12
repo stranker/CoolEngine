@@ -16,23 +16,23 @@ bool Game::OnStart()
 	mat = new Material();
 	triangle = new Square(renderer);
 	circle = new Circle(renderer);
-	sprite = new Sprite(renderer);	
+	player = new Player(renderer);	
 	if(triangle && mat)
 	triangle->SetMaterial(mat);
 	if (circle && mat)
 		circle->SetMaterial(mat);
-	if (sprite && mat)
+	if (player && mat)
 	{
-		sprite->SetMaterial(mat);
-		sprite->SetTexture("bitmap2.bmp");
-		sprite->SetFrameType(64, 64, 4);
-		sprite->SetFrame(4);
+		player->SetMaterial(mat);
+		player->SetTexture("bitmap2.bmp");
+		player->SetFrameType(64, 64, 4);
+		player->SetFrame(4);
 	}
 
 	x = 0;
-	sprite->CreateCollider(1.0f, 1.0f, false, false);
+	player->CreateCollider(1.0f, 1.0f, false, false);
 	triangle->CreateCollider(1.0f,1.0f, false, false);
-	CollisionManager::GetInstance()->AddToGroup("A", sprite);
+	CollisionManager::GetInstance()->AddToGroup("A", player);
 	CollisionManager::GetInstance()->AddToGroup("B", triangle);
 	triangle->SetPosition(0, -3, 0);
 	return true;		
@@ -43,15 +43,14 @@ bool Game::OnStop()
 	cout << "Game::OnStop()" << endl;		
 	return false;
 }
-bool Game::OnUpdate()
-{
-	loopCount++;	
-	//std::cout << "Loop" << loopCount << std::endl;		
+bool Game::OnUpdate(float deltaTime)
+{		
 	x += 0.01f;	
-	sprite->SetPosition(0, -x, 0);
+	player->SetPosition(0, -x , 0);
 
 	CollisionManager::GetInstance()->Update();
-	sprite->Draw();
+	player->OnUpdate(deltaTime);
+	player->Draw();
 	triangle->Draw();	
 
 	if (loopCount > 10000)

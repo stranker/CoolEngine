@@ -1,5 +1,6 @@
 #pragma once
 #include "Shape.h"
+
 class ENGINEDLL_API Sprite :
 	public Shape
 {
@@ -17,7 +18,9 @@ public:
 	int heightTotal;
 	int widthTotal;
 	int framesTotal;
-	void OnCollision() override { std::cout << "holi"; };
+	void OnCollision() override {};	
+	void OnUpdate(float deltaTime) override {};
+
 private:
 	unsigned int texture;
 	unsigned int verticesUV;

@@ -9,6 +9,7 @@ public:
 	void Draw() override;
 	void CalculateCircleVertex();
 	void OnCollision() override {};
+	void OnUpdate(float deltaTime) override {};
 private:
 	float radius;
 	float vertexSeparationInDegrees;

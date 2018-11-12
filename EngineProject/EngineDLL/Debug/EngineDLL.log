@@ -1,4 +1,4 @@
-﻿  Sprite.cpp
+﻿  Animation.cpp
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
@@ -25,6 +25,6 @@ c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entit
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\sprite.cpp(85): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\sprite.cpp(89): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\animation.cpp(16): warning C4244: 'argumento': conversión de 'float' a 'unsigned int'; posible pérdida de datos
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\animation.cpp(25): warning C4244: 'argumento': conversión de 'float' a 'unsigned int'; posible pérdida de datos
   EngineDLL.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineDLL.dll

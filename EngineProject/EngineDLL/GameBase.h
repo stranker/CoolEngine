@@ -9,7 +9,7 @@ private:
 protected:
 	virtual bool OnStart() = 0;
 	virtual bool OnStop() = 0;
-	virtual bool OnUpdate() = 0;
+	virtual bool OnUpdate(float deltaTime) = 0;
 	int screenHeight;
 	int screenWidth;
 	string screenName;

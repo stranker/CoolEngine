@@ -1,6 +1,6 @@
 #include "GameBase.h"
 #include "TypeDefs.h"
-
+#include "GLFW\glfw3.h"
 
 GameBase::GameBase(int _screenWidht, int _screenHeight, string _screenName) :
 	screenHeight(_screenHeight),
@@ -46,13 +46,17 @@ bool GameBase::Stop()
 void GameBase::Loop()
 {
 	cout << "GameBase::Loop()" << endl;
+	double lastTime = glfwGetTime();
 
 	bool aux = true;
 	do
 	{
+		float deltaTime = glfwGetTime() - lastTime;
+		lastTime = glfwGetTime();
+
 		renderer->SetClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 		renderer->ClearScreen();
-		aux = OnUpdate();
+		aux = OnUpdate(deltaTime);
 		renderer->SwapBuffers();
 		window->PollEvents();
 	} while (aux && !window->ShouldClose());

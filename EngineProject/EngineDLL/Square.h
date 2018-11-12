@@ -8,5 +8,6 @@ public:
 	~Square();
 	void Draw() override;
 	void OnCollision() override {};
+	void OnUpdate(float deltaTime) override {};
 };
 

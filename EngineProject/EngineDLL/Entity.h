@@ -29,5 +29,6 @@ public:
 	void CreateCollider(float width, float height, bool trigger, bool _isStatic);
 	BoxCollider* GetCollider() { return collider; }
 	virtual void OnCollision() = 0;
+	virtual void OnUpdate(float deltaTime) = 0;
 };
 

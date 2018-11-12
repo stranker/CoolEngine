@@ -6,6 +6,7 @@
 #include "Circle.h"
 #include "Material.h"
 #include "Sprite.h"
+#include "Player.h"
 #include <iostream>
 using namespace std;
 class Game : public GameBase
@@ -13,12 +14,12 @@ class Game : public GameBase
 protected:		
 	bool OnStart() override;
 	bool OnStop() override;
-	bool OnUpdate() override;
+	bool OnUpdate(float deltaTime) override;
 	int loopCount;
 	Square* triangle;
 	Circle* circle;
 	Material* mat;
-	Sprite* sprite;
+	Player* player;
 	float* coord;
 	float x;	
 public:
