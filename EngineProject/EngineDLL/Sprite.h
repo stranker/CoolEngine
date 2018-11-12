@@ -17,7 +17,7 @@ public:
 	int heightTotal;
 	int widthTotal;
 	int framesTotal;
-	void OnCollision() override {};
+	void OnCollision() override { std::cout << "holi"; };
 private:
 	unsigned int texture;
 	unsigned int verticesUV;

@@ -13,7 +13,7 @@ private:
 public:
 	static CollisionManager* GetInstance();
 	void Update();
-	void CheckCollisions();
+	void CheckBoxCollisions();
 	~CollisionManager();
 	void AddToGroup(std::string groupName, Shape* collider);
 };

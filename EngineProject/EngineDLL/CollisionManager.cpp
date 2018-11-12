@@ -21,9 +21,9 @@ void CollisionManager::AddToGroup(std::string groupName, Shape* collider)
 
 void CollisionManager::Update()
 {
-	CheckCollisions();
+	CheckBoxCollisions();
 }
-void CollisionManager::CheckCollisions()
+void CollisionManager::CheckBoxCollisions()
 {
 	list<Shape*>::iterator iterA = colliderMap["A"].begin();
 	list<Shape*>::iterator iterB = colliderMap["B"].begin();
@@ -41,33 +41,70 @@ void CollisionManager::CheckCollisions()
 			if (modX < (*iterA)->GetCollider()->width / 2 + (*iterB)->GetCollider()->width / 2 &&
 				modY < (*iterA)->GetCollider()->height / 2 + (*iterB)->GetCollider()->height / 2)
 			{
-				float pX = ((*iterA)->GetCollider()->width / 2 + (*iterB)->GetCollider()->width / 2) - modX;
-				float pY = ((*iterA)->GetCollider()->height / 2 + (*iterB)->GetCollider()->height / 2) - modY;
-				if (pX > pY)
+				if ((*iterA)->GetCollider()->isTrigger || (*iterB)->GetCollider()->isTrigger)
 				{
-					//vertical
-					if ((*iterA)->GetPos().y < (*iterB)->GetPos().y)
-					{			
-						(*iterA)->MoveIn(0,-pY / 2, 0);
-						(*iterB)->MoveIn(0,pY / 2,0);
-					}
-					else
-					{
-						(*iterA)->MoveIn(0,pY / 2, 0);
-						(*iterB)->MoveIn(0,-pY / 2, 0);
-					}
+					(*iterA)->OnCollision();
+					(*iterB)->OnCollision();
 				}
-				else
+				else						
 				{
-					if ((*iterA)->GetPos().x < (*iterB)->GetPos().x)
+					float pX = ((*iterA)->GetCollider()->width / 2 + (*iterB)->GetCollider()->width / 2) - modX;
+					float pY = ((*iterA)->GetCollider()->height / 2 + (*iterB)->GetCollider()->height / 2) - modY;
+					if (pX > pY)
 					{
-						(*iterA)->MoveIn(-pX / 2, 0, 0);
-						(*iterB)->MoveIn(pX / 2, 0, 0);
+						//vertical
+						if ((*iterA)->GetPos().y < (*iterB)->GetPos().y)
+						{
+							if((*iterA)->GetCollider()->isStatic)
+								(*iterB)->MoveIn(0, pY, 0);
+							else if((*iterB)->GetCollider()->isStatic)
+								(*iterA)->MoveIn(0, -pY , 0);
+							else
+							{
+								(*iterA)->MoveIn(0, -pY / 2, 0);
+								(*iterB)->MoveIn(0, pY / 2, 0);
+							}
+						}
+						else
+						{
+							if ((*iterA)->GetCollider()->isStatic)
+							(*iterB)->MoveIn(0, -pY / 2, 0);
+							else if ((*iterB)->GetCollider()->isStatic)
+							(*iterA)->MoveIn(0, pY / 2, 0);
+							else
+							{
+								(*iterA)->MoveIn(0, pY / 2, 0);
+								(*iterB)->MoveIn(0, -pY / 2, 0);
+							}
+						}
 					}
 					else
 					{
-						(*iterA)->MoveIn(pX / 2, 0, 0);
-						(*iterB)->MoveIn(-pX / 2, 0, 0);
+						//horizontal
+						if ((*iterA)->GetPos().x < (*iterB)->GetPos().x)
+						{
+							if ((*iterA)->GetCollider()->isStatic)
+							(*iterB)->MoveIn(pX / 2, 0, 0);
+							else if ((*iterB)->GetCollider()->isStatic)
+							(*iterA)->MoveIn(-pX / 2, 0, 0);
+							else
+							{
+								(*iterA)->MoveIn(-pX / 2, 0, 0);
+								(*iterB)->MoveIn(pX / 2, 0, 0);
+							}
+						}
+						else
+						{
+							if ((*iterA)->GetCollider()->isStatic)
+							(*iterB)->MoveIn(-pX / 2, 0, 0);
+							else if ((*iterB)->GetCollider()->isStatic)								
+							(*iterA)->MoveIn(pX / 2, 0, 0);
+							else
+							{
+								(*iterA)->MoveIn(pX / 2, 0, 0);
+								(*iterB)->MoveIn(-pX / 2, 0, 0);
+							}
+						}
 					}
 				}
 			}
