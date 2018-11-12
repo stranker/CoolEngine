@@ -30,12 +30,12 @@ bool Game::OnStart()
 	}
 
 	x = 0;
-	sprite->CreateCollider(1, 1, false, false);
-	triangle->CreateCollider(1, 1, false, false);
+	sprite->CreateCollider(1.0f, 1.0f, false, false);
+	triangle->CreateCollider(1.0f,1.0f, false, false);
 	CollisionManager::GetInstance()->AddToGroup("A", sprite);
 	CollisionManager::GetInstance()->AddToGroup("B", triangle);
-	return true;
-		
+	triangle->SetPosition(0, -3, 0);
+	return true;		
 }
 
 bool Game::OnStop()
@@ -47,12 +47,11 @@ bool Game::OnUpdate()
 {
 	loopCount++;	
 	//std::cout << "Loop" << loopCount << std::endl;		
-	x += 0.1f;
-	CollisionManager::GetInstance()->Update();
-	triangle->SetPosition(5, 0,0);
-	sprite->SetPosition(x, 0, 0);
-	sprite->Draw();
+	x += 0.01f;	
+	sprite->SetPosition(0, -x, 0);
 
+	CollisionManager::GetInstance()->Update();
+	sprite->Draw();
 	triangle->Draw();	
 
 	if (loopCount > 10000)

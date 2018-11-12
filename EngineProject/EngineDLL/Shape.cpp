@@ -55,6 +55,14 @@ void Shape::SetPosition(float x, float y, float z)
 	translate = glm::translate(glm::mat4(1.0f), pos);
 	UpdateModelMatrix();
 }
+void Shape::MoveIn(float x, float y, float z)
+{
+	pos[0] += x;
+	pos[1] += y;
+	pos[2] += z;
+	translate = glm::translate(glm::mat4(1.0f), pos);
+	UpdateModelMatrix();
+}
 void Shape::SetScale(float x, float y, float z)
 {
 	scl[0] = x;

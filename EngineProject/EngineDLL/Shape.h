@@ -19,6 +19,7 @@ public:
 	void SetRotateY(float y);
 	void SetRotateZ(float z);
 	void SetColorVertices(float* vertices);
+	void MoveIn(float x, float y, float z);
 protected:
 	Material * material;
 	unsigned int bufferData;
