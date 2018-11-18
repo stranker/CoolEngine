@@ -9,6 +9,7 @@
 #include "Player.h"
 #include <iostream>
 using namespace std;
+
 class Game : public GameBase
 {
 protected:		

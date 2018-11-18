@@ -1,4 +1,6 @@
 #include "Game.h"
+#include "GLFW\glfw3.h"
+#include "GLFW\glfw3native.h"
 
 Game::Game(int _screenWidht, int _screenHeight, string _screenName): GameBase(_screenWidht, _screenHeight, _screenName)
 {	
@@ -12,7 +14,7 @@ Game::~Game()
 
 bool Game::OnStart()
 {
-	cout << "Game::OnStart()" << endl;	
+	cout << "Game::OnStart()" << endl;		
 	mat = new Material();
 	triangle = new Square(renderer);
 	circle = new Circle(renderer);
@@ -44,11 +46,10 @@ bool Game::OnStop()
 	return false;
 }
 bool Game::OnUpdate(float deltaTime)
-{		
-	x += 0.01f;	
-	player->SetPosition(0, -x , 0);
+{			
 
-	CollisionManager::GetInstance()->Update();
+	CollisionManager::GetInstance()->Update();	
+
 	player->OnUpdate(deltaTime);
 	player->Draw();
 	triangle->Draw();	

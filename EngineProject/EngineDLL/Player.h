@@ -7,6 +7,7 @@ public:
 	Player(Renderer* _renderer);
 	~Player();
 	void OnUpdate(float deltaTime) override;
+	float speed = 5;
 private:
 	Animation * animator;
 

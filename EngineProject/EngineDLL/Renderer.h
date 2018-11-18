@@ -8,7 +8,6 @@ using namespace std;
 class ENGINEDLL_API Renderer
 {
 private:
-	Window* window;
 	unsigned int vertexArrayID;	
 	glm::mat4 model;
 	glm::mat4 view;
@@ -16,6 +15,7 @@ private:
 	glm::mat4 MVP;
 	void UpdateMVP();
 public:
+	Window* window;
 	enum DrawTypes {GL_TRIANGLES = 0x0004, 
 		GL_TRIANGLE_STRIP = 0x0005,
 		GL_TRIANGLE_FAN = 0x0006};
