@@ -35,7 +35,8 @@ void Tilemap::SetTexture(const char * imagepath)
 
 	
 	indexes = {
-		{4,4},{4,4}
+		{4,4,1,2},{4,4,4,11},
+	{3,1,2,2}
 	};
 
 	for (int i = 0; i < indexes.size(); i++)
@@ -43,31 +44,21 @@ void Tilemap::SetTexture(const char * imagepath)
 		for (int j = 0; j < indexes[0].size(); j++)
 		{
 			vertexArrayPos.push_back(0.0f + j);
-			vertexArrayPos.push_back(1.0f - i);
-			vertexArrayPos.push_back(0.0f);
-
-			vertexArrayPos.push_back(1.0f + j);
-			vertexArrayPos.push_back(1.0f - i);
+			vertexArrayPos.push_back(0.0f - i);
 			vertexArrayPos.push_back(0.0f);
 
 			vertexArrayPos.push_back(0.0f + j);
-			vertexArrayPos.push_back(0.0f - i);
+			vertexArrayPos.push_back(1.0f - i);
 			vertexArrayPos.push_back(0.0f);
+
+			vertexArrayPos.push_back(1.0f + j);
+			vertexArrayPos.push_back(1.0f - i);
+			vertexArrayPos.push_back(0.0f);
+
 
 			vertexArrayPos.push_back(1.0f + j);
 			vertexArrayPos.push_back(0.0f - i);
 			vertexArrayPos.push_back(0.0f);
-
-			if (j == indexes[0].size() -1)
-			{
-				vertexArrayPos.push_back(1.0f + j);
-				vertexArrayPos.push_back(0.0f - i);
-				vertexArrayPos.push_back(0.0f);
-
-				vertexArrayPos.push_back(0.0f);
-				vertexArrayPos.push_back(1.0f - i-1);
-				vertexArrayPos.push_back(0.0f);
-			}
 		}
 	}
 	float* p = &vertexArrayPos[0];
@@ -77,15 +68,17 @@ void Tilemap::SetTexture(const char * imagepath)
 		for (int j = 0; j < indexes[0].size(); j++)
 		{
 			int id = indexes[i][j];
-			vertexArrayUV.push_back(GetOffsetX(id) / widthTotal);
-			vertexArrayUV.push_back(1 - (GetOffsetY(id) / heightTotal));
 
-			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTotal);
-			vertexArrayUV.push_back(1 - GetOffsetY(id) / heightTotal);
-
+			//00
 			vertexArrayUV.push_back(GetOffsetX(id) / widthTotal);
 			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTotal);
-
+			//01
+			vertexArrayUV.push_back(GetOffsetX(id) / widthTotal);
+			vertexArrayUV.push_back(1 - (GetOffsetY(id) / heightTotal));
+			//11
+			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTotal);
+			vertexArrayUV.push_back(1 - GetOffsetY(id) / heightTotal);
+			//10
 			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTotal);
 			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTotal);
 		}
@@ -107,7 +100,7 @@ void Tilemap::Draw()
 	renderer->EnableBuffer(1);
 	renderer->BindBuffer(bufferData, 3, 0);
 	renderer->BindBuffer(verticesUV, 2, 1);
-	renderer->Draw(vtxCount, Renderer::RGL_TRIANGLE_STRIP);
+	renderer->Draw(vtxCount, Renderer::RGL_QUADS);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
 }
@@ -155,3 +148,7 @@ void Tilemap::Dispose()
 		shouldDispose = false;
 	}
 }
+//bool GetTile(int x, int y)
+//{
+//	bool isCollider = false;	
+//}

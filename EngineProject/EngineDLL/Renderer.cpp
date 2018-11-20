@@ -11,7 +11,6 @@ Renderer::Renderer(Window* _window) :
 	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
 }
 
-
 Renderer::~Renderer()
 {
 }
