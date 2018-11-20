@@ -15,10 +15,10 @@ private:
 	glm::mat4 MVP;
 	void UpdateMVP();
 public:
-	Window* window;
-	enum DrawTypes {GL_TRIANGLES = 0x0004, 
-		GL_TRIANGLE_STRIP = 0x0005,
-		GL_TRIANGLE_FAN = 0x0006};
+	Window* window;	
+	enum DrawTypes {RGL_TRIANGLES = 0x0004, 
+		RGL_TRIANGLE_STRIP = 0x0005,
+		RGL_TRIANGLE_FAN = 0x0006};
 	Renderer(Window* _window);
 	~Renderer();
 	bool Start();

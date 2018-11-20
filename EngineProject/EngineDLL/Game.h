@@ -8,6 +8,7 @@
 #include "Sprite.h"
 #include "Player.h"
 #include <iostream>
+#include "Tilemap.h"
 using namespace std;
 
 class Game : public GameBase
@@ -17,10 +18,10 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate(float deltaTime) override;
 	int loopCount;
-	Square* triangle;
-	Circle* circle;
+	Square* triangle;	
 	Material* mat;
 	Player* player;
+	Tilemap* tilemap;
 	float* coord;
 	float x;	
 public:

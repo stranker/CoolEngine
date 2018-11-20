@@ -1,4 +1,0 @@
-agregar bool triger
-agregar bool static
-enum de diferente tipo de box collider
-al agregar al map o lista, en el update del collmanager tiene que verificar un colider con el otro y llamar al onColision de ese objeto

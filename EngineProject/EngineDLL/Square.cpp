@@ -18,7 +18,7 @@ Square::Square(Renderer* _renderer) :
 		1.0f,  1.0f,  1.0f,
 		1.0f,  1.0f,  1.0f
 	};
-	typeOfShape = Renderer::GL_TRIANGLE_STRIP;
+	typeOfShape = Renderer::RGL_TRIANGLE_STRIP;
 	shouldDispose = false;
 	SetVertices(g_vertex_buffer_data, 4);
 	SetColorVertices(g_color_buffer_data);

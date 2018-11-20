@@ -17,21 +17,23 @@ bool Game::OnStart()
 	cout << "Game::OnStart()" << endl;		
 	mat = new Material();
 	triangle = new Square(renderer);
-	circle = new Circle(renderer);
+	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
 	player = new Player(renderer);	
 	if(triangle && mat)
 	triangle->SetMaterial(mat);
-	if (circle && mat)
-		circle->SetMaterial(mat);
 	if (player && mat)
 	{
 		player->SetMaterial(mat);
 		player->SetTexture("bitmap2.bmp");
-		player->SetFrameType(64, 64, 4);
-		player->SetFrame(4);
+		player->SetFrameType(64, 64, 8);
+		player->SetFrame(0);
 	}
-
-	x = 0;
+	if (tilemap && mat)
+	{
+		tilemap->SetMaterial(mat);
+		tilemap->SetFrameType(32, 32, 6);
+		tilemap->SetTexture("tilemap.bmp");
+	}	
 	player->CreateCollider(1.0f, 1.0f, false, false);
 	triangle->CreateCollider(1.0f,1.0f, false, false);
 	CollisionManager::GetInstance()->AddToGroup("A", player);
@@ -49,7 +51,7 @@ bool Game::OnUpdate(float deltaTime)
 {			
 
 	CollisionManager::GetInstance()->Update();	
-
+	tilemap->Draw();
 	player->OnUpdate(deltaTime);
 	player->Draw();
 	triangle->Draw();	

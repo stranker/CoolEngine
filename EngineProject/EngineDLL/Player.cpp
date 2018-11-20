@@ -3,7 +3,7 @@
 Player::Player(Renderer* _renderer) : Sprite(_renderer)
 {
 	animator = new Animation(this);
-	animator->CreateAnimation(0, 4);
+	animator->CreateAnimation(0, 10);
 }
 
 

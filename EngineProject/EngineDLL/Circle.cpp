@@ -20,7 +20,7 @@ Circle::Circle(Renderer* _renderer) :
 
 	vtxCount = 10;
 	radius = 2.0f;
-	typeOfShape = Renderer::GL_TRIANGLE_FAN;
+	typeOfShape = Renderer::RGL_TRIANGLE_FAN;
 	shouldDispose = false;
 	vertexSeparationInDegrees = 360/vtxCount;
 	CalculateCircleVertex();

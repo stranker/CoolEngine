@@ -133,6 +133,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="TextureImporter.h" />
+    <ClInclude Include="Tilemap.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="TypeDefs.h" />
     <ClInclude Include="Window.h" />
@@ -151,6 +152,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
+    <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>

@@ -18,7 +18,7 @@ Sprite::Sprite(Renderer* _renderer) :
 		1.0f,1.0f,
 		1.0f,0.0f
 	};
-	typeOfShape = Renderer::GL_TRIANGLE_STRIP;
+	typeOfShape = Renderer::RGL_TRIANGLE_STRIP;
 	shouldDispose = false;
 	SetVertices(g_vertex_buffer_data, 4);	
 	SetVerticesUV(g_uv_buffer_data);	

@@ -14,7 +14,7 @@ Triangle::Triangle(Renderer* _renderer) :
 		1.0f,  1.0f,  1.0f,
 		1.0f,  1.0f,  1.0f,
 	};
-	typeOfShape = Renderer::GL_TRIANGLES;
+	typeOfShape = Renderer::RGL_TRIANGLES;
 	shouldDispose = false;
 	SetVertices(g_vertex_buffer_data, 3);
 	SetColorVertices(g_color_buffer_data);
