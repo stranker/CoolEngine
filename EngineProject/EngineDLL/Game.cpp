@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "GLFW\glfw3.h"
 #include "GLFW\glfw3native.h"
-
 Game::Game(int _screenWidht, int _screenHeight, string _screenName): GameBase(_screenWidht, _screenHeight, _screenName)
 {	
 	loopCount = 0;	
@@ -18,6 +17,7 @@ bool Game::OnStart()
 	mat = new Material();
 	triangle = new Square(renderer);
 	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
+	tilemap->SetColliderTiles({6});
 	player = new Player(renderer);	
 	if(triangle && mat)
 	triangle->SetMaterial(mat);

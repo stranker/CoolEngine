@@ -18,6 +18,8 @@ Entity::Entity(Renderer* _renderer) :
 
 void Entity::CreateCollider(float width, float height, bool trigger, bool _isStatic)
 {
+	BBHeight = height;
+	BBWidth = width;
 	collider = new BoxCollider(width, height, trigger, _isStatic);
 }
 

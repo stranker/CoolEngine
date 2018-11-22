@@ -7,6 +7,7 @@ using namespace std;
 class ENGINEDLL_API Tilemap
 {
 private:
+	static Tilemap* instance;
 	int screenHeight;
 	int screenWidth;
 	Renderer* renderer;
@@ -32,7 +33,8 @@ private:
 	};
 	tilemapData tilesData;	
 	void SetVertices(float* _vertices, int count);	
-public:	
+public:		
+	static Tilemap* GetInstance();
 	Tilemap(Renderer* _renderer,int _screenHeight,int _screenWidth);
 	~Tilemap();
 	unsigned int texture;
@@ -55,5 +57,7 @@ public:
 	float GetOffsetY(unsigned int id);	
 	bool degenerateTriangle = false;
 	void SetColliderTiles(vector<int> v);
+	bool GetTile(float x, float y);
+	vector<vector<int>> indexes;
 };
 

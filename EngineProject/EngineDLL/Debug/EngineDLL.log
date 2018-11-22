@@ -1,4 +1,5 @@
-﻿  Player.cpp
+﻿  Tilemap.cpp
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
@@ -7,22 +8,55 @@ c:\users\administrador\documents\github\coolengine\engineproject\enginedll\rende
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(15): warning C4251: 'Tilemap::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(23): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(23): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(24): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(23): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(25): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(25): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(61): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(61): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(66): warning C4018: '<': no coinciden signed/unsigned
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(68): warning C4018: '<': no coinciden signed/unsigned
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(77): warning C4018: '<': no coinciden signed/unsigned
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(79): warning C4018: '<': no coinciden signed/unsigned
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(102): warning C4018: '<': no coinciden signed/unsigned
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(103): warning C4018: '<': no coinciden signed/unsigned
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(150): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(154): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.cpp(198): warning C4244: 'argumento': conversión de 'float' a 'const unsigned int'; posible pérdida de datos
   EngineDLL.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineDLL.dll

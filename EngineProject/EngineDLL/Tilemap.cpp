@@ -5,6 +5,16 @@
 #include "json.hpp"
 #include <fstream>
 #include <vector>
+#include <math.h>
+
+Tilemap* Tilemap::instance = 0;
+
+Tilemap* Tilemap::GetInstance()
+{
+	return instance;
+}
+
+
 
 using json = nlohmann::json;
 using namespace std;
@@ -23,11 +33,7 @@ Tilemap::Tilemap(Renderer* _renderer, int _screenHeight, int _screenWidth) :
 	tilesData.tilesPerCol = j["height"];
 	vector<int> vec = j["layers"][0]["data"];
 	tilesData.tiles = vec;
-
-
-
-
-
+	instance = this;
 	model = glm::mat4(1.0f);
 	float g_uv_buffer_data[] = {
 		0.0f,1.0f,
@@ -55,16 +61,16 @@ void Tilemap::SetTexture(const char * imagepath)
 	widthTile = tilesData.tileWidth;
 	heightTextureTotal = TextureImporter::dataStruct.height;
 	widthTextureTotal = TextureImporter::dataStruct.width;
-	vector<vector<int> > indexes(tilesData.tilesPerCol, vector<int>(tilesData.tilesPerRow));
+	indexes = vector<vector<int>>(tilesData.tilesPerCol, vector<int>(tilesData.tilesPerRow));
 	int conta = 0;
 	for (int i = 0; i < indexes.size(); i++)
 	{
 		for (int j = 0; j < indexes[0].size(); j++)
 		{
-			if(tilesData.tiles[conta] == 0)
+			if (tilesData.tiles[conta] == 0)
 				indexes[i][j] = 11;
-			else						
-			indexes[i][j] = tilesData.tiles[conta]-1;
+			else
+				indexes[i][j] = tilesData.tiles[conta] - 1;
 			conta++;
 		}
 	}
@@ -177,11 +183,27 @@ void Tilemap::Dispose()
 		shouldDispose = false;
 	}
 }
-//bool GetTile(int x, int y)
-//{
-//	bool isCollider = false;	
-//
-//}
+bool Tilemap::GetTile(float x, float y)
+{
+	bool isCollider = false;
+	if (y > 0 || y < -tilesData.tilesPerCol || x < 0 || x > tilesData.tilesPerRow)
+		return isCollider;
+	y = abs(y);
+
+	int tileID;
+	if (x != 0)
+		x = round(x / (tilesData.tileWidth));
+	if (y != 0)
+		y = round(y / (tilesData.tileHeight));
+	tileID = indexes[x][y];
+	for (vector<int>::iterator it = tilesWithCollides.begin(); it < tilesWithCollides.end(); it++)
+	{
+		if (*it == tileID)
+			isCollider = true;
+	}
+
+	return isCollider;
+}
 void Tilemap::SetColliderTiles(vector<int> v)
 {
 	tilesWithCollides = v;
