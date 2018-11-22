@@ -16,14 +16,21 @@ private:
 	void BindMaterial();
 	int heightTile;
 	int widthTile;
-	int heightTotal;
-	int widthTotal;
+	int heightTextureTotal;
+	int widthTextureTotal;
 	int tileTotalPerRow;	
 	vector<float> vertexArrayPos;
 	vector<float> vertexArrayUV;
-	vector<vector<int>> indexes;
-
-	
+	vector<int> tilesWithCollides;
+	struct tilemapData
+	{
+		int tilesPerRow;
+		int tilesPerCol;
+		int tileHeight;
+		int tileWidth;
+		vector<int> tiles;
+	};
+	tilemapData tilesData;	
 	void SetVertices(float* _vertices, int count);	
 public:	
 	Tilemap(Renderer* _renderer,int _screenHeight,int _screenWidth);
@@ -47,5 +54,6 @@ public:
 	float GetOffsetX(unsigned int id);
 	float GetOffsetY(unsigned int id);	
 	bool degenerateTriangle = false;
+	void SetColliderTiles(vector<int> v);
 };
 

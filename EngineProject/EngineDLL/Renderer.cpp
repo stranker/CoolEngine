@@ -114,3 +114,8 @@ void Renderer::UpdateMVP()
 {	
 	MVP = projection * view * model;
 }
+
+void Renderer::CameraFollow(glm::vec3 lookAt)
+{
+	view = glm::lookAt(lookAt - glm::vec3(0.0f,0.0f,-1.0f), lookAt, glm::vec3(0.0f, 1.0f, 0.0f));
+}

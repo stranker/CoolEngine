@@ -49,7 +49,7 @@ bool Game::OnStop()
 }
 bool Game::OnUpdate(float deltaTime)
 {			
-
+	renderer->CameraFollow(player->GetPos());
 	CollisionManager::GetInstance()->Update();	
 	tilemap->Draw();
 	player->OnUpdate(deltaTime);

@@ -4,6 +4,7 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 {
 	animator = new Animation(this);
 	animator->CreateAnimation(0, 10);
+	SetPosition(0, 0, 5);
 }
 
 

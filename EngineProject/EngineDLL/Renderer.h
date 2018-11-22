@@ -39,5 +39,6 @@ public:
 	void SetModelMatrix(glm::mat4 mat);
 	void MultiplyModelMatrix(glm::mat4 mat);
 	glm::mat4& GetMVP() { return MVP; }
+	void CameraFollow(glm::vec3 lookAt);
 };
 

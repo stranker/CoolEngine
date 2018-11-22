@@ -2,18 +2,41 @@
 #include "TextureImporter.h"
 #include <vector>
 #include "GL\glew.h"
+#include "json.hpp"
+#include <fstream>
+#include <vector>
+
+using json = nlohmann::json;
+using namespace std;
+
 Tilemap::Tilemap(Renderer* _renderer, int _screenHeight, int _screenWidth) :
-	renderer(_renderer) , screenHeight(_screenHeight), screenWidth(_screenWidth)
+	renderer(_renderer), screenHeight(_screenHeight), screenWidth(_screenWidth)
 {
+
+
+	std::ifstream istream("tilemap.json");
+	json j;
+	j = json::parse(istream);
+	tilesData.tileHeight = j["tileheight"];
+	tilesData.tileWidth = j["tilewidth"];
+	tilesData.tilesPerRow = j["width"];
+	tilesData.tilesPerCol = j["height"];
+	vector<int> vec = j["layers"][0]["data"];
+	tilesData.tiles = vec;
+
+
+
+
+
 	model = glm::mat4(1.0f);
 	float g_uv_buffer_data[] = {
 		0.0f,1.0f,
 		0.0f,0.0f,
 		1.0f,1.0f,
 		1.0f,0.0f
-	};	
+	};
 
-	shouldDispose = false;	
+	shouldDispose = false;
 	tileTotalPerRow = 0;
 }
 Tilemap::~Tilemap()
@@ -28,19 +51,25 @@ void Tilemap::SetMaterial(Material* _material)
 void Tilemap::SetTexture(const char * imagepath)
 {
 	texture = TextureImporter::loadBMP_custom(imagepath);
-	heightTile = 64;
-	widthTile = 64;
-	heightTotal = TextureImporter::dataStruct.height;
-	widthTotal = TextureImporter::dataStruct.width;		
-
-	
-	indexes = {
-		{4,4,1,2},{4,4,4,11},
-	{3,1,2,2}
-	};
-
+	heightTile = tilesData.tileHeight;
+	widthTile = tilesData.tileWidth;
+	heightTextureTotal = TextureImporter::dataStruct.height;
+	widthTextureTotal = TextureImporter::dataStruct.width;
+	vector<vector<int> > indexes(tilesData.tilesPerCol, vector<int>(tilesData.tilesPerRow));
+	int conta = 0;
 	for (int i = 0; i < indexes.size(); i++)
-	{		
+	{
+		for (int j = 0; j < indexes[0].size(); j++)
+		{
+			if(tilesData.tiles[conta] == 0)
+				indexes[i][j] = 11;
+			else						
+			indexes[i][j] = tilesData.tiles[conta]-1;
+			conta++;
+		}
+	}
+	for (int i = 0; i < indexes.size(); i++)
+	{
 		for (int j = 0; j < indexes[0].size(); j++)
 		{
 			vertexArrayPos.push_back(0.0f + j);
@@ -62,7 +91,7 @@ void Tilemap::SetTexture(const char * imagepath)
 		}
 	}
 	float* p = &vertexArrayPos[0];
-	SetVertices(p, 4*indexes.size()*indexes[0].size() + 2*(indexes.size()-1));
+	SetVertices(p, 4 * indexes.size()*indexes[0].size() + 2 * (indexes.size() - 1));
 
 	for (int i = 0; i < indexes.size(); i++)
 		for (int j = 0; j < indexes[0].size(); j++)
@@ -70,17 +99,17 @@ void Tilemap::SetTexture(const char * imagepath)
 			int id = indexes[i][j];
 
 			//00
-			vertexArrayUV.push_back(GetOffsetX(id) / widthTotal);
-			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTotal);
+			vertexArrayUV.push_back(GetOffsetX(id) / widthTextureTotal);
+			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTextureTotal);
 			//01
-			vertexArrayUV.push_back(GetOffsetX(id) / widthTotal);
-			vertexArrayUV.push_back(1 - (GetOffsetY(id) / heightTotal));
+			vertexArrayUV.push_back(GetOffsetX(id) / widthTextureTotal);
+			vertexArrayUV.push_back(1 - (GetOffsetY(id) / heightTextureTotal));
 			//11
-			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTotal);
-			vertexArrayUV.push_back(1 - GetOffsetY(id) / heightTotal);
+			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTextureTotal);
+			vertexArrayUV.push_back(1 - GetOffsetY(id) / heightTextureTotal);
 			//10
-			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTotal);
-			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTotal);
+			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTextureTotal);
+			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTextureTotal);
 		}
 	p = &vertexArrayUV[0];
 	SetVerticesUV(p);
@@ -108,7 +137,7 @@ void Tilemap::SetFrameType(int frameWidth, int frameHeight, int framesCountPerRo
 {
 	widthTile = frameWidth;
 	heightTile = frameHeight;
-	tileTotalPerRow = framesCountPerRow;	
+	tileTotalPerRow = framesCountPerRow;
 }
 float Tilemap::GetOffsetX(unsigned int id)
 {
@@ -151,4 +180,9 @@ void Tilemap::Dispose()
 //bool GetTile(int x, int y)
 //{
 //	bool isCollider = false;	
+//
 //}
+void Tilemap::SetColliderTiles(vector<int> v)
+{
+	tilesWithCollides = v;
+}
