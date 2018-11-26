@@ -14,8 +14,8 @@ Sprite::Sprite(Renderer* _renderer) :
 
 	float g_uv_buffer_data[] = {
 		0.0f,1.0f,
-		0.0f,0.0f,
 		1.0f,1.0f,
+		0.0f,0.0f,
 		1.0f,0.0f
 	};
 	typeOfShape = Renderer::RGL_TRIANGLE_STRIP;
@@ -44,6 +44,14 @@ void Sprite::SetTexture(const char * imagepath)
 	widthFrame = 64;
 	heightTotal = TextureImporter::dataStruct.height;
 	widthTotal = TextureImporter::dataStruct.width;
+
+	float g_vertex_buffer_data[] = {
+		0.0f,heightFrame,0.0f,
+		widthFrame,heightFrame,0.0f,
+		0.0f,0.0f,0.0f,
+		widthFrame,0.0f,0.0f,
+	};	
+	SetVertices(g_vertex_buffer_data, 4);
 }
 
 void Sprite::Draw()

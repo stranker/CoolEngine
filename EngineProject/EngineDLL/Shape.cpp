@@ -30,11 +30,11 @@ void Shape::Dispose()
 	{
 		renderer->DeleteBuffers(bufferData);
 		renderer->DeleteBuffers(bufferColor);
-		if (vertices)
+		/*if (vertices)
 		{
 			delete[] vertices;
 			vertices = NULL;
-		}
+		}*/
 		shouldDispose = false;
 	}
 }

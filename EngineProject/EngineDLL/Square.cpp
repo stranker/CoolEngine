@@ -7,9 +7,9 @@ Square::Square(Renderer* _renderer) :
 {
 	float g_vertex_buffer_data[] = {
 		0.0f,0.0f,0.0f,
-		0.0f,1.0f,0.0f,
-		1.0f,0.0f,0.0f,
-		1.0f,1.0f,0.0f,
+		0.0f,64.0f,0.0f,
+		64.0f,0.0f,0.0f,
+		64.0f,64.0f,0.0f,
 	};
 
 	float g_color_buffer_data[] = {

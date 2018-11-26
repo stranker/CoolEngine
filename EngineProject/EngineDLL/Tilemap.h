@@ -3,6 +3,7 @@
 #include "Material.h"
 #include "Exports.h"
 #include <vector>
+#include "Player.h"
 using namespace std;
 class ENGINEDLL_API Tilemap
 {
@@ -54,10 +55,13 @@ public:
 	void SetFrameType(int frameWidth, int frameHeight, int framesCountPerRow);
 	void SetMaterial(Material* _material);
 	float GetOffsetX(unsigned int id);
-	float GetOffsetY(unsigned int id);	
-	bool degenerateTriangle = false;
+	float GetOffsetY(unsigned int id);		
 	void SetColliderTiles(vector<int> v);
-	bool GetTile(float x, float y);
-	vector<vector<int>> indexes;
+	bool NextTileIsCollider(float x, float y);
+	vector<vector<int>> indexes;	
+	int lastTileRow = 0;
+	int lastTileCol = 0;
+	float GetLastTileX();
+	float GetLastTileY();
 };
 

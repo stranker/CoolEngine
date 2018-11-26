@@ -7,7 +7,7 @@ Renderer::Renderer(Window* _window) :
 {		
 	MVP = glm::mat4(1.0f);
 	model = glm::mat4(1.0f);
-	projection = glm::ortho(-5.0f, 5.0f, -5.0f, 5.0f, -10.0f, 1000.0f);
+	projection = glm::ortho(-320.0f, 320.0f, -240.0f, 240.0f, -10.0f, 1000.0f);
 	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
 }
 
@@ -59,6 +59,7 @@ unsigned int Renderer::GenBuffer(float* buffer, int size)
 	// Los siguientes comandos le darán características especiales al 'vertexbuffer' 
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	// Darle nuestros vértices a  OpenGL.
+
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 	return vertexbuffer;
 }

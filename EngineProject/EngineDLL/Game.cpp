@@ -17,7 +17,7 @@ bool Game::OnStart()
 	mat = new Material();
 	triangle = new Square(renderer);
 	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
-	tilemap->SetColliderTiles({6});
+	tilemap->SetColliderTiles({6,7});
 	player = new Player(renderer);	
 	if(triangle && mat)
 	triangle->SetMaterial(mat);
@@ -34,11 +34,11 @@ bool Game::OnStart()
 		tilemap->SetFrameType(32, 32, 6);
 		tilemap->SetTexture("tilemap.bmp");
 	}	
-	player->CreateCollider(1.0f, 1.0f, false, false);
-	triangle->CreateCollider(1.0f,1.0f, false, false);
+	player->CreateCollider(64.0f, 64.0f, false, false);
+	triangle->CreateCollider(64.0f,64.0f, false, false);
 	CollisionManager::GetInstance()->AddToGroup("A", player);
 	CollisionManager::GetInstance()->AddToGroup("B", triangle);
-	triangle->SetPosition(0, -3, 0);
+	triangle->SetPosition(100, -400, -5);	
 	return true;		
 }
 
