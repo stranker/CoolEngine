@@ -20,7 +20,7 @@ using json = nlohmann::json;
 using namespace std;
 
 Tilemap::Tilemap(Renderer* _renderer, int _screenHeight, int _screenWidth) :
-	renderer(_renderer), screenHeight(_screenHeight), screenWidth(_screenWidth)
+	screenHeight(_screenHeight), screenWidth(_screenWidth), Shape(_renderer)
 {
 
 
@@ -48,7 +48,6 @@ Tilemap::Tilemap(Renderer* _renderer, int _screenHeight, int _screenWidth) :
 Tilemap::~Tilemap()
 {
 }
-
 void Tilemap::SetMaterial(Material* _material)
 {
 	material = _material;
@@ -83,11 +82,11 @@ void Tilemap::SetTexture(const char * imagepath)
 
 											   
 			vertexArrayPos.push_back(0.0f + col);
-			vertexArrayPos.push_back(heightTile - row);
+			vertexArrayPos.push_back(-heightTile - row);
 			vertexArrayPos.push_back(0.0f);	   
 
 			vertexArrayPos.push_back(widthTile + col);
-			vertexArrayPos.push_back(heightTile - row);
+			vertexArrayPos.push_back(-heightTile - row);
 			vertexArrayPos.push_back(0.0f);	   
 
 											   											   
@@ -108,18 +107,18 @@ void Tilemap::SetTexture(const char * imagepath)
 		{
 			int id = indexes[i][j];
 
-			//01
-			vertexArrayUV.push_back(GetOffsetX(id) / widthTextureTotal);
-			vertexArrayUV.push_back(1 - (GetOffsetY(id) / heightTextureTotal));
-			//11
-			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTextureTotal);
-			vertexArrayUV.push_back(1 - GetOffsetY(id) / heightTextureTotal);
-			//10
-			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTextureTotal);
-			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTextureTotal);
 			//00
 			vertexArrayUV.push_back(GetOffsetX(id) / widthTextureTotal);
 			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTextureTotal);
+			//10
+			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTextureTotal);
+			vertexArrayUV.push_back(1 - (GetOffsetY(id) + heightTile) / heightTextureTotal);
+			//11
+			vertexArrayUV.push_back((GetOffsetX(id) + widthTile) / widthTextureTotal);
+			vertexArrayUV.push_back(1 - GetOffsetY(id) / heightTextureTotal);
+			//01
+			vertexArrayUV.push_back(GetOffsetX(id) / widthTextureTotal);
+			vertexArrayUV.push_back(1 - (GetOffsetY(id) / heightTextureTotal));
 		}
 	p = &vertexArrayUV[0];
 	SetVerticesUV(p);
@@ -157,53 +156,34 @@ float Tilemap::GetOffsetY(unsigned int id)
 {
 	return (id / tileTotalPerRow)*heightTile;
 }
-void Tilemap::BindMaterial()
-{
-	renderer->BindMaterial(programID);
-}
-void Tilemap::SetVertices(float* _vertices, int count)
-{
-	Dispose();
-	vertices = _vertices;
-	vtxCount = count;
-	shouldDispose = true;
-	bufferData = (renderer->GenBuffer(vertices, vtxCount * 3 * sizeof(float)));
-}
 void Tilemap::SetVerticesUV(float* vertices)
 {
 	verticesUV = (renderer->GenBuffer(vertices, vtxCount * 2 * sizeof(float)));
 }
-void Tilemap::Dispose()
-{
-	if (shouldDispose)
-	{
-		renderer->DeleteBuffers(bufferData);
-		renderer->DeleteBuffers(bufferColor);
-		if (vertices)
-		{
-			delete[] vertices;
-			vertices = NULL;
-		}
-		shouldDispose = false;
-	}
-}
 bool Tilemap::NextTileIsCollider(float x, float y)
-{	
+{
 	int tileID;
-	int col = x / widthTile;
-	int row = y / heightTile;
-	int temp = indexes.size()*-1;
-	if (col >= 0 && col < indexes[0].size() && row <= 0 && row > temp)
+
+	x = (x - GetPos().x);
+	y = -(y + GetPos().y);
+
+	if (x >= 0 && y >= 0)
 	{
-		row *= -1;
-		tileID = indexes[row][col];
-				lastTileRow = row;
-				lastTileCol = col;
-		for (vector<int>::iterator it = tilesWithCollides.begin(); it < tilesWithCollides.end(); it++)
-		{
-			if (*it == tileID)
+		int col = x / widthTile;
+		int row = y / heightTile;
+
+		std::cout << "x: " << x << " - y: " << y << " - col: " << col << " - row: " << row << endl;
+
+		int temp = indexes.size();
+		if (col >= 0 && col < indexes[0].size() && row >= 0 && row < temp)
+		{			
+			tileID = indexes[row][col];
+			for (vector<int>::iterator it = tilesWithCollides.begin(); it < tilesWithCollides.end(); it++)
 			{
-				return true;
+				if (*it == tileID)
+				{
+					return true;
+				}
 			}
 		}
 	}
@@ -213,11 +193,14 @@ void Tilemap::SetColliderTiles(vector<int> v)
 {
 	tilesWithCollides = v;
 }
-float Tilemap::GetLastTileX()
+float Tilemap::GetTileX(float x)
 {
-	return (lastTileCol * widthTile);
+	int col = (x - GetPos().x) / widthTile;
+	return col * widthTile + GetPos().x;
 }
-float Tilemap::GetLastTileY()
+float Tilemap::GetTileY(float y)
 {
-	return (lastTileRow * heightTile);
+	int row = (y + GetPos().y) / heightTile;
+
+	return row * heightTile - GetPos().y;
 }

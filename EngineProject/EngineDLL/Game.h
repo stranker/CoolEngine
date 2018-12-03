@@ -18,7 +18,9 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate(float deltaTime) override;
 	int loopCount;
-	Square* triangle;	
+	Square* square;	
+	Triangle* triangle;
+	Circle* circle;
 	Material* mat;
 	Player* player;
 	Tilemap* tilemap;

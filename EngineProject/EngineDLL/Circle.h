@@ -10,6 +10,7 @@ public:
 	void CalculateCircleVertex();
 	void OnCollision() override {};
 	void OnUpdate(float deltaTime) override {};
+	void SetRadius(float _radius);
 private:
 	float radius;
 	float vertexSeparationInDegrees;

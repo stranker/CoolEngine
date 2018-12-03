@@ -19,7 +19,7 @@ Circle::Circle(Renderer* _renderer) :
 	};
 
 	vtxCount = 10;
-	radius = 2.0f;
+	radius = 64.0f;
 	typeOfShape = Renderer::RGL_TRIANGLE_FAN;
 	shouldDispose = false;
 	vertexSeparationInDegrees = 360/vtxCount;
@@ -41,6 +41,11 @@ void Circle::CalculateCircleVertex()
 		angle += vertexSeparationInDegrees * 3.1415f / 180.0f;
 	}
 	SetVertices(vertexInCircle,vtxCount);
+}
+void Circle::SetRadius(float _radius)
+{
+	radius = _radius;
+	CalculateCircleVertex();
 }
 Circle::~Circle()
 {

@@ -5,7 +5,7 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 {
 	animator = new Animation(this);
 	animator->CreateAnimation(0, 10);
-	SetPosition(-100, 0, 5);
+	SetPosition(-200, 0, 5);
 }
 
 
@@ -19,35 +19,38 @@ void Player::OnUpdate(float deltaTime)
 	// Move forward
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {			
 			MoveIn(0, speed * deltaTime, 0);
-		if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x, GetPos().y))
+		if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x+1.0f, GetPos().y + BBHeight-1.0f) || Tilemap::GetInstance()->NextTileIsCollider(GetPos().x+BBWidth-1.0f, GetPos().y + BBHeight-1.0f))
 		{								
-			SetPosition(GetPos().x, Tilemap::GetInstance()->GetLastTileY() -194
-				, GetPos().z);			 						
+			SetPosition(GetPos().x, Tilemap::GetInstance()->GetTileY(GetPos().y+BBHeight)-BBHeight*2, GetPos().z);
 		}
 	}
 	// Move backward
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_DOWN) == GLFW_PRESS) {
 			MoveIn(0, -speed * deltaTime, 0);				
-		if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x, GetPos().y))
+			if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + 1.0f, GetPos().y + 1.0f) || Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + BBWidth - 1.0f, GetPos().y + 1.0f))
 		{
-			SetPosition(GetPos().x, Tilemap::GetInstance()->GetLastTileY()+BBHeight, GetPos().z);
+				SetPosition(GetPos().x, Tilemap::GetInstance()->GetTileY(GetPos().y), GetPos().z);			
 		}
 	}
 	// Strafe right
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_RIGHT) == GLFW_PRESS) {
 		MoveIn(speed*deltaTime, 0, 0);
-		if (
-			Tilemap::GetInstance()->NextTileIsCollider(GetPos().x, GetPos().y))
+		if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x+BBWidth - 1.0f, GetPos().y + 1.0f) || Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + BBWidth - 1.0f, (GetPos().y + BBHeight - 1.0f)))
 		{
-			SetPosition(Tilemap::GetInstance()->GetLastTileX()-BBWidth, GetPos().y, GetPos().z);
+			float x = Tilemap::GetInstance()->GetTileX(GetPos().x + BBWidth);
+
+			SetPosition(x-BBWidth, GetPos().y, GetPos().z);
 		}
 	}
 	// Strafe left
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_LEFT) == GLFW_PRESS) {
 			MoveIn(-speed * deltaTime, 0, 0);			
-		if (!Tilemap::GetInstance()->NextTileIsCollider(GetPos().x, GetPos().y))
+		if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + 1.0f, GetPos().y + 1.0f) || Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + 1.0f, GetPos().y+BBHeight - 1.0f))
 		{
-			SetPosition(Tilemap::GetInstance()->GetLastTileX(), GetPos().y, GetPos().z);
+			SetPosition(Tilemap::GetInstance()->GetTileX(GetPos().x)+BBWidth, GetPos().y, GetPos().z);
 		}
+	}
+	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_1) == GLFW_PRESS) {
+		SetPosition(-200, 0, 5);
 	}
 }

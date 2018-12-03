@@ -40,44 +40,42 @@ c:\users\administrador\documents\github\coolengine\engineproject\enginedll\colli
               _Kty=std::string
           ]
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(16): warning C4251: 'Tilemap::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(24): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
           with
           [
               _Ty=float
           ]
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(24): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
           with
           [
               _Ty=float
           ]
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(25): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(21): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
           with
           [
               _Ty=float
           ]
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(24): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
           with
           [
               _Ty=float
           ]
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(26): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(22): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
           with
           [
               _Ty=int
           ]
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(26): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(22): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
           with
           [
               _Ty=int
           ]
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(61): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(46): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
           with
           [
               _Ty=int
           ]
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(61): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(46): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
           with
           [
               _Ty=int

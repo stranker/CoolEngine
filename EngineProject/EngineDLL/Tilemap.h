@@ -5,21 +5,17 @@
 #include <vector>
 #include "Player.h"
 using namespace std;
-class ENGINEDLL_API Tilemap
+class ENGINEDLL_API Tilemap : public Shape
 {
 private:
 	static Tilemap* instance;
+	unsigned int texture;
 	int screenHeight;
-	int screenWidth;
-	Renderer* renderer;
-
-	glm::mat4 model;
-	void Dispose();
-	void BindMaterial();
+	int screenWidth;				
 	int heightTile;
 	int widthTile;
 	int heightTextureTotal;
-	int widthTextureTotal;
+	int widthTextureTotal;	
 	int tileTotalPerRow;	
 	vector<float> vertexArrayPos;
 	vector<float> vertexArrayUV;
@@ -33,35 +29,24 @@ private:
 		vector<int> tiles;
 	};
 	tilemapData tilesData;	
-	void SetVertices(float* _vertices, int count);	
 public:		
 	static Tilemap* GetInstance();
 	Tilemap(Renderer* _renderer,int _screenHeight,int _screenWidth);
-	~Tilemap();
-	unsigned int texture;
-	unsigned int verticesUV;
-	Material * material;
-	unsigned int bufferData;
-	unsigned int bufferColor;
-	unsigned int programID;
-	float* vertices;
-	float* verticesColor;
-	bool shouldDispose;
-	int vtxCount;
-	int vtxSize;
-	void Draw();
+	~Tilemap();	
+	unsigned int verticesUV;									
+	void Draw() override;
 	void SetTexture(const char * imagepath);
+	void SetMaterial(Material* _material) override;
 	void SetVerticesUV(float* vertices);	
-	void SetFrameType(int frameWidth, int frameHeight, int framesCountPerRow);
-	void SetMaterial(Material* _material);
+	void SetFrameType(int frameWidth, int frameHeight, int framesCountPerRow);	
 	float GetOffsetX(unsigned int id);
 	float GetOffsetY(unsigned int id);		
 	void SetColliderTiles(vector<int> v);
 	bool NextTileIsCollider(float x, float y);
-	vector<vector<int>> indexes;	
-	int lastTileRow = 0;
-	int lastTileCol = 0;
-	float GetLastTileX();
-	float GetLastTileY();
+	vector<vector<int>> indexes;			
+	float GetTileX(float x);
+	float GetTileY(float y);
+	void OnCollision() override {};
+	void OnUpdate(float deltaTime) override {};
 };
 
