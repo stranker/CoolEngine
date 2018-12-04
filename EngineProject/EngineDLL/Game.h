@@ -25,7 +25,7 @@ protected:
 	Player* player;
 	Tilemap* tilemap;
 	float* coord;
-	float x;	
+	float conta;	
 public:
 	Game(int _screenHeight, int _screenWidht, string _screenName);
 	~Game();

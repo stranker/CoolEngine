@@ -16,5 +16,6 @@ public:
 	void CheckBoxCollisions();
 	~CollisionManager();
 	void AddToGroup(std::string groupName, Shape* collider);
+	void CheckCircleCollisions();
 };
 

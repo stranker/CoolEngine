@@ -44,7 +44,7 @@ bool Game::OnStart()
 	square->CreateCollider(64.0f,64.0f, false, false);
 	CollisionManager::GetInstance()->AddToGroup("A", player);
 	CollisionManager::GetInstance()->AddToGroup("B", square);
-	square->SetPosition(-100, -400, -5);	
+	square->SetPosition(-500, -400, 5);	
 	triangle->SetPosition(-200, -400, -5);	
 	circle->SetPosition(-300, -400, -5);
 	return true;		
@@ -58,12 +58,15 @@ bool Game::OnStop()
 bool Game::OnUpdate(float deltaTime)
 {			
 	renderer->CameraFollow(player->GetPos());
-	CollisionManager::GetInstance()->Update();	
+	CollisionManager::GetInstance()->Update();			
+	conta += deltaTime * 1;
 	tilemap->Draw();
 	player->OnUpdate(deltaTime);	
 	player->Draw();
 	square->Draw();	
 	triangle->Draw();
+	triangle->SetRotateX(conta);
+	circle->SetRotateY(conta);
 	circle->Draw();
 	if (loopCount > 10000)
 	{		

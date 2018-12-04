@@ -111,4 +111,25 @@ void CollisionManager::CheckBoxCollisions()
 		}
 	}
 }
+void CollisionManager::CheckCircleCollisions()
+{
+	list<Shape*>::iterator iterA = colliderMap["C"].begin();
+	list<Shape*>::iterator iterB = colliderMap["D"].begin();
+	for (iterA; iterA != colliderMap["C"].end(); iterA++)
+	{
+		glm::vec3 diff;
+
+		for (iterB; iterB != colliderMap["D"].end(); iterB++)
+		{
+			diff = (*iterB)->GetPos() - (*iterA)->GetPos();
+			float modX = 0;
+			float modY = 0;
+			float distSqr;
+			modX = std::abs(diff.x);
+			modY = std::abs(diff.y);
+			distSqr = modX * modX + modY * modY;			
+		}
+	}
+}
+
 
