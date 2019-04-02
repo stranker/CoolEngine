@@ -19,7 +19,7 @@ bool GameBase::Start()
 	{
 		return false;
 	}
-	renderer = new Renderer(window);
+	renderer = new Renderer(window,Renderer::PERSPECTIVE);
 	if (!renderer->Start())
 	{
 		return false;

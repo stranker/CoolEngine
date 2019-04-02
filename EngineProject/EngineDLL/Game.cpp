@@ -57,16 +57,17 @@ bool Game::OnStop()
 }
 bool Game::OnUpdate(float deltaTime)
 {			
-	renderer->CameraFollow(player->GetPos());
+	//renderer->CameraFollow(player->GetPos());
 	CollisionManager::GetInstance()->Update();			
 	conta += deltaTime * 1;
 	tilemap->Draw();
 	player->OnUpdate(deltaTime);	
+	triangle->SetScale(1000, 1000, 1000);
 	player->Draw();
 	square->Draw();	
 	triangle->Draw();
-	triangle->SetRotateX(conta);
-	circle->SetRotateY(conta);
+	triangle->SetRotateX(conta);	
+	circle->SetRotateY(conta);	
 	circle->Draw();
 	if (loopCount > 10000)
 	{		

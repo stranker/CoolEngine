@@ -1,1 +1,14 @@
-﻿  EngineDLL.vcxproj -> C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\EngineDLL.dll
+﻿  Renderer.cpp
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::orthoProjection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(16): warning C4251: 'Renderer::perspectiveProjection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(17): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  EngineDLL.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineDLL.dll
