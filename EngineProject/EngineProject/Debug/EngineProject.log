@@ -84,10 +84,22 @@ c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilem
           [
               _Ty=int
           ]
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(13): warning C4251: 'Camera::forward': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(14): warning C4251: 'Camera::up': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(14): warning C4251: 'Camera::forward': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(15): warning C4251: 'Camera::up': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(16): warning C4251: 'Camera::right': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(17): warning C4251: 'Camera::targetForward': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(18): warning C4251: 'Camera::targetUp': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(19): warning C4251: 'Camera::targetRight': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(20): warning C4251: 'Camera::finalPos': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(21): warning C4251: 'Camera::vecConverter': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
   main.cpp
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
@@ -174,9 +186,21 @@ c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilem
           [
               _Ty=int
           ]
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(13): warning C4251: 'Camera::forward': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(14): warning C4251: 'Camera::up': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(14): warning C4251: 'Camera::forward': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(15): warning C4251: 'Camera::up': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(16): warning C4251: 'Camera::right': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(17): warning C4251: 'Camera::targetForward': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(18): warning C4251: 'Camera::targetUp': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(19): warning C4251: 'Camera::targetRight': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(20): warning C4251: 'Camera::finalPos': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
+c:\users\administrador\documents\github\coolengine\engineproject\enginedll\camera.h(21): warning C4251: 'Camera::vecConverter': struct 'glm::vec<4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Camera'
+  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(335): note: vea la declaración de 'glm::vec<4,float,0>'
   Generando código...
   EngineProject.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineProject.exe
