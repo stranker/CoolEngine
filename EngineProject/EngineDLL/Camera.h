@@ -9,7 +9,7 @@ using namespace std;
 class ENGINEDLL_API Camera : public Entity
 {
 private:
-	float moveSpeed = 10.0f;
+	float moveSpeed = 30.0f;
 	float rotSpeed = 3.0f;
 	glm::vec4 forward;
 	glm::vec4 up;	

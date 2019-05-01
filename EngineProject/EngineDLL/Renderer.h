@@ -47,5 +47,8 @@ public:
 	void SetPerspectiveProjectionMatrix(float fov, float aspectRatio, float zNear, float zFar);
 	void SetViewMatrix(glm::vec3 pos, glm::vec3 lookAt, glm::vec3 up);
 	void SetCameraType(ViewTypes set);
+	unsigned int GenBufferIndex(unsigned int* buffer, int size);
+	void DrawIndex(int vtxCount);
+	void BindBufferIndex(unsigned int bufferID);
 };
 

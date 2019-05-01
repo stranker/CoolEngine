@@ -8,6 +8,7 @@
 #include "Sprite.h"
 #include "Player.h"
 #include <iostream>
+#include "Shape3D.h"
 #include "Tilemap.h"
 #include "Camera.h"
 using namespace std;
@@ -19,7 +20,7 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate(float deltaTime) override;
 	int loopCount;
-	Square* square;	
+	Shape3D* square;	
 	Triangle* triangle;
 	Circle* circle;
 	Material* mat;
