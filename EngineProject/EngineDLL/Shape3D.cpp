@@ -71,7 +71,8 @@ void Shape3D::SetVertices(float* _vertices, int count)
 void Shape3D::SetIndexes(unsigned int* _indexes, int count)
 {	
 	indexes = _indexes;	
-	bufferIndex = (renderer->GenBufferIndex(indexes, count * sizeof(unsigned int) ));
+	indexCount = count;
+	bufferIndex = (renderer->GenBufferIndex(indexes, indexCount * sizeof(unsigned int) ));
 }
 void Shape3D::SetColorVertices(float* vertices)
 {
@@ -92,7 +93,7 @@ void Shape3D::Draw()
 	renderer->BindBuffer(bufferData, 3, 0);
 	renderer->BindBuffer(bufferColor, 3, 1);
 	renderer->BindBufferIndex(bufferIndex);
-	renderer->DrawIndex(vtxCount);
+	renderer->DrawIndex(indexCount);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
 }

@@ -33,6 +33,7 @@ protected:
 	bool shouldDispose;
 	int vtxCount;
 	int vtxSize;
+	int indexCount;
 	void UpdateModelMatrix();	
 	void OnCollision() override {};
 	void OnUpdate(float deltaTime) override {};
