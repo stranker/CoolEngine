@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Material.h"
+#include "ModelImporter.h"
 
 class ENGINEDLL_API Shape3D :
 	public Entity

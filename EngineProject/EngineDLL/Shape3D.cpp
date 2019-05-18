@@ -51,6 +51,7 @@ Shape3D::Shape3D(Renderer* _renderer) :
     0.0, 0.0, 1.0,
     1.0, 1.0, 1.0
 	};
+
 	shouldDispose = false;
 	SetVertices(g_vertex_buffer_data, 8);
 	SetIndexes(g_index_buffer_data, 36);	
