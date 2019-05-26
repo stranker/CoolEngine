@@ -106,6 +106,23 @@ void Renderer::BindBuffer(unsigned int bufferID, int size, int bufferEnableIndex
 		(void*)0            // desfase del buffer
 	);
 }
+void Renderer::BindMeshBuffer(unsigned int indexbuffer)
+{
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
+
+}
+
+void Renderer::DrawIndexBuffer(int indexcount)
+{
+	glDrawElements(
+		GL_TRIANGLES,
+		indexcount,
+		GL_UNSIGNED_INT,
+		(void*)0
+	);
+}
+
+
 void Renderer::DisableBuffer(int bufferDisableIndex)
 {
 	glDisableVertexAttribArray(bufferDisableIndex);

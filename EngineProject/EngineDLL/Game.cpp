@@ -15,7 +15,7 @@ bool Game::OnStart()
 {
 	cout << "Game::OnStart()" << endl;		
 	mat = new Material();
-	square = new Shape3D(renderer,"Skull.obj");	
+	square = new Shape3D(renderer,"sword.obj");	
 	triangle = new Triangle(renderer);
 	circle = new Circle(renderer);
 	player = new Player(renderer);	
@@ -25,7 +25,7 @@ bool Game::OnStart()
 	if (square && mat)
 	{
 		square->SetMaterial(mat);
-		square->SetTexture("Skull.bmp");
+		square->SetTexture("sword.bmp");
 	}
 	if (triangle && mat)
 		triangle->SetMaterial(mat);

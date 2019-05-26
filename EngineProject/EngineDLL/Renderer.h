@@ -50,5 +50,7 @@ public:
 	unsigned int GenBufferIndex(unsigned int* buffer, int size);
 	void DrawIndex(int vtxCount);
 	void BindBufferIndex(unsigned int bufferID);
+	void BindMeshBuffer(unsigned int indexbuffer);
+	void DrawIndexBuffer(int indexcount);
 };
 
