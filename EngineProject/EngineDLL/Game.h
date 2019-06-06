@@ -9,7 +9,6 @@
 #include "Player.h"
 #include <iostream>
 #include "Tilemap.h"
-#include "Camera.h"
 using namespace std;
 
 class Game : public GameBase
@@ -25,7 +24,6 @@ protected:
 	Material* mat;
 	Player* player;
 	Tilemap* tilemap;
-	Camera* camera;
 	float* coord;
 	float conta;	
 public:
