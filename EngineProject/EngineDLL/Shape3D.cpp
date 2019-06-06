@@ -3,17 +3,59 @@
 #include <glm\gtc\matrix_transform.hpp>
 
 
-Shape3D::Shape3D(Renderer* _renderer, string modelPath) :
+Shape3D::Shape3D(Renderer* _renderer) :
 	Entity(_renderer)
 {
-	std::vector<ModelData> models = ModelImporter::LoadMesh(modelPath);
-	mesh = models[0];
-			
-	shouldDispose = false;	
-	SetVertices(&mesh.position[0], mesh.position.size());
-	SetIndexes(&mesh.indexes[0], mesh.indexes.size());
-	verticesUVArray = &mesh.uv[0];
-	vtxUvCount = mesh.uv.size();
+	float g_vertex_buffer_data[] = {		
+		0,		0,		1.0,
+		1.0,	0,		1.0,
+		1.0,	1.0,	1.0,
+		0,		1.0,	1.0,
+		// back
+		0,		0,		0,
+		1.0,	0,		0,
+		1.0,	1.0,	0,
+		0,		1.0,	0
+	};
+
+	unsigned int g_index_buffer_data[] = {
+		//front
+		0, 1, 2,
+		2, 3, 0,
+		// right
+		1, 5, 6,
+		6, 2, 1,
+		// back
+		7, 6, 5,
+		5, 4, 7,
+		// left
+		4, 0, 3,
+		3, 7, 4,
+		// bottom
+		4, 5, 1,
+		1, 0, 4,
+		// top
+		3, 2, 6,
+		6, 7, 3
+	};	
+	float faceColors[] = 
+	{
+    // front colors
+    1.0, 0.0, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 0.0, 1.0,
+    1.0, 1.0, 1.0,
+    // back colors
+    1.0, 0.0, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 0.0, 1.0,
+    1.0, 1.0, 1.0
+	};
+
+	shouldDispose = false;
+	SetVertices(g_vertex_buffer_data, 8);
+	SetIndexes(g_index_buffer_data, 36);	
+	SetColorVertices(faceColors);
 }
 Shape3D::~Shape3D()
 {
@@ -27,22 +69,16 @@ void Shape3D::SetVertices(float* _vertices, int count)
 	shouldDispose = true;
 	bufferData = (renderer->GenBuffer(vertices, vtxCount * 3 * sizeof(float)));
 }
-void Shape3D::SetTexture(const char * imagepath)
-{
-	texture = TextureImporter::loadBMP_custom(imagepath);
-	heightTotal = TextureImporter::dataStruct.height;
-	widthTotal = TextureImporter::dataStruct.width;
-	SetVerticesUV(verticesUVArray);
-}
-void Shape3D::SetVerticesUV(float* vertices)
-{
-	verticesUV = (renderer->GenBuffer(vertices, vtxUvCount * 2 * sizeof(float)));
-}
 void Shape3D::SetIndexes(unsigned int* _indexes, int count)
 {	
 	indexes = _indexes;	
 	indexCount = count;
 	bufferIndex = (renderer->GenBufferIndex(indexes, indexCount * sizeof(unsigned int) ));
+}
+void Shape3D::SetColorVertices(float* vertices)
+{
+	verticesColor = vertices;
+	bufferColor = (renderer->GenBuffer(verticesColor, vtxCount * 3 * sizeof(float)));
 }
 void Shape3D::Draw()
 {
@@ -52,12 +88,12 @@ void Shape3D::Draw()
 	{
 		BindMaterial();
 		material->SetMatrixProperty("MVP", renderer->GetMVP());		
-		material->SetTextureProperty("myTextureSampler", texture);;
 	}
 	renderer->EnableBuffer(0);
 	renderer->EnableBuffer(1);
 	renderer->BindBuffer(bufferData, 3, 0);
-	renderer->BindBuffer(verticesUV, 2, 1);
+	renderer->BindBuffer(bufferColor, 3, 1);
+	renderer->BindBufferIndex(bufferIndex);
 	renderer->DrawIndex(indexCount);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
@@ -67,7 +103,7 @@ void Shape3D::Dispose()
 	if (shouldDispose)
 	{
 		renderer->DeleteBuffers(bufferData);
-		renderer->DeleteBuffers(verticesUV);
+		renderer->DeleteBuffers(bufferColor);
 		/*if (vertices)
 		{
 		delete[] vertices;
@@ -79,7 +115,7 @@ void Shape3D::Dispose()
 void Shape3D::SetMaterial(Material* _material)
 {
 	material = _material;
-	programID = material->LoadShaders("TextureVertexShader.txt", "TextureFragmentShader.txt");
+	programID = material->LoadShaders("SimpleVertexShader.txt", "SimpleFragmentShader.txt");
 }
 void Shape3D::BindMaterial()
 {

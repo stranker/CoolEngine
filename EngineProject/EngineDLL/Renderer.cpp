@@ -63,7 +63,7 @@ unsigned int Renderer::GenBuffer(float* buffer, int size)
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	// Darle nuestros vértices a  OpenGL.
 
- 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 	return vertexbuffer;
 }
 unsigned int Renderer::GenBufferIndex(unsigned int* buffer, int size)
