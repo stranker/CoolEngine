@@ -6,46 +6,43 @@
 Shape3D::Shape3D(Renderer* _renderer, string modelPath) :
 	Entity(_renderer)
 {
-	models = ModelImporter::LoadMesh(modelPath);
-
-	shouldDispose = false;
-	for (int i = 0; i < models.size(); i++)
-	{
-		mesh = models[i];
-
-		mesh.bufferVertex = SetVertices(&mesh.position[i], mesh.position.size());
-		mesh.bufferIndex  = SetIndexes(&mesh.indexes[i], mesh.indexes.size());
-		mesh.bufferUV     = SetVerticesUV(&mesh.uv[i], mesh.uv.size());
-		models[i] = mesh;
-	}
+	std::vector<ModelData> models = ModelImporter::LoadMesh(modelPath);
+	mesh = models[0];
+			
+	shouldDispose = false;	
+	SetVertices(&mesh.position[0], mesh.position.size());
+	SetIndexes(&mesh.indexes[0], mesh.indexes.size());
+	verticesUVArray = &mesh.uv[0];
+	vtxUvCount = mesh.uv.size();
 }
 Shape3D::~Shape3D()
 {
 	Dispose();
 }
-unsigned int Shape3D::SetVertices(float* _vertices, int count)
+void Shape3D::SetVertices(float* _vertices, int count)
 {
 	Dispose();
 	vertices = _vertices;
 	vtxCount = count;
 	shouldDispose = true;
-	return (renderer->GenBuffer(vertices, vtxCount * sizeof(float)));
+	bufferData = (renderer->GenBuffer(vertices, vtxCount * sizeof(float)));
 }
 void Shape3D::SetTexture(const char * imagepath)
 {
 	texture = TextureImporter::loadBMP_custom(imagepath);
 	heightTotal = TextureImporter::dataStruct.height;
 	widthTotal = TextureImporter::dataStruct.width;
+	SetVerticesUV(verticesUVArray);
 }
-unsigned int Shape3D::SetVerticesUV(float* vertices,int count)
+void Shape3D::SetVerticesUV(float* vertices)
 {
-	return (renderer->GenBuffer(vertices, count * sizeof(float)));
+	verticesUV = (renderer->GenBuffer(vertices, vtxUvCount * sizeof(float)));
 }
-unsigned int Shape3D::SetIndexes(unsigned int* _indexes, int count)
+void Shape3D::SetIndexes(unsigned int* _indexes, int count)
 {	
 	indexes = _indexes;	
 	indexCount = count;
-	return (renderer->GenBufferIndex(indexes, indexCount * sizeof(unsigned int) ));
+	bufferIndex = (renderer->GenBufferIndex(indexes, indexCount * sizeof(unsigned int) ));
 }
 void Shape3D::Draw()
 {
@@ -59,13 +56,9 @@ void Shape3D::Draw()
 	}
 	renderer->EnableBuffer(0);
 	renderer->EnableBuffer(1);
-	for (int i = 0; i < models.size(); i++)
-	{
-		renderer->BindBuffer(models[i].bufferVertex, 3, 0);
-		renderer->BindBuffer(models[i].bufferUV, 2, 1);
-		renderer->BindMeshBuffer(models[i].bufferIndex);
-		renderer->DrawIndexBuffer(models[i].indexes.size());
-	}
+	renderer->BindBuffer(bufferData, 3, 0);
+	renderer->BindBuffer(verticesUV, 2, 1);
+	renderer->DrawIndex(indexCount);
 	renderer->DisableBuffer(0);
 	renderer->DisableBuffer(1);
 }

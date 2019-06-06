@@ -43,16 +43,6 @@ c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\collisionm
               _Ty=Shape *,
               _Kty=std::string
           ]
-c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\shape3d.h(29): warning C4251: 'Shape3D::models': class 'std::vector<ModelData,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Shape3D'
-          with
-          [
-              _Ty=ModelData
-          ]
-  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\modelimporter.h(23): note: vea la declaración de 'std::vector<ModelData,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=ModelData
-          ]
 c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
           with

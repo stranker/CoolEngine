@@ -12,8 +12,8 @@ public:
 	Shape3D(Renderer* _renderer, string modelPath);
 	~Shape3D();
 	void Draw() override;
-	unsigned int SetVertices(float* _vertices, int count);
-	unsigned int SetIndexes(unsigned int* _indexes, int count);
+	void SetVertices(float* _vertices, int count);
+	void SetIndexes(unsigned int* _indexes, int count);
 	virtual void SetMaterial(Material* _material);
 	void Dispose();
 	void BindMaterial();
@@ -23,10 +23,9 @@ public:
 	void SetRotateY(float y);
 	void SetRotateZ(float z);
 	void SetTexture(const char * imagepath);
-	unsigned int SetVerticesUV(float* vertices,int count);
+	void SetVerticesUV(float* vertices);
 	void MoveIn(float x, float y, float z);	
 protected:
-	std::vector<ModelData> models;
 	Material * material;
 	unsigned int bufferData;
 	unsigned int bufferColor;
