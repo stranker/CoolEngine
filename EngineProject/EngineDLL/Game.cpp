@@ -15,7 +15,7 @@ bool Game::OnStart()
 {
 	cout << "Game::OnStart()" << endl;		
 	mat = new Material();
-	square = new Shape3D(renderer);
+	square = new Square(renderer);
 	triangle = new Triangle(renderer);
 	circle = new Circle(renderer);
 	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
@@ -41,9 +41,11 @@ bool Game::OnStart()
 		tilemap->SetFrameType(32, 32, 6);
 		tilemap->SetTexture("tilemap.bmp");
 	}	
-	player->CreateCollider(64.0f, 64.0f, false, false);	
+	player->CreateCollider(64.0f, 64.0f, false, false);
+	square->CreateCollider(64.0f,64.0f, false, false);
 	CollisionManager::GetInstance()->AddToGroup("A", player);
-	square->SetPosition(0, 0, 10);
+	CollisionManager::GetInstance()->AddToGroup("B", square);
+	square->SetPosition(0, 0, -5);
 	triangle->SetPosition(0, 0, -5);
 	circle->SetPosition(0, 0, -5);
 	return true;		
@@ -61,12 +63,13 @@ bool Game::OnUpdate(float deltaTime)
 	conta += deltaTime * 1;
 	tilemap->Draw();
 	player->OnUpdate(deltaTime);	
-	camera->OnUpdate(deltaTime);		
-	//player->Draw();	
+	camera->OnUpdate(deltaTime);	
+	player->Draw();
+	square->SetRotateZ(conta);
 	triangle->SetRotateY(conta);
-	square->SetRotateX(conta);	
+	circle->SetRotateX(conta);	
+	/*circle->Draw();
 	square->Draw();
-	/*circle->Draw();	
 	triangle->Draw();*/
 	if (loopCount > 10000)
 	{		

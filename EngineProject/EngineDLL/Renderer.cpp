@@ -55,7 +55,7 @@ void Renderer::SwapBuffers()
 	glfwSwapBuffers((GLFWwindow*)window->GetWindowPrt());
 }
 unsigned int Renderer::GenBuffer(float* buffer, int size)
-{
+{	
 	unsigned int vertexbuffer;
 	// Generar un buffer, poner el resultado en el vertexbuffer que acabamos de crear
 	glGenBuffers(1, &vertexbuffer);
@@ -66,22 +66,6 @@ unsigned int Renderer::GenBuffer(float* buffer, int size)
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 	return vertexbuffer;
 }
-unsigned int Renderer::GenBufferIndex(unsigned int* buffer, int size)
-{
-	unsigned int IBO;
-	// Generar un buffer, poner el resultado en el vertexbuffer que acabamos de crear
-	glGenBuffers(1, &IBO);
-	// Los siguientes comandos le darán características especiales al 'vertexbuffer' 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-	// Darle nuestros vértices a  OpenGL.
-
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
-	return IBO;
-}
-void Renderer::DrawIndex(int vtxCount)
-{
-	glDrawElements(GL_TRIANGLES, vtxCount,GL_UNSIGNED_INT, 0);
-}
 void Renderer::Draw(int vtxCount, DrawTypes typeOfDraw) 
 {
 	glDrawArrays((GLenum)typeOfDraw, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
@@ -89,10 +73,6 @@ void Renderer::Draw(int vtxCount, DrawTypes typeOfDraw)
 void Renderer::EnableBuffer(int bufferEnableIndex) 
 {
 	glEnableVertexAttribArray(bufferEnableIndex);
-}
-void Renderer::BindBufferIndex(unsigned int bufferID)
-{
-	glBindBuffer(GL_ARRAY_BUFFER, bufferID);	
 }
 void Renderer::BindBuffer(unsigned int bufferID, int size, int bufferEnableIndex) 
 {
