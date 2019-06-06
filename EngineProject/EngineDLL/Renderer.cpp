@@ -2,17 +2,13 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include <glm\gtc\matrix_transform.hpp>
-Renderer::Renderer(Window* _window, ViewTypes cameraType) :
+Renderer::Renderer(Window* _window) :
 	window(_window)
 {		
 	MVP = glm::mat4(1.0f);
-	model = glm::mat4(1.0f);	
-	if (cameraType == ORTHO)
-		orthoProjection = glm::ortho(-320.0f, 320.0f, -240.0f, 240.0f, -10.0f, 1000.0f);
-	else
-		perspectiveProjection = glm::perspective(90.0f, (16.0f/9.0f), -10.0f, 1000.0f);
-	view = glm::lookAt(glm::vec3(1000.0f, 100.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
-	SetCameraType(cameraType);	
+	model = glm::mat4(1.0f);
+	projection = glm::ortho(-320.0f, 320.0f, -240.0f, 240.0f, -10.0f, 1000.0f);
+	view = glm::lookAt(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
 }
 
 Renderer::~Renderer()
@@ -117,7 +113,6 @@ void Renderer::MultiplyModelMatrix(glm::mat4 mat)
 }
 void Renderer::UpdateMVP()
 {	
-
 	MVP = projection * view * model;
 }
 
@@ -125,27 +120,3 @@ void Renderer::CameraFollow(glm::vec3 lookAt)
 {
 	view = glm::lookAt(lookAt - glm::vec3(0.0f,0.0f,-1.0f), lookAt, glm::vec3(0.0f, 1.0f, 0.0f));
 }
-void Renderer::SetOrthoProjectionMatrix(float tLeft, float tRight, float tBottom, float tTop, float zNear, float zFar)
-{
-	 orthoProjection = glm::ortho(tLeft, tRight, tBottom, tTop, zNear, zFar);
-	 SetCameraType(ORTHO);
-	 UpdateMVP();
-}
-void Renderer::SetPerspectiveProjectionMatrix(float fov, float aspectRatio, float zNear, float zFar)
-{
-	perspectiveProjection = glm::perspective(fov, aspectRatio, zNear, zFar);
-	SetCameraType(PERSPECTIVE);
-	UpdateMVP();
-}
-void Renderer::SetViewMatrix(glm::vec3 pos, glm::vec3 lookAt, glm::vec3 up)
-{
-	view = glm::lookAt(pos, lookAt, up);
-}
-void Renderer::SetCameraType(ViewTypes set)
-{
-	if (set == ORTHO)
-		projection = orthoProjection;
-	else
-		projection = perspectiveProjection;
-}
-

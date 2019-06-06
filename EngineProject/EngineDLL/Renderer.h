@@ -12,9 +12,7 @@ private:
 	glm::mat4 model;
 	glm::mat4 view;
 	glm::mat4 projection;
-	glm::mat4 orthoProjection;
-	glm::mat4 perspectiveProjection;
-	glm::mat4 MVP;	
+	glm::mat4 MVP;
 	void UpdateMVP();
 public:
 	Window* window;	
@@ -23,9 +21,8 @@ public:
 		RGL_TRIANGLE_FAN = 0x0006,
 		RGL_QUADS = 0x0007
 	};
-	enum ViewTypes{ORTHO,PERSPECTIVE };
-	Renderer(Window* _window, ViewTypes cameraType);	
-	~Renderer();	
+	Renderer(Window* _window);
+	~Renderer();
 	bool Start();
 	bool Stop();
 	void SetClearColor(float r, float g, float b,float a);
@@ -43,9 +40,5 @@ public:
 	void MultiplyModelMatrix(glm::mat4 mat);
 	glm::mat4& GetMVP() { return MVP; }
 	void CameraFollow(glm::vec3 lookAt);
-	void SetOrthoProjectionMatrix(float tLeft, float tRight, float tBottom, float tTop, float zNear, float zFar);
-	void SetPerspectiveProjectionMatrix(float fov, float aspectRatio, float zNear, float zFar);
-	void SetViewMatrix(glm::vec3 pos, glm::vec3 lookAt, glm::vec3 up);
-	void SetCameraType(ViewTypes set);
 };
 
