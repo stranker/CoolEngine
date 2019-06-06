@@ -1,1 +1,420 @@
-﻿  EngineDLL.vcxproj -> C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\EngineDLL.dll
+﻿  Animation.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\animation.cpp(16): warning C4244: 'argumento': conversión de 'float' a 'unsigned int'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\animation.cpp(25): warning C4244: 'argumento': conversión de 'float' a 'unsigned int'; posible pérdida de datos
+  Circle.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\circle.cpp(25): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  CollisionManager.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\collisionmanager.h(11): warning C4251: 'CollisionManager::colliderMap': class 'std::map<std::string,std::list<Shape *,std::allocator<_Ty>>,std::less<_Kty>,std::allocator<std::pair<const _Kty,std::list<_Ty,std::allocator<_Ty>>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'CollisionManager'
+          with
+          [
+              _Ty=Shape *,
+              _Kty=std::string
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\collisionmanager.h(11): note: vea la declaración de 'std::map<std::string,std::list<Shape *,std::allocator<_Ty>>,std::less<_Kty>,std::allocator<std::pair<const _Kty,std::list<_Ty,std::allocator<_Ty>>>>>'
+          with
+          [
+              _Ty=Shape *,
+              _Kty=std::string
+          ]
+  Entity.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  GameBase.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\gamebase.h(15): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xstring(4273): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\gamebase.cpp(54): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  Player.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(21): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(22): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(22): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(46): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(46): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+          with
+          [
+              _Ty=int
+          ]
+  Renderer.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  Shape.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  Sprite.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\sprite.cpp(53): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\sprite.cpp(49): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\sprite.cpp(50): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\sprite.cpp(52): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\sprite.cpp(94): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\sprite.cpp(98): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+  Square.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  Tilemap.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(21): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(22): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(22): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(46): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.h(46): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(65): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(67): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(76): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(78): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(85): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(88): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(93): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(105): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(106): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(153): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(157): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(172): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(173): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(178): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(198): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\tilemap.cpp(203): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  Triangle.cpp
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\gsvil\documents\proyectos\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\gsvil\documents\proyectos\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  Generando código...
+  LINK : no se encontró C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\EngineDLL.dll o no lo generó el último vínculo incremental; ejecutando vínculo completo
+     Creando biblioteca C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\EngineDLL.lib y objeto C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\EngineDLL.exp
+MSVCRTD.lib(initializers.obj) : warning LNK4098: la biblioteca predeterminada'msvcrt.lib' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+Window.obj : warning LNK4099: no se encontró PDB 'vc141.pdb' con 'Window.obj' o en 'C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\vc141.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+TextureImporter.obj : warning LNK4099: no se encontró PDB 'vc141.pdb' con 'TextureImporter.obj' o en 'C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\vc141.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+Material.obj : warning LNK4099: no se encontró PDB 'vc141.pdb' con 'Material.obj' o en 'C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\vc141.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+BoxCollider.obj : warning LNK4099: no se encontró PDB 'vc141.pdb' con 'BoxCollider.obj' o en 'C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\vc141.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  EngineDLL.vcxproj -> C:\Users\gsvil\Documents\Proyectos\CoolEngine\EngineProject\Debug\EngineDLL.dll
