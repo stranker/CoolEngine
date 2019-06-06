@@ -92,7 +92,7 @@ void Renderer::EnableBuffer(int bufferEnableIndex)
 }
 void Renderer::BindBufferIndex(unsigned int bufferID)
 {
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferID);	
+	glBindBuffer(GL_ARRAY_BUFFER, bufferID);	
 }
 void Renderer::BindBuffer(unsigned int bufferID, int size, int bufferEnableIndex) 
 {
