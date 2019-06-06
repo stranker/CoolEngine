@@ -25,7 +25,7 @@ void Shape3D::SetVertices(float* _vertices, int count)
 	vertices = _vertices;
 	vtxCount = count;
 	shouldDispose = true;
-	bufferData = (renderer->GenBuffer(vertices, vtxCount * sizeof(float)));
+	bufferData = (renderer->GenBuffer(vertices, vtxCount * 3 * sizeof(float)));
 }
 void Shape3D::SetTexture(const char * imagepath)
 {
@@ -36,7 +36,7 @@ void Shape3D::SetTexture(const char * imagepath)
 }
 void Shape3D::SetVerticesUV(float* vertices)
 {
-	verticesUV = (renderer->GenBuffer(vertices, vtxUvCount * sizeof(float)));
+	verticesUV = (renderer->GenBuffer(vertices, vtxUvCount * 2 * sizeof(float)));
 }
 void Shape3D::SetIndexes(unsigned int* _indexes, int count)
 {	
