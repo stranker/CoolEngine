@@ -43,16 +43,6 @@ c:\users\administrador\documents\github\coolengine\engineproject\enginedll\colli
               _Ty=Shape *,
               _Kty=std::string
           ]
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\modelimporter.h(48): warning C4251: 'ModelImporter::m_Entries': class 'std::vector<ModelImporter::MeshEntry,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'ModelImporter'
-          with
-          [
-              _Ty=ModelImporter::MeshEntry
-          ]
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\modelimporter.h(48): note: vea la declaración de 'std::vector<ModelImporter::MeshEntry,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=ModelImporter::MeshEntry
-          ]
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
           with
@@ -154,16 +144,6 @@ c:\users\administrador\documents\github\coolengine\engineproject\enginedll\colli
           [
               _Ty=Shape *,
               _Kty=std::string
-          ]
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\modelimporter.h(48): warning C4251: 'ModelImporter::m_Entries': class 'std::vector<ModelImporter::MeshEntry,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'ModelImporter'
-          with
-          [
-              _Ty=ModelImporter::MeshEntry
-          ]
-  c:\users\administrador\documents\github\coolengine\engineproject\enginedll\modelimporter.h(48): note: vea la declaración de 'std::vector<ModelImporter::MeshEntry,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=ModelImporter::MeshEntry
           ]
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
