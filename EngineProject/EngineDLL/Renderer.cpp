@@ -8,8 +8,7 @@ Renderer::Renderer(Window* _window, ViewTypes cameraType) :
 	MVP = glm::mat4(1.0f);
 	model = glm::mat4(1.0f);		
 	orthoProjection = glm::ortho(-320.0f, 320.0f, -240.0f, 240.0f, -10.0f, 1000.0f);	
-	perspectiveProjection = glm::perspective(glm::radians(45.0f), (16.0f/9.0f), 0.1f, 1000.0f);
-	
+	perspectiveProjection = glm::perspective(90.0f, (16.0f/9.0f), 0.1f, 1000.0f);	
 	SetViewMatrix(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	SetCameraType(cameraType);	
 }
@@ -140,7 +139,7 @@ void Renderer::SetViewMatrix(glm::vec3 pos, glm::vec3 lookAt, glm::vec3 up)
 {
 	view = glm::lookAt(pos, lookAt, up);
 	cout <<"Pos: "<< pos[0]<<"," << pos[1] <<","<< pos[2] << endl;
-	cout <<"forw: "<< lookAt[0] << "," << lookAt[1] << "," << lookAt[2] << endl;
+	cout <<"look: "<< lookAt[0] << "," << lookAt[1] << "," << lookAt[2] << endl;
 	cout <<"up: "<< up[0] << "," << up[1] << "," << up[2] << endl;
 	UpdateMVP();
 }

@@ -68,9 +68,9 @@ bool Game::OnUpdate(float deltaTime)
 	square->SetRotateZ(conta);
 	triangle->SetRotateY(conta);
 	circle->SetRotateX(conta);	
-	/*circle->Draw();
+	circle->Draw();
 	square->Draw();
-	triangle->Draw();*/
+	triangle->Draw();
 	if (loopCount > 10000)
 	{		
 		return false;
