@@ -11,7 +11,7 @@ Sprite::Sprite(Renderer* _renderer) :
 		0.0f,0.0f,0.0f,
 		1.0f,0.0f,0.0f,
 	};
-
+	
 	float g_uv_buffer_data[] = {
 		0.0f,1.0f,
 		1.0f,1.0f,

@@ -1,5 +1,5 @@
-﻿  main.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\engineproject\main.cpp(1): fatal error C1083: No se puede abrir el archivo incluir: 'Game.h': No such file or directory
-  Game.cpp
+﻿  Game.cpp
 c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(4): fatal error C1083: No se puede abrir el archivo incluir: 'glm\glm.hpp': No such file or directory
+  main.cpp
+c:\users\administrador\documents\github\coolengine\engineproject\engineproject\main.cpp(1): fatal error C1083: No se puede abrir el archivo incluir: 'Game.h': No such file or directory
   Generando código...

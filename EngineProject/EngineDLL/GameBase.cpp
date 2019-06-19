@@ -12,7 +12,7 @@ GameBase::~GameBase()
 {
 }
 bool GameBase::Start()
-{
+{	
 	cout << "GameBase::Start()" << endl;	
 	window = new Window(screenHeight,screenWidth,screenName);
 	if (!window->Start())
