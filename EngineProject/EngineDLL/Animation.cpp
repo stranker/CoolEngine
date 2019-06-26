@@ -7,13 +7,17 @@ Animation::Animation(Sprite* _sprite) :
 	speed = 1.0f/8.0f;
 	timer = 0;
 }
-void Animation::CreateAnimation(float start, float end)
+
+
+void Animation::CreateAnimation(const char * _name, float start, float end, bool _loop)
 {
+	name = _name;
 	from = start;
 	to = end;
-	currentKey = start;	
-	if(sprite)
-	sprite->SetFrame(currentKey);
+	currentKey = start;
+	loop = _loop;
+	if (sprite)
+		sprite->SetFrame(currentKey);
 }
 
 void Animation::RunAnimation()
@@ -27,7 +31,8 @@ void Animation::RunAnimation()
 		}
 		else
 		{
-			currentKey = from;
+			if (loop)
+				currentKey = from;
 		}
 	}
 }
@@ -43,4 +48,9 @@ void Animation::OnUpdate(float deltaTime)
 	{
 		timer += deltaTime;
 	}
+}
+
+const char * Animation::GetName()
+{
+	return name;
 }

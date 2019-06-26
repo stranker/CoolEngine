@@ -20,9 +20,8 @@ Sprite::Sprite(Renderer* _renderer) :
 	};
 	typeOfShape = Renderer::RGL_TRIANGLE_STRIP;
 	shouldDispose = false;
-	SetVertices(g_vertex_buffer_data, 4);	
-	SetVerticesUV(g_uv_buffer_data);	
-
+	SetVertices(g_vertex_buffer_data, 4);
+	SetVerticesUV(g_uv_buffer_data);
 }
 void Sprite::SetVerticesUV(float* vertices)
 {

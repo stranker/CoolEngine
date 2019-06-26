@@ -9,6 +9,8 @@
 #include "Player.h"
 #include <iostream>
 #include "Tilemap.h"
+#include "World.h"
+
 using namespace std;
 
 class Game : public GameBase
@@ -18,14 +20,13 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate(float deltaTime) override;
 	int loopCount;
-	Square* square;	
-	Triangle* triangle;
-	Circle* circle;
+	Square* square;
 	Material* mat;
 	Player* player;
+	World* world;
 	Tilemap* tilemap;
 	float* coord;
-	float conta;	
+	float conta;
 public:
 	Game(int _screenHeight, int _screenWidht, string _screenName);
 	~Game();

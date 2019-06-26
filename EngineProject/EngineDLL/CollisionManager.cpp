@@ -7,7 +7,7 @@ CollisionManager* CollisionManager::GetInstance()
 {
 	if(instance == 0)
 	{
-		instance = new CollisionManager();		
+		instance = new CollisionManager();
 	}
 	return instance;
 }

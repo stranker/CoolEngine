@@ -1,13 +1,243 @@
-﻿  GameBase.cpp
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
-  c:\users\administrador\documents\github\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\gamebase.h(15): warning C4251: 'GameBase::screenName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'GameBase'
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstring(4373): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-c:\users\administrador\documents\github\coolengine\engineproject\enginedll\gamebase.cpp(55): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  EngineDLL.vcxproj -> C:\Users\Administrador\Documents\GitHub\CoolEngine\EngineProject\Debug\EngineDLL.dll
+﻿  Player.cpp
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\animationplayer.h(12): warning C4251: 'AnimationPlayer::animationList': class 'std::list<Animation *,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'AnimationPlayer'
+          with
+          [
+              _Ty=Animation *
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\animationplayer.h(12): note: vea la declaración de 'std::list<Animation *,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=Animation *
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\player.h(14): warning C4251: 'Player::bodyDef': struct 'b2BodyDef' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\box2d\include\box2d\dynamics\b2world.h(30): note: vea la declaración de 'b2BodyDef'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(21): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(22): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(22): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(46): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(46): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+          with
+          [
+              _Ty=int
+          ]
+  Tilemap.cpp
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(14): warning C4251: 'Renderer::projection': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(15): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(8): warning C4251: 'Entity::pos': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(9): warning C4251: 'Entity::rot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(10): warning C4251: 'Entity::scl': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(12): warning C4251: 'Entity::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(13): warning C4251: 'Entity::translate': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(14): warning C4251: 'Entity::rotateX': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(15): warning C4251: 'Entity::rotateY': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(16): warning C4251: 'Entity::rotateZ': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\animationplayer.h(12): warning C4251: 'AnimationPlayer::animationList': class 'std::list<Animation *,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'AnimationPlayer'
+          with
+          [
+              _Ty=Animation *
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\animationplayer.h(12): note: vea la declaración de 'std::list<Animation *,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=Animation *
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\player.h(14): warning C4251: 'Player::bodyDef': struct 'b2BodyDef' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\box2d\include\box2d\dynamics\b2world.h(30): note: vea la declaración de 'b2BodyDef'
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(21): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(22): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(22): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(46): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.h(46): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(65): warning C4018: '<': no coinciden signed/unsigned
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(67): warning C4018: '<': no coinciden signed/unsigned
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(76): warning C4018: '<': no coinciden signed/unsigned
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(78): warning C4018: '<': no coinciden signed/unsigned
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(85): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(88): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(93): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(105): warning C4018: '<': no coinciden signed/unsigned
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(106): warning C4018: '<': no coinciden signed/unsigned
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(153): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(157): warning C4244: 'return': conversión de 'unsigned int' a 'float'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(172): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(173): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(178): warning C4018: '<': no coinciden signed/unsigned
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(198): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\tilemap.cpp(203): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  World.cpp
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\world.cpp(12): warning C4305: 'argumento': truncamiento de 'double' a 'float32'
+  Generando código...
+Box2D.lib(b2World.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2World.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2BroadPhase.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2BroadPhase.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2ContactManager.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2ContactManager.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2Body.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2Body.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2Fixture.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2Fixture.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2Island.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2Island.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2Joint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2Joint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2PulleyJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2PulleyJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2Contact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2Contact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2WorldCallbacks.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2WorldCallbacks.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2ContactSolver.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2ContactSolver.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2DistanceJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2DistanceJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2WheelJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2WheelJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2MouseJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2MouseJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2RevoluteJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2RevoluteJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2PrismaticJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2PrismaticJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2GearJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2GearJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2WeldJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2WeldJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2FrictionJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2FrictionJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2RopeJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2RopeJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2MotorJoint.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2MotorJoint.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2CircleContact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2CircleContact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2PolygonAndCircleContact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2PolygonAndCircleContact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2PolygonContact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2PolygonContact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2EdgeAndCircleContact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2EdgeAndCircleContact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2EdgeAndPolygonContact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2EdgeAndPolygonContact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2ChainAndCircleContact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2ChainAndCircleContact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2ChainAndPolygonContact.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2ChainAndPolygonContact.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2ChainShape.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2ChainShape.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+Box2D.lib(b2EdgeShape.obj) : error LNK2038: se detectaron diferencias para '_ITERATOR_DEBUG_LEVEL': el valor '0' no coincide con el valor '2' en Animation.obj
+Box2D.lib(b2EdgeShape.obj) : error LNK2038: se detectaron diferencias para 'RuntimeLibrary': el valor 'MD_DynamicRelease' no coincide con el valor 'MDd_DynamicDebug' en Animation.obj
+     Creando biblioteca C:\Users\Capo\Desktop\Danielito\FACU\CoolEngine\EngineProject\Debug\EngineDLL.lib y objeto C:\Users\Capo\Desktop\Danielito\FACU\CoolEngine\EngineProject\Debug\EngineDLL.exp
+MSVCRTD.lib(initializers.obj) : warning LNK4098: la biblioteca predeterminada'msvcrt.lib' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+C:\Users\Capo\Desktop\Danielito\FACU\CoolEngine\EngineProject\Debug\EngineDLL.dll : fatal error LNK1319: diferencias detectadas: 60
