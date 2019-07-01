@@ -19,8 +19,7 @@ bool Game::OnStart()
 	square = new Square(renderer);
 	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
 	tilemap->SetColliderTiles({0});
-	world = new World();
-	player = new Player(renderer,world);
+	player = new Player(renderer);
 	if(square && mat)
 	square->SetMaterial(mat);
 	if (player && mat)

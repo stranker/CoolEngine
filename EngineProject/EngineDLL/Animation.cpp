@@ -36,6 +36,12 @@ void Animation::RunAnimation()
 		}
 	}
 }
+
+void Animation::Stop()
+{
+	currentKey = from;
+}
+
 void Animation::OnUpdate(float deltaTime)
 {
 

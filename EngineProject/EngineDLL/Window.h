@@ -2,8 +2,6 @@
 #include <iostream>
 #include "Exports.h"
 
-
-
 using namespace std;
 
 class ENGINEDLL_API Window

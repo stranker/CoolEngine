@@ -19,6 +19,18 @@ void AnimationPlayer::Play(const char * animationName, float deltaTime)
 		{
 			currentAnimation->OnUpdate(deltaTime);
 		}
+		else
+		{
+			currentAnimation->Stop();
+			list<Animation*>::iterator it;
+			for (it = animationList.begin(); it != animationList.end(); it++)
+			{
+				if ((*it)->GetName() == animationName)
+				{
+					currentAnimation = *it;
+				}
+			}
+		}
 	}
 	else
 	{

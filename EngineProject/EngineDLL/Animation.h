@@ -8,6 +8,7 @@ public:
 	~Animation();
 	void CreateAnimation(const char* name, float start, float end, bool loop);
 	void RunAnimation();
+	void Stop();
 	void OnUpdate(float deltaTime);
 	const char* GetName();
 private:
