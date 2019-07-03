@@ -7,4 +7,3 @@ public:
 	float x;
 	float y;
 };
-

@@ -67,6 +67,7 @@ void Renderer::Draw(int vtxCount, DrawTypes typeOfDraw)
 {
 	glDrawArrays((GLenum)typeOfDraw, 0, vtxCount); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
 }
+
 void Renderer::EnableBuffer(int bufferEnableIndex) 
 {
 	glEnableVertexAttribArray(bufferEnableIndex);
