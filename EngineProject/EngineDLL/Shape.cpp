@@ -49,54 +49,72 @@ void Shape::BindMaterial()
 }
 void Shape::SetPosition(float x, float y, float z)
 {
-	pos[0] = x;
-	pos[1] = y;
-	pos[2] = z;
+	pos.x = x;
+	pos.y = y;
+	pos.z = z;
 	translate = glm::translate(glm::mat4(1.0f), pos);
 	UpdateModelMatrix();
 }
 void Shape::MoveIn(float x, float y, float z)
 {
-	pos[0] += x;
-	pos[1] += y;
-	pos[2] += z;
+	pos.x += x;
+	pos.y += y;
+	pos.z += z;
+	translate = glm::translate(glm::mat4(1.0f), pos);
+	UpdateModelMatrix();
+}
+void Shape::Translate(float x, float y)
+{
+	pos.x += x;
+	pos.y += y;
+	pos.z += 0;
 	translate = glm::translate(glm::mat4(1.0f), pos);
 	UpdateModelMatrix();
 }
 void Shape::SetScale(float x, float y, float z)
 {
-	scl[0] = x;
-	scl[1] = y;
-	scl[2] = z;
+	scl.x = x;
+	scl.y = y;
+	scl.z = z;
 
 	scale = glm::scale(glm::mat4(1.0f), scl);
 	UpdateModelMatrix();
 }
 void Shape::SetRotateX(float x)
 {
-	rot[0] = x;
+	rot.x = x;
 	glm::vec3 axis;
-	axis[0] = x;
-	axis[1] = axis[2] = 0;
-	rotateX = glm::rotate(glm::mat4(1.0f), x, axis);
+	axis.x = 1;
+	axis.y = axis.z = 0;
+	rotateX = glm::translate(glm::mat4(1.0f), pivot) * glm::rotate(glm::mat4(1.0f), x, axis) * glm::translate(glm::mat4(1.0f), -pivot);
 	UpdateModelMatrix();
 }
 void Shape::SetRotateY(float y)
 {
-	rot[1] = y;
+	rot.y = y;
 	glm::vec3 axis;
-	axis[1] = y;
-	axis[0] = axis[2] = 0;
-	rotateY = glm::rotate(glm::mat4(1.0f), y, axis);
+	axis.y = 1;
+	axis.x = axis.z = 0;
+	rotateY = glm::translate(glm::mat4(1.0f),pivot) * glm::rotate(glm::mat4(1.0f), y, axis) * glm::translate(glm::mat4(1.0f),-pivot);
 	UpdateModelMatrix();
 }
 void Shape::SetRotateZ(float z)
 {
-	rot[2] = z;
+	rot.z = z;
 	glm::vec3 axis;
-	axis[2] = z;
-	axis[0] = axis[1] = 0;
-	rotateZ = glm::rotate(glm::mat4(1.0f), z, axis);
+	axis.z = 1;
+	axis.x = axis.y = 0;
+	rotateZ = glm::translate(glm::mat4(1.0f), pivot) * glm::rotate(glm::mat4(1.0f), z, axis) * glm::translate(glm::mat4(1.0f), -pivot);
+	UpdateModelMatrix();
+}
+void Shape::SetRotate(float x, float y, float z)
+{
+	rot.x = x;
+	rot.y = y;
+	rot.z = z;
+	rotateX = glm::translate(glm::mat4(1.0f), pivot) * glm::rotate(glm::mat4(1.0f), x, glm::vec3(1,0,0)) * glm::translate(glm::mat4(1.0f), -pivot);
+	rotateY = glm::translate(glm::mat4(1.0f), pivot) * glm::rotate(glm::mat4(1.0f), y, glm::vec3(0, 1, 0)) * glm::translate(glm::mat4(1.0f), -pivot);
+	rotateZ = glm::translate(glm::mat4(1.0f), pivot) * glm::rotate(glm::mat4(1.0f), z, glm::vec3(0, 0, 1)) * glm::translate(glm::mat4(1.0f), -pivot);
 	UpdateModelMatrix();
 }
 void Shape::UpdateModelMatrix()

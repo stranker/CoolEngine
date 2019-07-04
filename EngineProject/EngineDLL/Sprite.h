@@ -14,6 +14,7 @@ public:
 	void SetVerticesUV(float* vertices);
 	void SetFrame(unsigned int id);
 	void SetFrameType(int frameWidth, int frameHeight, int framesCountPerRow);
+	void SetPivot(int x, int y);
 	int heightFrame;
 	int widthFrame;
 	int heightTotal;

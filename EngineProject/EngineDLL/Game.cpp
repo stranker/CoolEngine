@@ -3,7 +3,7 @@
 #include "GLFW\glfw3native.h"
 Game::Game(int _screenWidht, int _screenHeight, string _screenName): GameBase(_screenWidht, _screenHeight, _screenName)
 {	
-	loopCount = 0;	
+	loopCount = 0;
 }
 
 
@@ -16,19 +16,21 @@ bool Game::OnStart()
 {
 	cout << "Game::OnStart()" << endl;
 	mat = new Material();
-	square = new Square(renderer);
 	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
 	tilemap->SetColliderTiles({0});
-	const b2Vec2 gravity = b2Vec2(0, -4);
+	const b2Vec2 gravity = b2Vec2(0, -1);
 	world2D = new b2World(gravity);
+	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
 
-	b2Body* rigid = world2D->CreateBody(&player->GetRigidbodyDef());
-	rigid->CreateFixture(&player->GetBodyFixture());
-	player->SetRigidbody(rigid);
+	b2Body* playerRigid = world2D->CreateBody(&player->GetRigidbodyDef());
+	playerRigid->CreateFixture(&player->GetBodyFixture());
+	player->SetRigidbody(playerRigid);
+
+	//b2Body* platRigid = world2D->CreateBody(&landingPlatform->GetRigidbodyDef());
+	//platRigid->CreateFixture(&landingPlatform->GetBodyFixture());
+	//landingPlatform->SetRigidbody(platRigid);
 	
-	if(square && mat)
-	square->SetMaterial(mat);
 	if (player && mat)
 	{
 		player->SetMaterial(mat);
@@ -36,17 +38,20 @@ bool Game::OnStart()
 		player->SetFrameType(40, 40, 7);
 		player->SetFrame(0);
 	}
+	if (landingPlatform && mat)
+	{
+		landingPlatform->SetMaterial(mat);
+		landingPlatform->SetTexture("Platform.bmp");
+		landingPlatform->SetFrameType(50,20, 4);
+		landingPlatform->SetFrame(0);
+	}
 	if (tilemap && mat)
 	{
 		tilemap->SetMaterial(mat);
 		tilemap->SetFrameType(32, 32, 6);
 		tilemap->SetTexture("tilemap.bmp");
-	}	
-	player->CreateCollider(32.0f, 32.0f, false, false);
-	square->CreateCollider(64.0f,64.0f, false, false);
+	}
 	CollisionManager::GetInstance()->AddToGroup("A", player);
-	CollisionManager::GetInstance()->AddToGroup("B", square);
-	square->SetPosition(-500, -400, 5);	
 	return true;
 }
 
@@ -64,7 +69,7 @@ bool Game::OnUpdate(float deltaTime)
 	tilemap->Draw();
 	player->OnUpdate(deltaTime);
 	player->Draw();
-	square->Draw();
+	landingPlatform->Draw();
 	if (loopCount > 10000)
 	{		
 		return false;

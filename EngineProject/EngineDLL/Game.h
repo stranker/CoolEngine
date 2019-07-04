@@ -9,7 +9,7 @@
 #include "Player.h"
 #include <iostream>
 #include "Tilemap.h"
-#include "World.h"
+#include "Platform.h"
 
 using namespace std;
 
@@ -20,9 +20,9 @@ protected:
 	bool OnStop() override;
 	bool OnUpdate(float deltaTime) override;
 	int loopCount;
-	Square* square;
 	Material* mat;
 	Player* player;
+	Platform* landingPlatform;
 	b2World* world2D;
 	Tilemap* tilemap;
 	float* coord;

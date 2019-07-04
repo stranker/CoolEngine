@@ -4,10 +4,11 @@
 class Rigidbody
 {
 public:
-	Rigidbody(b2BodyType _bodyType, b2Vec2 _initalPos);
+	Rigidbody(b2BodyType _bodyType);
 	~Rigidbody();
 private:
 	b2BodyDef bodyDef;
-	b2Vec2 pos;
+	b2Body* body;
+	b2FixtureDef fixtureDef;
 };
 

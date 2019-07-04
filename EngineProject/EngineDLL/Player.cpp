@@ -16,7 +16,7 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 	SetPosition(-200, 0, 5);
 	bodyDef.type = b2_dynamicBody;
 	bodyDef.angle = 0;
-	bodyDef.gravityScale = 0.0f;
+	bodyDef.gravityScale = 0.1f;
 	boxShape.SetAsBox(1, 1);
 	angleRotation = 0.1;
 	fixtureDef.shape = &boxShape;
@@ -42,19 +42,20 @@ void Player::OnUpdate(float deltaTime)
 	// Strafe right
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_RIGHT) == GLFW_PRESS) {
 		//rigidBody->SetAngularVelocity(10 * deltaTime);
-		angleRotation += deltaTime * 1;
+		angleRotation -= deltaTime * 1;
 
 	}
 	// Strafe left
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_LEFT) == GLFW_PRESS) {	
-		angleRotation -= deltaTime * 1;
+		angleRotation += deltaTime * 1;
 
 	}
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_1) == GLFW_PRESS) {
 		SetPosition(-200, 0, 5);
 	}
-	MoveIn(rigidBody->GetPosition().x, rigidBody->GetPosition().y,0);
-	SetRotateZ(angleRotation);
+	if (rigidBody)
+		Translate(rigidBody->GetPosition().x, rigidBody->GetPosition().y);
+	SetRotate(0,0,angleRotation);
 }
 
 void Player::SetRigidbody(b2Body * body)

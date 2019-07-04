@@ -22,6 +22,9 @@ Sprite::Sprite(Renderer* _renderer) :
 	shouldDispose = false;
 	SetVertices(g_vertex_buffer_data, 4);
 	SetVerticesUV(g_uv_buffer_data);
+	pivot.x = 0;
+	pivot.y = 0;
+	pivot.z = 0;
 }
 void Sprite::SetVerticesUV(float* vertices)
 {
@@ -87,6 +90,12 @@ void Sprite::SetFrameType(int frameWidth,int frameHeight,int framesCountPerRow)
 	widthFrame = frameWidth;
 	heightFrame = frameHeight;
 	framesTotal = framesCountPerRow;
+	SetPivot(frameWidth / 2, frameHeight / 2);
+}
+void Sprite::SetPivot(int x, int y)
+{
+	pivot.x = x;
+	pivot.y = y;
 }
 float Sprite::GetOffsetX(unsigned int id)
 {
