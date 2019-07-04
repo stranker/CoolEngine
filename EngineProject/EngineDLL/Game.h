@@ -23,7 +23,7 @@ protected:
 	Square* square;
 	Material* mat;
 	Player* player;
-	World* world;
+	b2World* world2D;
 	Tilemap* tilemap;
 	float* coord;
 	float conta;

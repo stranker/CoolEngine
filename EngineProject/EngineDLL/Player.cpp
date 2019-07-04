@@ -14,19 +14,26 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 	animator->AddAnimation(flyingAnimation);
 	animator->AddAnimation(dieAnimation);
 	SetPosition(-200, 0, 5);
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.angle = 0;
+	bodyDef.gravityScale = 0.0f;
+	boxShape.SetAsBox(1, 1);
+	angleRotation = 0.1;
+	fixtureDef.shape = &boxShape;
+	fixtureDef.density = 1;
 }
-
 
 
 Player::~Player()
 {
 }
+
 void Player::OnUpdate(float deltaTime)
 {
-	
-	// Move forward
+	// Move UP
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
 		animator->Play("Flying", deltaTime);
+		rigidBody->SetLinearVelocity(deltaTime * b2Vec2(0,10));
 	}
 	else
 	{
@@ -34,21 +41,33 @@ void Player::OnUpdate(float deltaTime)
 	}
 	// Strafe right
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_RIGHT) == GLFW_PRESS) {
-		if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x+BBWidth - 1.0f, GetPos().y + 1.0f) || Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + BBWidth - 1.0f, (GetPos().y + BBHeight - 1.0f)))
-		{
-			float x = Tilemap::GetInstance()->GetTileX(GetPos().x + BBWidth);
+		//rigidBody->SetAngularVelocity(10 * deltaTime);
+		angleRotation += deltaTime * 1;
 
-			SetPosition(x-BBWidth, GetPos().y, GetPos().z);
-		}
 	}
 	// Strafe left
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_LEFT) == GLFW_PRESS) {	
-		if (Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + 1.0f, GetPos().y + 1.0f) || Tilemap::GetInstance()->NextTileIsCollider(GetPos().x + 1.0f, GetPos().y+BBHeight - 1.0f))
-		{
-			SetPosition(Tilemap::GetInstance()->GetTileX(GetPos().x)+BBWidth, GetPos().y, GetPos().z);
-		}
+		angleRotation -= deltaTime * 1;
+
 	}
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_1) == GLFW_PRESS) {
 		SetPosition(-200, 0, 5);
 	}
+	MoveIn(rigidBody->GetPosition().x, rigidBody->GetPosition().y,0);
+	SetRotateZ(angleRotation);
+}
+
+void Player::SetRigidbody(b2Body * body)
+{
+	rigidBody = body;
+}
+
+const b2BodyDef Player::GetRigidbodyDef()
+{
+	return bodyDef;
+}
+
+const b2FixtureDef Player::GetBodyFixture()
+{
+	return fixtureDef;
 }

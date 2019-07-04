@@ -9,17 +9,24 @@ Game::Game(int _screenWidht, int _screenHeight, string _screenName): GameBase(_s
 
 Game::~Game()
 {
+	delete world2D;
 }
 
 bool Game::OnStart()
 {
-
 	cout << "Game::OnStart()" << endl;
 	mat = new Material();
 	square = new Square(renderer);
 	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
 	tilemap->SetColliderTiles({0});
+	const b2Vec2 gravity = b2Vec2(0, -4);
+	world2D = new b2World(gravity);
 	player = new Player(renderer);
+
+	b2Body* rigid = world2D->CreateBody(&player->GetRigidbodyDef());
+	rigid->CreateFixture(&player->GetBodyFixture());
+	player->SetRigidbody(rigid);
+	
 	if(square && mat)
 	square->SetMaterial(mat);
 	if (player && mat)
@@ -49,7 +56,8 @@ bool Game::OnStop()
 	return false;
 }
 bool Game::OnUpdate(float deltaTime)
-{			
+{	
+	world2D->Step(1 / 20.0, 8, 3);
 	renderer->CameraFollow(player->GetPos());
 	CollisionManager::GetInstance()->Update();
 	conta += deltaTime * 1;
