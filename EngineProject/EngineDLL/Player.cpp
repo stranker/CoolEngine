@@ -16,7 +16,7 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 	SetPosition(-200, 0, 5);
 	bodyDef.type = b2_dynamicBody;
 	bodyDef.angle = 0;
-	bodyDef.gravityScale = 0;
+	bodyDef.gravityScale = 0.1f;
 	boxShape.SetAsBox(1, 1);
 	angleRotation = 0.1;
 	fixtureDef.shape = &boxShape;
@@ -30,11 +30,10 @@ Player::~Player()
 
 void Player::OnUpdate(float deltaTime)
 {
-	rigidBody->SetLinearVelocity(b2Vec2(0,-2 * deltaTime));
 	// Move UP
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
 		animator->Play("Flying", deltaTime);
-		rigidBody->SetLinearVelocity(deltaTime * b2Vec2(0,1.0f));
+		rigidBody->SetLinearVelocity(deltaTime * b2Vec2(0,10));
 	}
 	else
 	{

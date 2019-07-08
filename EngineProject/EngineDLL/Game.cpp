@@ -4,7 +4,6 @@
 Game::Game(int _screenWidht, int _screenHeight, string _screenName): GameBase(_screenWidht, _screenHeight, _screenName)
 {	
 	loopCount = 0;
-	gameOver = false;
 }
 
 
@@ -19,9 +18,9 @@ bool Game::OnStart()
 	mat = new Material();
 	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
 	tilemap->SetColliderTiles({0});
-	const b2Vec2 gravity = b2Vec2(0, -4);
+	const b2Vec2 gravity = b2Vec2(0, -1);
 	world2D = new b2World(gravity);
-	//landingPlatform = new Platform(renderer);
+	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
 
 	b2Body* playerRigid = world2D->CreateBody(&player->GetRigidbodyDef());
@@ -63,13 +62,18 @@ bool Game::OnStop()
 }
 bool Game::OnUpdate(float deltaTime)
 {	
-	world2D->Step(1 / 20.0f, 10, 10);
+	world2D->Step(1 / 20.0, 8, 3);
 	renderer->CameraFollow(player->GetPos());
 	CollisionManager::GetInstance()->Update();
 	conta += deltaTime * 1;
 	tilemap->Draw();
 	player->OnUpdate(deltaTime);
 	player->Draw();
-	//landingPlatform->Draw();
-	return !gameOver;
+	landingPlatform->Draw();
+	if (loopCount > 10000)
+	{		
+		return false;
+	}
+
+	return true;
 }

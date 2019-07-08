@@ -15,7 +15,7 @@ using namespace std;
 
 class Game : public GameBase
 {
-protected:
+protected:		
 	bool OnStart() override;
 	bool OnStop() override;
 	bool OnUpdate(float deltaTime) override;
@@ -27,7 +27,6 @@ protected:
 	Tilemap* tilemap;
 	float* coord;
 	float conta;
-	bool gameOver;
 public:
 	Game(int _screenHeight, int _screenWidht, string _screenName);
 	~Game();
