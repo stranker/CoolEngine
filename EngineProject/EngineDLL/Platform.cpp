@@ -1,7 +1,5 @@
 #include "Platform.h"
 
-
-
 Platform::Platform(Renderer* _renderer) : Sprite(_renderer)
 {
 	animator = new AnimationPlayer();

@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include "Vector2.h"
+#include "Box2D\Box2D.h"
 
 class ENGINEDLL_API Sprite :
 	public Shape

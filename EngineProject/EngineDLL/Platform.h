@@ -1,6 +1,4 @@
 #pragma once
-#include "Sprite.h"
-#include "Rigidbody.h"
 #include "Exports.h"
 #include "AnimationPlayer.h"
 

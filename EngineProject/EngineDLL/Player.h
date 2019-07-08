@@ -1,7 +1,6 @@
 #pragma once
 #include "AnimationPlayer.h"
 #include "Exports.h"
-#include "Rigidbody.h"
 
 
 class ENGINEDLL_API Player : public Sprite
