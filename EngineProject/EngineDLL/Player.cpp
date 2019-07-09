@@ -13,14 +13,6 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 	animator->AddAnimation(idleAnimation);
 	animator->AddAnimation(flyingAnimation);
 	animator->AddAnimation(dieAnimation);
-	SetPosition(-200, 0, 5);
-	bodyDef.type = b2_dynamicBody;
-	bodyDef.angle = 0;
-	bodyDef.gravityScale = 0.1f;
-	boxShape.SetAsBox(1, 1);
-	angleRotation = 0.1;
-	fixtureDef.shape = &boxShape;
-	fixtureDef.density = 1;
 }
 
 
@@ -30,10 +22,11 @@ Player::~Player()
 
 void Player::OnUpdate(float deltaTime)
 {
+	direction = b2Vec2(cos(((angleRotation * RADTODEG) + 90) * DEGTORAD), sin(((angleRotation * RADTODEG) + 90) * DEGTORAD));
 	// Move UP
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
 		animator->Play("Flying", deltaTime);
-		rigidBody->SetLinearVelocity(deltaTime * b2Vec2(0,10));
+		rigidBody->ApplyForceToCenter(500 * direction, true);
 	}
 	else
 	{
@@ -41,7 +34,6 @@ void Player::OnUpdate(float deltaTime)
 	}
 	// Strafe right
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_RIGHT) == GLFW_PRESS) {
-		//rigidBody->SetAngularVelocity(10 * deltaTime);
 		angleRotation -= deltaTime * 1;
 
 	}
@@ -54,21 +46,11 @@ void Player::OnUpdate(float deltaTime)
 		SetPosition(-200, 0, 5);
 	}
 	if (rigidBody)
-		Translate(rigidBody->GetPosition().x, rigidBody->GetPosition().y);
+		SetPosition(rigidBody->GetPosition().x, rigidBody->GetPosition().y,0);
 	SetRotate(0,0,angleRotation);
 }
 
 void Player::SetRigidbody(b2Body * body)
 {
 	rigidBody = body;
-}
-
-const b2BodyDef Player::GetRigidbodyDef()
-{
-	return bodyDef;
-}
-
-const b2FixtureDef Player::GetBodyFixture()
-{
-	return fixtureDef;
 }

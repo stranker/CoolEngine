@@ -9,12 +9,6 @@ Platform::Platform(Renderer* _renderer) : Sprite(_renderer)
 	landingAnimation->CreateAnimation("Landing", 0, 2, false);
 	animator->AddAnimation(idleAnimation);
 	animator->AddAnimation(landingAnimation);
-	SetPosition(-200, 100, 5);
-	bodyDef.type = b2_staticBody;
-	bodyDef.angle = 0;
-	boxShape.SetAsBox(1, 1);
-	fixtureDef.shape = &boxShape;
-	fixtureDef.density = 1;
 }
 
 
@@ -24,19 +18,13 @@ Platform::~Platform()
 
 void Platform::OnUpdate(float deltaTime)
 {
+	if (rigidBody)
+	{
+		SetPosition(rigidBody->GetPosition().x,rigidBody->GetPosition().y, 0);
+	}
 }
 
 void Platform::SetRigidbody(b2Body * body)
 {
 	rigidBody = body;
-}
-
-const b2BodyDef Platform::GetRigidbodyDef()
-{
-	return bodyDef;
-}
-
-const b2FixtureDef Platform::GetBodyFixture()
-{
-	return fixtureDef;
 }

@@ -23,13 +23,34 @@ bool Game::OnStart()
 	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
 
-	b2Body* playerRigid = world2D->CreateBody(&player->GetRigidbodyDef());
-	playerRigid->CreateFixture(&player->GetBodyFixture());
+	// Body def player
+	b2BodyDef myBodyDef;
+	myBodyDef.type = b2_dynamicBody; //this will be a dynamic body
+	myBodyDef.position.Set(0, 0); //set the starting position
+	myBodyDef.angle = 90; //set the starting angle
+	myBodyDef.gravityScale = 0.05f;
+	b2PolygonShape boxShape;
+	boxShape.SetAsBox(40, 40);
+	b2FixtureDef boxFixtureDef;
+	boxFixtureDef.shape = &boxShape;
+	boxFixtureDef.density = 1;
+	b2Body* playerRigid = world2D->CreateBody(&myBodyDef);
+	playerRigid->CreateFixture(&boxFixtureDef);
 	player->SetRigidbody(playerRigid);
 
-	//b2Body* platRigid = world2D->CreateBody(&landingPlatform->GetRigidbodyDef());
-	//platRigid->CreateFixture(&landingPlatform->GetBodyFixture());
-	//landingPlatform->SetRigidbody(platRigid);
+	// Body def platform
+	b2BodyDef myBodyDefPlat;
+	myBodyDefPlat.type = b2_staticBody; //this will be a static body
+	myBodyDefPlat.position.Set(100, 100); //set the starting position
+	myBodyDefPlat.angle = 0; //set the starting angle
+	b2PolygonShape boxShapePlat;
+	boxShapePlat.SetAsBox(40, 40);
+	b2FixtureDef boxFixtureDefPlat;
+	boxFixtureDefPlat.shape = &boxShapePlat;
+	boxFixtureDefPlat.density = 1;
+	b2Body* platRigid = world2D->CreateBody(&myBodyDefPlat);
+	platRigid->CreateFixture(&boxFixtureDefPlat);
+	landingPlatform->SetRigidbody(platRigid);
 	
 	if (player && mat)
 	{
@@ -51,7 +72,7 @@ bool Game::OnStart()
 		tilemap->SetFrameType(32, 32, 6);
 		tilemap->SetTexture("tilemap.bmp");
 	}
-	CollisionManager::GetInstance()->AddToGroup("A", player);
+	//CollisionManager::GetInstance()->AddToGroup("A", player);
 	return true;
 }
 
@@ -64,10 +85,11 @@ bool Game::OnUpdate(float deltaTime)
 {	
 	world2D->Step(1 / 20.0, 8, 3);
 	renderer->CameraFollow(player->GetPos());
-	CollisionManager::GetInstance()->Update();
+	//CollisionManager::GetInstance()->Update();
 	conta += deltaTime * 1;
 	tilemap->Draw();
 	player->OnUpdate(deltaTime);
+	landingPlatform->OnUpdate(deltaTime);
 	player->Draw();
 	landingPlatform->Draw();
 	if (loopCount > 10000)
