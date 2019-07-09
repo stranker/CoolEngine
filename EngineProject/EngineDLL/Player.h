@@ -1,7 +1,7 @@
 #pragma once
 #include "AnimationPlayer.h"
 #include "Exports.h"
-
+#include "Sprite.h"
 
 class ENGINEDLL_API Player : public Sprite
 {
@@ -9,7 +9,6 @@ public:
 	Player(Renderer* _renderer);
 	~Player();
 	void OnUpdate(float deltaTime) override;
-	float speed = 200;
 	void SetRigidbody(b2Body* body);
 private:
 	Animation * idleAnimation;

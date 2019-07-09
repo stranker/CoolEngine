@@ -22,7 +22,8 @@ bool Game::OnStart()
 	world2D = new b2World(gravity);
 	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
-	//ground = new Line2D(renderer);
+	turret = new Turret(renderer, world2D);
+	ground = new Line2D(renderer);
 
 	// Body def player
 	b2BodyDef myBodyDef;
@@ -84,6 +85,13 @@ bool Game::OnStart()
 	{
 		ground->SetMaterial(mat);
 	}
+	if (turret && mat)
+	{
+		turret->SetMaterial(mat);
+		turret->SetTexture("Nave.bmp");
+		turret->SetFrameType(40, 40, 7);
+		turret->SetFrame(0);
+	}
 	if (tilemap && mat)
 	{
 		tilemap->SetMaterial(mat);
@@ -105,12 +113,14 @@ bool Game::OnUpdate(float deltaTime)
 	renderer->CameraFollow(player->GetPos());
 	//CollisionManager::GetInstance()->Update();
 	conta += deltaTime * 1;
-	tilemap->Draw();
+	//tilemap->Draw();
+	turret->Draw();
+	turret->OnUpdate(deltaTime);
 	player->OnUpdate(deltaTime);
 	landingPlatform->OnUpdate(deltaTime);
 	player->Draw();
 	landingPlatform->Draw();
-	//ground->Draw();
+	ground->Draw();
 	if (loopCount > 10000)
 	{		
 		return false;

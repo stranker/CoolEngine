@@ -8,6 +8,7 @@
 #include "Tilemap.h"
 #include "Platform.h"
 #include "Line2D.h"
+#include "Turret.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ protected:
 	b2World* world2D;
 	Tilemap* tilemap;
 	Line2D* ground;
+	Turret* turret;
 	float* coord;
 	float conta;
 public:

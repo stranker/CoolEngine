@@ -1,4 +1,4 @@
-﻿  Line2D.cpp
+﻿  Turret.cpp
 c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(12): warning C4251: 'Renderer::model': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\renderer.h(13): warning C4251: 'Renderer::view': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
@@ -27,6 +27,16 @@ c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\entity.h
   c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\shape.h(36): warning C4251: 'Shape::pivot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Shape'
   c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
-     Creando biblioteca C:\Users\Capo\Desktop\Danielito\FACU\CoolEngine\EngineProject\Debug\EngineDLL.lib y objeto C:\Users\Capo\Desktop\Danielito\FACU\CoolEngine\EngineProject\Debug\EngineDLL.exp
-MSVCRTD.lib(initializers.obj) : warning LNK4098: la biblioteca predeterminada'msvcrt.lib' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\animationplayer.h(12): warning C4251: 'AnimationPlayer::animationList': class 'std::list<Animation *,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'AnimationPlayer'
+          with
+          [
+              _Ty=Animation *
+          ]
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\animationplayer.h(12): note: vea la declaración de 'std::list<Animation *,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=Animation *
+          ]
+c:\users\capo\desktop\danielito\facu\coolengine\engineproject\enginedll\turret.h(18): warning C4251: 'Turret::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Turret'
+  c:\users\capo\desktop\danielito\facu\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
   EngineDLL.vcxproj -> C:\Users\Capo\Desktop\Danielito\FACU\CoolEngine\EngineProject\Debug\EngineDLL.dll

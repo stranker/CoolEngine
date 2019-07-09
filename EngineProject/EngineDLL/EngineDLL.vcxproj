@@ -138,6 +138,7 @@
     <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Turret.h" />
     <ClInclude Include="TypeDefs.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Window.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Turret.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>

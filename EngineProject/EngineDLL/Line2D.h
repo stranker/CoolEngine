@@ -4,7 +4,7 @@
 #include <list>
 #include "Box2D\Box2D.h"
 
-class Line2D :	public Shape
+class ENGINEDLL_API Line2D :	public Shape
 {
 public:
 	Line2D(Renderer* renderer);
