@@ -26,7 +26,7 @@ void Player::OnUpdate(float deltaTime)
 	// Move UP
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
 		animator->Play("Flying", deltaTime);
-		rigidBody->ApplyForceToCenter(500 * direction, true);
+		rigidBody->ApplyForceToCenter(800 * direction, true);
 	}
 	else
 	{

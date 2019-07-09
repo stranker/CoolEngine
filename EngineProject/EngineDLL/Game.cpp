@@ -30,7 +30,7 @@ bool Game::OnStart()
 	myBodyDef.type = b2_dynamicBody; //this will be a dynamic body
 	myBodyDef.position.Set(0, 0); //set the starting position
 	myBodyDef.angle = 90; //set the starting angle
-	myBodyDef.gravityScale = 0.05f;
+	myBodyDef.gravityScale = 0.09f;
 	b2PolygonShape boxShape;
 	boxShape.SetAsBox(40, 40);
 	b2FixtureDef boxFixtureDef;
@@ -39,7 +39,7 @@ bool Game::OnStart()
 	b2Body* playerRigid = world2D->CreateBody(&myBodyDef);
 	playerRigid->CreateFixture(&boxFixtureDef);
 	player->SetRigidbody(playerRigid);
-
+	player->CreateCollider(280, 40, false, false);
 	// Body def platform
 	b2BodyDef myBodyDefPlat;
 	myBodyDefPlat.type = b2_staticBody; //this will be a static body
@@ -56,16 +56,26 @@ bool Game::OnStart()
 
 	// Ground
 	b2Vec2 vs[4];
-	vs[0].Set(1.7f, 0.0f);
-	vs[1].Set(1.0f, 0.25f);
-	vs[2].Set(0.0f, 0.0f);
-	vs[3].Set(-1.7f, 0.4f);	list<b2Vec2> groundList;
+	vs[0].Set(0.0f, -50);
+	vs[1].Set(100.0f, -100.0f);
+	vs[2].Set(300.0f, -200.0f);
+	vs[3].Set(400.0f, -200.0f);
+	b2BodyDef chainDef;
+	chainDef.type = b2_staticBody;
+	chainDef.position.Set(0, -50); //set the starting position
+	b2ChainShape chain;
+	chain.CreateChain(vs, 4);
+	b2FixtureDef chainFixture;
+	chainFixture.shape = &chain;
+	chainFixture.density = 1;
+	b2Body* groundRigid = world2D->CreateBody(&chainDef);
+	groundRigid->CreateFixture(&chainFixture);
+	list<b2Vec2> groundList;
 	groundList.push_back(vs[0]);
 	groundList.push_back(vs[1]);
 	groundList.push_back(vs[2]);
 	groundList.push_back(vs[3]);
-	b2ChainShape chain;
-	chain.CreateChain(vs, 4);
+	ground->SetLinesVertices(groundList);
 	
 	if (player && mat)
 	{
@@ -98,7 +108,8 @@ bool Game::OnStart()
 		tilemap->SetFrameType(32, 32, 6);
 		tilemap->SetTexture("tilemap.bmp");
 	}
-	//CollisionManager::GetInstance()->AddToGroup("A", player);
+	CollisionManager::GetInstance()->AddToGroup("A", player);
+
 	return true;
 }
 
@@ -111,7 +122,7 @@ bool Game::OnUpdate(float deltaTime)
 {	
 	world2D->Step(1 / 20.0, 8, 3);
 	renderer->CameraFollow(player->GetPos());
-	//CollisionManager::GetInstance()->Update();
+	CollisionManager::GetInstance()->Update();
 	conta += deltaTime * 1;
 	//tilemap->Draw();
 	turret->Draw();
