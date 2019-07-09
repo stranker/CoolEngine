@@ -22,6 +22,7 @@ bool Game::OnStart()
 	world2D = new b2World(gravity);
 	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
+	//ground = new Line2D(renderer);
 
 	// Body def player
 	b2BodyDef myBodyDef;
@@ -51,6 +52,19 @@ bool Game::OnStart()
 	b2Body* platRigid = world2D->CreateBody(&myBodyDefPlat);
 	platRigid->CreateFixture(&boxFixtureDefPlat);
 	landingPlatform->SetRigidbody(platRigid);
+
+	// Ground
+	b2Vec2 vs[4];
+	vs[0].Set(1.7f, 0.0f);
+	vs[1].Set(1.0f, 0.25f);
+	vs[2].Set(0.0f, 0.0f);
+	vs[3].Set(-1.7f, 0.4f);	list<b2Vec2> groundList;
+	groundList.push_back(vs[0]);
+	groundList.push_back(vs[1]);
+	groundList.push_back(vs[2]);
+	groundList.push_back(vs[3]);
+	b2ChainShape chain;
+	chain.CreateChain(vs, 4);
 	
 	if (player && mat)
 	{
@@ -65,6 +79,10 @@ bool Game::OnStart()
 		landingPlatform->SetTexture("Platform.bmp");
 		landingPlatform->SetFrameType(50,20, 4);
 		landingPlatform->SetFrame(0);
+	}
+	if (ground)
+	{
+		ground->SetMaterial(mat);
 	}
 	if (tilemap && mat)
 	{
@@ -92,6 +110,7 @@ bool Game::OnUpdate(float deltaTime)
 	landingPlatform->OnUpdate(deltaTime);
 	player->Draw();
 	landingPlatform->Draw();
+	//ground->Draw();
 	if (loopCount > 10000)
 	{		
 		return false;

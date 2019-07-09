@@ -65,9 +65,9 @@ void Shape::MoveIn(float x, float y, float z)
 }
 void Shape::Translate(float x, float y)
 {
-	pos.x += x;
-	pos.y += y;
-	pos.z += 0;
+	pos.x = x;
+	pos.y = y;
+	pos.z = 0;
 	translate = glm::translate(glm::mat4(1.0f), pos);
 	UpdateModelMatrix();
 }

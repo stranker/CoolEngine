@@ -1,15 +1,13 @@
 #pragma once
 #include "GameBase.h"
 #include "CollisionManager.h"
-#include "Triangle.h"
-#include "Square.h"
-#include "Circle.h"
 #include "Material.h"
 #include "Sprite.h"
 #include "Player.h"
 #include <iostream>
 #include "Tilemap.h"
 #include "Platform.h"
+#include "Line2D.h"
 
 using namespace std;
 
@@ -25,6 +23,7 @@ protected:
 	Platform* landingPlatform;
 	b2World* world2D;
 	Tilemap* tilemap;
+	Line2D* ground;
 	float* coord;
 	float conta;
 public:
