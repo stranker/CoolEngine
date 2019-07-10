@@ -17,5 +17,8 @@ public:
 	list<b2Vec2> points;
 	vector<float> lineVertices;
 	void SetLinesVertices(list<b2Vec2> _lines);
+	b2Body* GetRigidbody();
+	void SetRigidbody(b2Body* body);
+	b2Body* rigidBody;
 };
 

@@ -9,6 +9,7 @@ Platform::Platform(Renderer* _renderer) : Sprite(_renderer)
 	landingAnimation->CreateAnimation("Landing", 0, 2, false);
 	animator->AddAnimation(idleAnimation);
 	animator->AddAnimation(landingAnimation);
+	name = "Platform";
 }
 
 
@@ -27,4 +28,9 @@ void Platform::OnUpdate(float deltaTime)
 void Platform::SetRigidbody(b2Body * body)
 {
 	rigidBody = body;
+}
+
+b2Body * Platform::GetRigidbody()
+{
+	return rigidBody;
 }

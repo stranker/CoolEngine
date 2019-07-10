@@ -9,6 +9,7 @@ Line2D::Line2D(Renderer* rend) : Shape(rend)
 	pivot.x = 0;
 	pivot.y = 0;
 	pivot.z = 0;
+	name = "Ground";
 }
 
 
@@ -31,6 +32,14 @@ void Line2D::SetLinesVertices(list<b2Vec2> _lines)
 	bufferData = renderer->GenBuffer(&lineVertices[0], lineVertices.size() * sizeof(float));
 	vtxCount = lineVertices.size() / 3;
 	CollisionManager::GetInstance()->SetLinesVertices(points);
+}
+b2Body * Line2D::GetRigidbody()
+{
+	return rigidBody;
+}
+void Line2D::SetRigidbody(b2Body * body)
+{
+	rigidBody = body;
 }
 void Line2D::Draw()
 {

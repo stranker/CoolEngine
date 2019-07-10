@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Player.h"
 #include "GLFW\glfw3.h"
 #include "Tilemap.h"
 Player::Player(Renderer* _renderer) : Sprite(_renderer)
@@ -13,6 +14,7 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 	animator->AddAnimation(idleAnimation);
 	animator->AddAnimation(flyingAnimation);
 	animator->AddAnimation(dieAnimation);
+	name = "Player";
 }
 
 
@@ -26,7 +28,7 @@ void Player::OnUpdate(float deltaTime)
 	// Move UP
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
 		animator->Play("Flying", deltaTime);
-		rigidBody->ApplyForceToCenter(800 * direction, true);
+		rigidBody->ApplyForceToCenter(40 * direction, true);
 	}
 	else
 	{
@@ -53,4 +55,15 @@ void Player::OnUpdate(float deltaTime)
 void Player::SetRigidbody(b2Body * body)
 {
 	rigidBody = body;
+	initialPos = rigidBody->GetPosition();
+}
+
+b2Body * Player::GetRigidbody()
+{
+	return rigidBody;
+}
+
+b2Vec2 Player::GetInitialPos()
+{
+	return initialPos;
 }

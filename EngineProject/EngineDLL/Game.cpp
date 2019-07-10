@@ -62,6 +62,36 @@ bool Game::OnUpdate(float deltaTime)
 	player->Draw();
 	landingPlatform->Draw();
 	ground->Draw();
+
+	// Ground contact
+
+	for (b2ContactEdge* ce = landingPlatform->GetRigidbody()->GetContactList(); ce; ce = ce->next)
+	{
+		b2Contact* c = ce->contact;
+		b2Body* pbody = c->GetFixtureA()->GetBody();
+		if (pbody != NULL)
+		{
+			if (pbody->GetLinearVelocity().y < -2.0f)
+			{
+				pbody->SetTransform(player->GetInitialPos(), 0);
+				pbody->SetLinearVelocity(b2Vec2_zero);
+				player->Translate(player->GetInitialPos().x, player->GetInitialPos().y);
+			}
+		}
+	}
+
+	for (b2ContactEdge* ce = ground->GetRigidbody()->GetContactList(); ce; ce = ce->next)
+	{
+		b2Contact* c = ce->contact;
+		b2Body* pbody = c->GetFixtureB()->GetBody();
+		void* p = pbody->GetUserData();
+		if (p)
+		{
+			pbody->SetTransform(player->GetInitialPos(), 0);
+			pbody->SetLinearVelocity(b2Vec2_zero);
+			player->Translate(player->GetInitialPos().x, player->GetInitialPos().y);
+		}
+	}
 	if (loopCount > 10000)
 	{		
 		return false;
@@ -86,14 +116,15 @@ void Game::CreateRigidbodies()
 	// Body def player
 	b2BodyDef myBodyDef;
 	myBodyDef.type = b2_dynamicBody; //this will be a dynamic body
-	myBodyDef.position.Set(0, 0); //set the starting position
+	myBodyDef.position.Set(0, 400); //set the starting position
 	myBodyDef.angle = 90; //set the starting angle
-	myBodyDef.gravityScale = 0.09f;
+	myBodyDef.gravityScale = 0.08f;
+	myBodyDef.userData = &player;
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(40, 40);
+	boxShape.SetAsBox(30, 30);
 	b2FixtureDef boxFixtureDef;
 	boxFixtureDef.shape = &boxShape;
-	boxFixtureDef.density = 1;
+	boxFixtureDef.density = 0.1f;
 	b2Body* playerRigid = world2D->CreateBody(&myBodyDef);
 	playerRigid->CreateFixture(&boxFixtureDef);
 	player->SetRigidbody(playerRigid);
@@ -103,8 +134,9 @@ void Game::CreateRigidbodies()
 	myBodyDefPlat.type = b2_staticBody; //this will be a static body
 	myBodyDefPlat.position.Set(100, 100); //set the starting position
 	myBodyDefPlat.angle = 0; //set the starting angle
+	myBodyDefPlat.userData = &landingPlatform;
 	b2PolygonShape boxShapePlat;
-	boxShapePlat.SetAsBox(40, 40);
+	boxShapePlat.SetAsBox(30, 30);
 	b2FixtureDef boxFixtureDefPlat;
 	boxFixtureDefPlat.shape = &boxShapePlat;
 	boxFixtureDefPlat.density = 1;
@@ -116,13 +148,14 @@ void Game::CreateRigidbodies()
 	b2BodyDef myBodyDefTurr;
 	myBodyDefTurr.type = b2_staticBody; //this will be a static body
 	myBodyDefTurr.position.Set(200, 100); //set the starting position
+	myBodyDefTurr.userData = &turret;
 	b2PolygonShape boxShapeTurr;
-	boxShapeTurr.SetAsBox(40, 40);
+	boxShapeTurr.SetAsBox(30, 30);
 	b2FixtureDef boxFixtureDefTurret;
 	boxFixtureDefTurret.shape = &boxShapeTurr;
 	boxFixtureDefTurret.density = 1;
 	b2Body* turretRigid = world2D->CreateBody(&myBodyDefTurr);
-	platRigid->CreateFixture(&boxFixtureDefTurret);
+	turretRigid->CreateFixture(&boxFixtureDefTurret);
 	turret->SetRigidbody(turretRigid);
 
 	// Ground
@@ -134,6 +167,7 @@ void Game::CreateRigidbodies()
 	b2BodyDef chainDef;
 	chainDef.type = b2_staticBody;
 	chainDef.position.Set(0, -50); //set the starting position
+	chainDef.userData = &ground;
 	b2ChainShape chain;
 	chain.CreateChain(vs, 4);
 	b2FixtureDef chainFixture;
@@ -147,4 +181,5 @@ void Game::CreateRigidbodies()
 	groundList.push_back(vs[2]);
 	groundList.push_back(vs[3]);
 	ground->SetLinesVertices(groundList);
+	ground->SetRigidbody(groundRigid);
 }

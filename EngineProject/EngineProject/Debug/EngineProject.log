@@ -27,7 +27,9 @@ c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\ent
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\entity.h(17): warning C4251: 'Entity::scale': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\shape.h(36): warning C4251: 'Shape::pivot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Shape'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\shape.h(25): warning C4251: 'Shape::name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Shape'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\xstring(4373): note: vea la declaración de 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\shape.h(37): warning C4251: 'Shape::pivot': struct 'glm::vec<3,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Shape'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: vea la declaración de 'glm::vec<3,float,0>'
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\collisionmanager.h(11): warning C4251: 'CollisionManager::colliderMap': class 'std::map<std::string,std::list<Shape *,std::allocator<_Ty>>,std::less<_Kty>,std::allocator<std::pair<const _Kty,std::list<_Ty,std::allocator<_Ty>>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'CollisionManager'
           with
@@ -61,7 +63,9 @@ c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\ani
           [
               _Ty=Animation *
           ]
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(20): warning C4251: 'Player::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(22): warning C4251: 'Player::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
+  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(23): warning C4251: 'Player::initialPos': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(17): warning C4251: 'Line2D::points': class 'std::list<b2Vec2,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Line2D'
           with
@@ -83,7 +87,7 @@ c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\lin
           [
               _Ty=float
           ]
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\turret.h(18): warning C4251: 'Turret::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Turret'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\turret.h(19): warning C4251: 'Turret::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Turret'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\game.cpp(55): warning C4305: 'argumento': truncamiento de 'double' a 'float32'
   EngineProject.vcxproj -> C:\Users\Daniel\Documents\Proyectos\Godot\CoolEngine\EngineProject\Debug\EngineProject.exe

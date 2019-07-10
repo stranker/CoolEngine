@@ -10,6 +10,7 @@ public:
 	~Turret();
 	void OnUpdate(float deltaTime) override;
 	void SetRigidbody(b2Body* body);
+	b2Body* GetRigidbody();
 private:
 	Animation * idleAnimation;
 	AnimationPlayer * animator;

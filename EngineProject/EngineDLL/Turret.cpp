@@ -6,6 +6,7 @@ Turret::Turret(Renderer * rend) : Sprite(rend)
 	idleAnimation = new Animation(this);
 	idleAnimation->CreateAnimation("Idle", 0, 0, true);
 	animator->AddAnimation(idleAnimation);
+	name = "Turret";
 }
 
 Turret::~Turret()
@@ -23,4 +24,9 @@ void Turret::OnUpdate(float deltaTime)
 void Turret::SetRigidbody(b2Body * body)
 {
 	rigidBody = body;
+}
+
+b2Body * Turret::GetRigidbody()
+{
+	return rigidBody;
 }

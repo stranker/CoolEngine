@@ -10,6 +10,8 @@ public:
 	~Player();
 	void OnUpdate(float deltaTime) override;
 	void SetRigidbody(b2Body* body);
+	b2Body* GetRigidbody();
+	b2Vec2 GetInitialPos();
 private:
 	Animation * idleAnimation;
 	Animation * flyingAnimation;
@@ -18,5 +20,6 @@ private:
 	b2Body* rigidBody;
 	float angleRotation = 0;
 	b2Vec2 direction = b2Vec2_zero;
+	b2Vec2 initialPos;
 };
 

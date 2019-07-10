@@ -21,9 +21,8 @@ public:
 	int heightTotal;
 	int widthTotal;
 	int framesTotal;
-	void OnCollision() override {};	
+	void OnCollision() override {};
 	void OnUpdate(float deltaTime) override {};
-
 private:
 	unsigned int texture;
 	unsigned int verticesUV;
