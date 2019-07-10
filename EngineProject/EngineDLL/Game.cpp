@@ -32,6 +32,13 @@ bool Game::OnStart()
 		landingPlatform->SetFrameType(50,20, 4);
 		landingPlatform->SetFrame(0);
 	}
+	if (bullet && mat)
+	{
+		bullet->SetMaterial(mat);
+		bullet->SetTexture("Bullet.bmp");
+		bullet->SetFrameType(16, 16, 1);
+		bullet->SetFrame(0);
+	}
 	if (ground && mat)
 	{
 		ground->SetMaterial(mat);
@@ -42,6 +49,13 @@ bool Game::OnStart()
 		turret->SetTexture("Nave.bmp");
 		turret->SetFrameType(40, 40, 7);
 		turret->SetFrame(0);
+	}
+	if (turret2 && mat)
+	{
+		turret2->SetMaterial(mat);
+		turret2->SetTexture("Nave.bmp");
+		turret2->SetFrameType(40, 40, 7);
+		turret2->SetFrame(0);
 	}
 	return true;
 }
@@ -57,12 +71,25 @@ bool Game::OnUpdate(float deltaTime)
 	renderer->CameraFollow(player->GetPos());
 	conta += deltaTime * 1;
 	turret->Draw();
+	turret2->Draw();
 	turret->OnUpdate(deltaTime);
+	turret2->OnUpdate(deltaTime);
 	player->OnUpdate(deltaTime);
 	landingPlatform->OnUpdate(deltaTime);
 	player->Draw();
 	landingPlatform->Draw();
 	ground->Draw();
+	bullet->Draw();
+	bullet->OnUpdate(deltaTime);
+
+	// Spawn bullet
+	if (turret->CanShot() && !win)
+	{
+		turret->Shot();
+		bullet->GetRigidbody()->SetTransform(turret->GetRigidbody()->GetPosition() + b2Vec2(0,60),0);
+		bullet->GetRigidbody()->SetLinearVelocity(b2Vec2_zero);
+		bullet->Fired(turret->GetRigidbody()->GetPosition() + b2Vec2(0, 60),player->GetRigidbody()->GetPosition());
+	}
 
 	// Ground contact
 
@@ -77,6 +104,10 @@ bool Game::OnUpdate(float deltaTime)
 				pbody->SetTransform(player->GetInitialPos(), 0);
 				pbody->SetLinearVelocity(b2Vec2_zero);
 				player->Translate(player->GetInitialPos().x, player->GetInitialPos().y);
+			}
+			else
+			{
+				win = true;
 			}
 		}
 	}
@@ -114,6 +145,7 @@ void Game::CreateGameObjects()
 	turret = new Turret(renderer);
 	turret2 = new Turret(renderer);
 	ground = new Line2D(renderer);
+	bullet = new Bullet(renderer);
 }
 
 void Game::CreateRigidbodies()
@@ -128,7 +160,7 @@ void Game::CreateRigidbodies()
 	b2Vec2 points[LENGTH_TERRAIN];
 	for (int i = 0; i < LENGTH_TERRAIN; i++)
 	{
-		points[i].Set(ground->points[i].x, ground->points[i].y);
+		points[i].Set(ground->points[i].x, ground->points[i].y - 15);
 	}
 	chain.CreateChain(points, LENGTH_TERRAIN);
 	b2FixtureDef chainFixture;
@@ -158,7 +190,6 @@ void Game::CreateRigidbodies()
 	b2BodyDef myBodyDefPlat;
 	myBodyDefPlat.type = b2_staticBody; //this will be a static body
 	myBodyDefPlat.position.Set(ground->platPoint.x, ground->platPoint.y); //set the starting position
-	myBodyDefPlat.angle = 0; //set the starting angle
 	myBodyDefPlat.userData = &landingPlatform;
 	b2PolygonShape boxShapePlat;
 	boxShapePlat.SetAsBox(30, 30);
@@ -188,4 +219,20 @@ void Game::CreateRigidbodies()
 	turretRigid2->CreateFixture(&boxFixtureDefTurret);
 	turret->SetRigidbody(turretRigid);
 	turret2->SetRigidbody(turretRigid2);
+
+	//body def Bullet
+	b2BodyDef bdb;
+	bdb.type = b2_dynamicBody; //this will be a dynamic body
+	bdb.position.Set(-500, -500); //set the starting position
+	bdb.gravityScale = 0.1f;
+	bdb.userData = &bullet;
+	bdb.bullet = true;
+	b2PolygonShape boxShapeBull;
+	boxShapeBull.SetAsBox(8, 8);
+	b2FixtureDef boxFixtureDefBull;
+	boxFixtureDefBull.shape = &boxShapeBull;
+	boxFixtureDefBull.density = 0.5f;
+	b2Body* bulletRigid = world2D->CreateBody(&bdb);
+	bulletRigid->CreateFixture(&boxFixtureDefBull);
+	bullet->SetRigidbody(bulletRigid);
 }

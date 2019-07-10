@@ -8,6 +8,8 @@
 #include "Platform.h"
 #include "Line2D.h"
 #include "Turret.h"
+#include "Bullet.h"
+
 #define LENGTH_TERRAIN 100
 
 using namespace std;
@@ -28,8 +30,10 @@ protected:
 	Line2D* ground;
 	Turret* turret;
 	Turret* turret2;
+	Bullet* bullet;
 	float* coord;
 	float conta;
+	bool win = false;
 public:
 	Game(int _screenHeight, int _screenWidht, string _screenName);
 	~Game();
