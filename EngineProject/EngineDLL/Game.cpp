@@ -15,16 +15,74 @@ Game::~Game()
 bool Game::OnStart()
 {
 	cout << "Game::OnStart()" << endl;
+	CreateGameObjects();
+	CreateRigidbodies();
+	if (player && mat)
+	{
+		player->SetMaterial(mat);
+		player->SetTexture("Nave.bmp");
+		player->SetFrameType(40, 40, 7);
+		player->SetFrame(0);
+	}
+	if (landingPlatform && mat)
+	{
+		landingPlatform->SetMaterial(mat);
+		landingPlatform->SetTexture("Platform.bmp");
+		landingPlatform->SetFrameType(50,20, 4);
+		landingPlatform->SetFrame(0);
+	}
+	if (ground && mat)
+	{
+		ground->SetMaterial(mat);
+	}
+	if (turret && mat)
+	{
+		turret->SetMaterial(mat);
+		turret->SetTexture("Nave.bmp");
+		turret->SetFrameType(40, 40, 7);
+		turret->SetFrame(0);
+	}
+	return true;
+}
+
+bool Game::OnStop()
+{
+	cout << "Game::OnStop()" << endl;
+	return false;
+}
+bool Game::OnUpdate(float deltaTime)
+{	
+	world2D->Step(1 / 20.0, 8, 3);
+	renderer->CameraFollow(player->GetPos());
+	conta += deltaTime * 1;
+	turret->Draw();
+	turret->OnUpdate(deltaTime);
+	player->OnUpdate(deltaTime);
+	landingPlatform->OnUpdate(deltaTime);
+	player->Draw();
+	landingPlatform->Draw();
+	ground->Draw();
+	if (loopCount > 10000)
+	{		
+		return false;
+	}
+
+	return true;
+}
+
+void Game::CreateGameObjects()
+{
 	mat = new Material();
-	tilemap = new Tilemap(renderer, screenHeight, screenWidth);
-	tilemap->SetColliderTiles({0});
 	const b2Vec2 gravity = b2Vec2(0, -1);
 	world2D = new b2World(gravity);
 	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
-	turret = new Turret(renderer, world2D);
+	turret = new Turret(renderer);
 	ground = new Line2D(renderer);
+}
 
+void Game::CreateRigidbodies()
+{
 	// Body def player
 	b2BodyDef myBodyDef;
 	myBodyDef.type = b2_dynamicBody; //this will be a dynamic body
@@ -39,7 +97,7 @@ bool Game::OnStart()
 	b2Body* playerRigid = world2D->CreateBody(&myBodyDef);
 	playerRigid->CreateFixture(&boxFixtureDef);
 	player->SetRigidbody(playerRigid);
-	player->CreateCollider(280, 40, false, false);
+
 	// Body def platform
 	b2BodyDef myBodyDefPlat;
 	myBodyDefPlat.type = b2_staticBody; //this will be a static body
@@ -54,10 +112,23 @@ bool Game::OnStart()
 	platRigid->CreateFixture(&boxFixtureDefPlat);
 	landingPlatform->SetRigidbody(platRigid);
 
+	// Body def turret
+	b2BodyDef myBodyDefTurr;
+	myBodyDefTurr.type = b2_staticBody; //this will be a static body
+	myBodyDefTurr.position.Set(200, 100); //set the starting position
+	b2PolygonShape boxShapeTurr;
+	boxShapeTurr.SetAsBox(40, 40);
+	b2FixtureDef boxFixtureDefTurret;
+	boxFixtureDefTurret.shape = &boxShapeTurr;
+	boxFixtureDefTurret.density = 1;
+	b2Body* turretRigid = world2D->CreateBody(&myBodyDefTurr);
+	platRigid->CreateFixture(&boxFixtureDefTurret);
+	turret->SetRigidbody(turretRigid);
+
 	// Ground
 	b2Vec2 vs[4];
 	vs[0].Set(0.0f, -50);
-	vs[1].Set(100.0f, -100.0f);
+	vs[1].Set(200.0f, -100.0f);
 	vs[2].Set(300.0f, -200.0f);
 	vs[3].Set(400.0f, -200.0f);
 	b2BodyDef chainDef;
@@ -76,66 +147,4 @@ bool Game::OnStart()
 	groundList.push_back(vs[2]);
 	groundList.push_back(vs[3]);
 	ground->SetLinesVertices(groundList);
-	
-	if (player && mat)
-	{
-		player->SetMaterial(mat);
-		player->SetTexture("Nave.bmp");
-		player->SetFrameType(40, 40, 7);
-		player->SetFrame(0);
-	}
-	if (landingPlatform && mat)
-	{
-		landingPlatform->SetMaterial(mat);
-		landingPlatform->SetTexture("Platform.bmp");
-		landingPlatform->SetFrameType(50,20, 4);
-		landingPlatform->SetFrame(0);
-	}
-	if (ground)
-	{
-		ground->SetMaterial(mat);
-	}
-	if (turret && mat)
-	{
-		turret->SetMaterial(mat);
-		turret->SetTexture("Nave.bmp");
-		turret->SetFrameType(40, 40, 7);
-		turret->SetFrame(0);
-	}
-	if (tilemap && mat)
-	{
-		tilemap->SetMaterial(mat);
-		tilemap->SetFrameType(32, 32, 6);
-		tilemap->SetTexture("tilemap.bmp");
-	}
-	CollisionManager::GetInstance()->AddToGroup("A", player);
-
-	return true;
-}
-
-bool Game::OnStop()
-{
-	cout << "Game::OnStop()" << endl;
-	return false;
-}
-bool Game::OnUpdate(float deltaTime)
-{	
-	world2D->Step(1 / 20.0, 8, 3);
-	renderer->CameraFollow(player->GetPos());
-	CollisionManager::GetInstance()->Update();
-	conta += deltaTime * 1;
-	//tilemap->Draw();
-	turret->Draw();
-	turret->OnUpdate(deltaTime);
-	player->OnUpdate(deltaTime);
-	landingPlatform->OnUpdate(deltaTime);
-	player->Draw();
-	landingPlatform->Draw();
-	ground->Draw();
-	if (loopCount > 10000)
-	{		
-		return false;
-	}
-
-	return true;
 }

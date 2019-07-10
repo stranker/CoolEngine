@@ -63,47 +63,6 @@ c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\ani
           ]
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(20): warning C4251: 'Player::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(2): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(20): warning C4251: 'Tilemap::vertexArrayPos': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
-          with
-          [
-              _Ty=float
-          ]
-  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=float
-          ]
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(21): warning C4251: 'Tilemap::vertexArrayUV': class 'std::vector<float,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
-          with
-          [
-              _Ty=float
-          ]
-  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=float
-          ]
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(22): warning C4251: 'Tilemap::tilesWithCollides': class 'std::vector<int,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
-          with
-          [
-              _Ty=int
-          ]
-  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(22): note: vea la declaración de 'std::vector<int,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=int
-          ]
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(46): warning C4251: 'Tilemap::indexes': class 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Tilemap'
-          with
-          [
-              _Ty=int
-          ]
-  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(46): note: vea la declaración de 'std::vector<std::vector<int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
-          with
-          [
-              _Ty=int
-          ]
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(17): warning C4251: 'Line2D::points': class 'std::list<b2Vec2,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Line2D'
           with
           [
@@ -119,12 +78,12 @@ c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\lin
           [
               _Ty=float
           ]
-  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\tilemap.h(20): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
+  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(18): note: vea la declaración de 'std::vector<float,std::allocator<_Ty>>'
           with
           [
               _Ty=float
           ]
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\turret.h(18): warning C4251: 'Turret::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Turret'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\game.cpp(123): warning C4305: 'argumento': truncamiento de 'double' a 'float32'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\game.cpp(55): warning C4305: 'argumento': truncamiento de 'double' a 'float32'
   EngineProject.vcxproj -> C:\Users\Daniel\Documents\Proyectos\Godot\CoolEngine\EngineProject\Debug\EngineProject.exe

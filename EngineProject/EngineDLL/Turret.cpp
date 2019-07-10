@@ -1,19 +1,11 @@
 #include "Turret.h"
 
-Turret::Turret(Renderer * rend, b2World* world) : Sprite(rend)
+Turret::Turret(Renderer * rend) : Sprite(rend)
 {
-	b2BodyDef myBodyDef;
-	myBodyDef.type = b2_staticBody; //this will be a dynamic body
-	myBodyDef.position.Set(150, 0); //set the starting position
-	myBodyDef.angle = 0; //set the starting angle
-	b2PolygonShape boxShape;
-	boxShape.SetAsBox(40, 40);
-	b2FixtureDef boxFixtureDef;
-	boxFixtureDef.shape = &boxShape;
-	boxFixtureDef.density = 1;
-	rigidBody = world->CreateBody(&myBodyDef);
-	rigidBody->CreateFixture(&boxFixtureDef);
-	cout << "ready" << endl;
+	animator = new AnimationPlayer();
+	idleAnimation = new Animation(this);
+	idleAnimation->CreateAnimation("Idle", 0, 0, true);
+	animator->AddAnimation(idleAnimation);
 }
 
 Turret::~Turret()
@@ -30,4 +22,5 @@ void Turret::OnUpdate(float deltaTime)
 
 void Turret::SetRigidbody(b2Body * body)
 {
+	rigidBody = body;
 }

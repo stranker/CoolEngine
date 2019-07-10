@@ -3,10 +3,10 @@
 #include "Exports.h"
 #include "Sprite.h"
 
-class ENGINEDLL_API Turret :	public Sprite
+class ENGINEDLL_API Turret : public Sprite
 {
 public:
-	Turret(Renderer* rend, b2World* world);
+	Turret(Renderer* rend);
 	~Turret();
 	void OnUpdate(float deltaTime) override;
 	void SetRigidbody(b2Body* body);
