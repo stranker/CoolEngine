@@ -28,7 +28,7 @@ void Player::OnUpdate(float deltaTime)
 	// Move UP
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
 		animator->Play("Flying", deltaTime);
-		rigidBody->ApplyForceToCenter(40 * direction, true);
+		rigidBody->ApplyForceToCenter(30 * direction, true);
 	}
 	else
 	{
@@ -66,4 +66,9 @@ b2Body * Player::GetRigidbody()
 b2Vec2 Player::GetInitialPos()
 {
 	return initialPos;
+}
+
+void Player::AnimationPlay(const char * animName, float deltaTime)
+{
+	animator->Play(animName, deltaTime);
 }

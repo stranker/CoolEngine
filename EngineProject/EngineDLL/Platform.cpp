@@ -34,3 +34,8 @@ b2Body * Platform::GetRigidbody()
 {
 	return rigidBody;
 }
+
+void Platform::AnimationPlay(const char* animName, float deltaTime)
+{
+	animator->Play(animName,deltaTime);
+}

@@ -8,6 +8,7 @@
 #include "Platform.h"
 #include "Line2D.h"
 #include "Turret.h"
+#define LENGTH_TERRAIN 100
 
 using namespace std;
 
@@ -26,6 +27,7 @@ protected:
 	b2World* world2D;
 	Line2D* ground;
 	Turret* turret;
+	Turret* turret2;
 	float* coord;
 	float conta;
 public:

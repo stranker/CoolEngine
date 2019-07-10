@@ -12,6 +12,7 @@ public:
 	void SetRigidbody(b2Body* body);
 	b2Body* GetRigidbody();
 	b2Vec2 GetInitialPos();
+	void AnimationPlay(const char* animName, float deltaTime);
 private:
 	Animation * idleAnimation;
 	Animation * flyingAnimation;

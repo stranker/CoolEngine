@@ -63,16 +63,16 @@ c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\ani
           [
               _Ty=Animation *
           ]
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(22): warning C4251: 'Player::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(23): warning C4251: 'Player::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(23): warning C4251: 'Player::initialPos': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\player.h(24): warning C4251: 'Player::initialPos': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Player'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(17): warning C4251: 'Line2D::points': class 'std::list<b2Vec2,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Line2D'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(17): warning C4251: 'Line2D::points': class 'std::vector<b2Vec2,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Line2D'
           with
           [
               _Ty=b2Vec2
           ]
-  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\collisionmanager.h(12): note: vea la declaración de 'std::list<b2Vec2,std::allocator<_Ty>>'
+  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(17): note: vea la declaración de 'std::vector<b2Vec2,std::allocator<_Ty>>'
           with
           [
               _Ty=b2Vec2
@@ -87,7 +87,19 @@ c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\lin
           [
               _Ty=float
           ]
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(25): warning C4251: 'Line2D::platPoint': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Line2D'
+  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(26): warning C4251: 'Line2D::turretsPoint': class 'std::vector<b2Vec2,std::allocator<_Ty>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Line2D'
+          with
+          [
+              _Ty=b2Vec2
+          ]
+  c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\line2d.h(17): note: vea la declaración de 'std::vector<b2Vec2,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=b2Vec2
+          ]
 c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\turret.h(19): warning C4251: 'Turret::direction': struct 'b2Vec2' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Turret'
   c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\external\b2d\box2d\dynamics\b2worldcallbacks.h(24): note: vea la declaración de 'b2Vec2'
-c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\game.cpp(55): warning C4305: 'argumento': truncamiento de 'double' a 'float32'
+c:\users\daniel\documents\proyectos\godot\coolengine\engineproject\enginedll\game.cpp(56): warning C4305: 'argumento': truncamiento de 'double' a 'float32'
   EngineProject.vcxproj -> C:\Users\Daniel\Documents\Proyectos\Godot\CoolEngine\EngineProject\Debug\EngineProject.exe

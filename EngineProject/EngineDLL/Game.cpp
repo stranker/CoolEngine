@@ -17,6 +17,7 @@ bool Game::OnStart()
 	cout << "Game::OnStart()" << endl;
 	CreateGameObjects();
 	CreateRigidbodies();
+	renderer->SetNewCameraSize(1024.0f, 768.0f);
 	if (player && mat)
 	{
 		player->SetMaterial(mat);
@@ -91,7 +92,10 @@ bool Game::OnUpdate(float deltaTime)
 			pbody->SetLinearVelocity(b2Vec2_zero);
 			player->Translate(player->GetInitialPos().x, player->GetInitialPos().y);
 		}
-	}
+	}
+
+
+
 	if (loopCount > 10000)
 	{		
 		return false;
@@ -108,17 +112,38 @@ void Game::CreateGameObjects()
 	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
 	turret = new Turret(renderer);
+	turret2 = new Turret(renderer);
 	ground = new Line2D(renderer);
 }
 
 void Game::CreateRigidbodies()
 {
+	// Ground
+	ground->CreateRandomLine(LENGTH_TERRAIN, 2);
+	b2BodyDef chainDef;
+	chainDef.type = b2_staticBody;
+	chainDef.position.Set(0, 0); //set the starting position
+	chainDef.userData = &ground;
+	b2ChainShape chain;
+	b2Vec2 points[LENGTH_TERRAIN];
+	for (int i = 0; i < LENGTH_TERRAIN; i++)
+	{
+		points[i].Set(ground->points[i].x, ground->points[i].y);
+	}
+	chain.CreateChain(points, LENGTH_TERRAIN);
+	b2FixtureDef chainFixture;
+	chainFixture.shape = &chain;
+	chainFixture.density = 1;
+	b2Body* groundRigid = world2D->CreateBody(&chainDef);
+	groundRigid->CreateFixture(&chainFixture);
+	ground->SetRigidbody(groundRigid);
+
 	// Body def player
 	b2BodyDef myBodyDef;
 	myBodyDef.type = b2_dynamicBody; //this will be a dynamic body
 	myBodyDef.position.Set(0, 400); //set the starting position
 	myBodyDef.angle = 90; //set the starting angle
-	myBodyDef.gravityScale = 0.08f;
+	myBodyDef.gravityScale = 0.05f;
 	myBodyDef.userData = &player;
 	b2PolygonShape boxShape;
 	boxShape.SetAsBox(30, 30);
@@ -132,7 +157,7 @@ void Game::CreateRigidbodies()
 	// Body def platform
 	b2BodyDef myBodyDefPlat;
 	myBodyDefPlat.type = b2_staticBody; //this will be a static body
-	myBodyDefPlat.position.Set(100, 100); //set the starting position
+	myBodyDefPlat.position.Set(ground->platPoint.x, ground->platPoint.y); //set the starting position
 	myBodyDefPlat.angle = 0; //set the starting angle
 	myBodyDefPlat.userData = &landingPlatform;
 	b2PolygonShape boxShapePlat;
@@ -146,40 +171,21 @@ void Game::CreateRigidbodies()
 
 	// Body def turret
 	b2BodyDef myBodyDefTurr;
-	myBodyDefTurr.type = b2_staticBody; //this will be a static body
-	myBodyDefTurr.position.Set(200, 100); //set the starting position
+	b2BodyDef myBodyDefTurr2;
+	myBodyDefTurr.type = myBodyDefTurr2.type = b2_staticBody; //this will be a static body
+	myBodyDefTurr.position.Set(ground->turretsPoint[0].x, ground->turretsPoint[0].y); //set the starting position
+	myBodyDefTurr2.position.Set(ground->turretsPoint[1].x, ground->turretsPoint[1].y); //set the starting position
 	myBodyDefTurr.userData = &turret;
+	myBodyDefTurr2.userData = &turret2;
 	b2PolygonShape boxShapeTurr;
 	boxShapeTurr.SetAsBox(30, 30);
 	b2FixtureDef boxFixtureDefTurret;
 	boxFixtureDefTurret.shape = &boxShapeTurr;
 	boxFixtureDefTurret.density = 1;
 	b2Body* turretRigid = world2D->CreateBody(&myBodyDefTurr);
+	b2Body* turretRigid2 = world2D->CreateBody(&myBodyDefTurr2);
 	turretRigid->CreateFixture(&boxFixtureDefTurret);
+	turretRigid2->CreateFixture(&boxFixtureDefTurret);
 	turret->SetRigidbody(turretRigid);
-
-	// Ground
-	b2Vec2 vs[4];
-	vs[0].Set(0.0f, -50);
-	vs[1].Set(200.0f, -100.0f);
-	vs[2].Set(300.0f, -200.0f);
-	vs[3].Set(400.0f, -200.0f);
-	b2BodyDef chainDef;
-	chainDef.type = b2_staticBody;
-	chainDef.position.Set(0, -50); //set the starting position
-	chainDef.userData = &ground;
-	b2ChainShape chain;
-	chain.CreateChain(vs, 4);
-	b2FixtureDef chainFixture;
-	chainFixture.shape = &chain;
-	chainFixture.density = 1;
-	b2Body* groundRigid = world2D->CreateBody(&chainDef);
-	groundRigid->CreateFixture(&chainFixture);
-	list<b2Vec2> groundList;
-	groundList.push_back(vs[0]);
-	groundList.push_back(vs[1]);
-	groundList.push_back(vs[2]);
-	groundList.push_back(vs[3]);
-	ground->SetLinesVertices(groundList);
-	ground->SetRigidbody(groundRigid);
+	turret2->SetRigidbody(turretRigid2);
 }

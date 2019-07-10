@@ -6,12 +6,12 @@ int main()
 	Game* game = new Game(800,600,"Test");
 
 	if (game->Start())
-	{				
-		game->Loop();		
-	}		
+	{
+		game->Loop();
+	}
 	game->Stop();
 	std::cin.get();
 	std::cin.get();
-	delete game;	
+	delete game;
 	return 0;
 }

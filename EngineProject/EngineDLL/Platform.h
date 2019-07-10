@@ -11,6 +11,7 @@ public:
 	void OnUpdate(float deltaTime) override;
 	void SetRigidbody(b2Body* body);
 	b2Body* GetRigidbody();
+	void AnimationPlay(const char* animName, float deltaTime);
 private:
 	Animation* idleAnimation;
 	Animation* landingAnimation;
