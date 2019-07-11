@@ -13,6 +13,8 @@ public:
 	b2Body* GetRigidbody();
 	b2Vec2 GetInitialPos();
 	void AnimationPlay(const char* animName, float deltaTime);
+	bool IsAlive();
+	void SetAlive(bool val);
 private:
 	Animation * idleAnimation;
 	Animation * flyingAnimation;
@@ -22,5 +24,6 @@ private:
 	float angleRotation = 0;
 	b2Vec2 direction = b2Vec2_zero;
 	b2Vec2 initialPos;
+	bool alive = true;
 };
 

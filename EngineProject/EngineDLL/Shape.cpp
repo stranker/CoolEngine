@@ -1,4 +1,5 @@
 #include "Shape.h"
+#include "Shape.h"
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 
@@ -6,6 +7,7 @@
 Shape::Shape(Renderer* _renderer) :
 	Entity(_renderer)
 {	
+	SetName("Default");
 }
 Shape::~Shape()
 {
@@ -70,6 +72,14 @@ void Shape::Translate(float x, float y)
 	pos.z = 0;
 	translate = glm::translate(glm::mat4(1.0f), pos);
 	UpdateModelMatrix();
+}
+const char * Shape::GetName()
+{
+	return name;
+}
+void Shape::SetName(const char * _name)
+{
+	name = _name;
 }
 void Shape::SetScale(float x, float y, float z)
 {

@@ -14,7 +14,7 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 	animator->AddAnimation(idleAnimation);
 	animator->AddAnimation(flyingAnimation);
 	animator->AddAnimation(dieAnimation);
-	name = "Player";
+	SetName("Player");
 }
 
 
@@ -28,7 +28,7 @@ void Player::OnUpdate(float deltaTime)
 	// Move UP
 	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
 		animator->Play("Flying", deltaTime);
-		rigidBody->ApplyForceToCenter(30 * direction, true);
+		rigidBody->ApplyForceToCenter(50000 * direction, true);
 	}
 	else
 	{
@@ -71,4 +71,14 @@ b2Vec2 Player::GetInitialPos()
 void Player::AnimationPlay(const char * animName, float deltaTime)
 {
 	animator->Play(animName, deltaTime);
+}
+
+bool Player::IsAlive()
+{
+	return alive;
+}
+
+void Player::SetAlive(bool val)
+{
+	alive = val;
 }

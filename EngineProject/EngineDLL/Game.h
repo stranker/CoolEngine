@@ -10,7 +10,7 @@
 #include "Turret.h"
 #include "Bullet.h"
 
-#define LENGTH_TERRAIN 100
+#define LENGTH_TERRAIN 50
 
 using namespace std;
 
@@ -31,6 +31,7 @@ protected:
 	Turret* turret;
 	Turret* turret2;
 	Bullet* bullet;
+	Bullet* bullet2;
 	float* coord;
 	float conta;
 	bool win = false;

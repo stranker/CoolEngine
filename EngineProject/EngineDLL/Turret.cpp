@@ -8,7 +8,7 @@ Turret::Turret(Renderer * rend) : Sprite(rend)
 	idleAnimation = new Animation(this);
 	idleAnimation->CreateAnimation("Idle", 0, 0, true);
 	animator->AddAnimation(idleAnimation);
-	name = "Turret";
+	SetName("Turret");
 }
 
 Turret::~Turret()
@@ -20,7 +20,7 @@ void Turret::OnUpdate(float deltaTime)
 	if (!can_shot)
 	{
 		timer += deltaTime;
-		if (timer > 3)
+		if (timer > 5)
 		{
 			can_shot = true;
 			timer = 0;
@@ -50,4 +50,10 @@ bool Turret::CanShot()
 void Turret::Shot()
 {
 	can_shot = false;
+}
+
+float Turret::GetAngleTo(b2Vec2 pos)
+{
+	b2Vec2 vec = pos - rigidBody->GetPosition();
+	return acos(vec.x);
 }

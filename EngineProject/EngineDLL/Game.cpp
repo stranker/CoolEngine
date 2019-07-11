@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "GLFW\glfw3.h"
 #include "GLFW\glfw3native.h"
-Game::Game(int _screenWidht, int _screenHeight, string _screenName): GameBase(_screenWidht, _screenHeight, _screenName)
-{	
+Game::Game(int _screenWidht, int _screenHeight, string _screenName) : GameBase(_screenWidht, _screenHeight, _screenName)
+{
 	loopCount = 0;
 }
 
@@ -29,7 +29,7 @@ bool Game::OnStart()
 	{
 		landingPlatform->SetMaterial(mat);
 		landingPlatform->SetTexture("Platform.bmp");
-		landingPlatform->SetFrameType(50,20, 4);
+		landingPlatform->SetFrameType(50, 20, 4);
 		landingPlatform->SetFrame(0);
 	}
 	if (bullet && mat)
@@ -39,6 +39,13 @@ bool Game::OnStart()
 		bullet->SetFrameType(16, 16, 1);
 		bullet->SetFrame(0);
 	}
+	if (bullet2 && mat)
+	{
+		bullet2->SetMaterial(mat);
+		bullet2->SetTexture("Bullet.bmp");
+		bullet2->SetFrameType(16, 16, 1);
+		bullet2->SetFrame(0);
+	}
 	if (ground && mat)
 	{
 		ground->SetMaterial(mat);
@@ -46,15 +53,15 @@ bool Game::OnStart()
 	if (turret && mat)
 	{
 		turret->SetMaterial(mat);
-		turret->SetTexture("Nave.bmp");
-		turret->SetFrameType(40, 40, 7);
+		turret->SetTexture("Turret.bmp");
+		turret->SetFrameType(32, 32, 1);
 		turret->SetFrame(0);
 	}
 	if (turret2 && mat)
 	{
 		turret2->SetMaterial(mat);
-		turret2->SetTexture("Nave.bmp");
-		turret2->SetFrameType(40, 40, 7);
+		turret2->SetTexture("Turret.bmp");
+		turret2->SetFrameType(32, 32, 1);
 		turret2->SetFrame(0);
 	}
 	return true;
@@ -66,7 +73,7 @@ bool Game::OnStop()
 	return false;
 }
 bool Game::OnUpdate(float deltaTime)
-{	
+{
 	world2D->Step(1 / 20.0, 8, 3);
 	renderer->CameraFollow(player->GetPos());
 	conta += deltaTime * 1;
@@ -81,33 +88,46 @@ bool Game::OnUpdate(float deltaTime)
 	ground->Draw();
 	bullet->Draw();
 	bullet->OnUpdate(deltaTime);
+	bullet2->Draw();
+	bullet2->OnUpdate(deltaTime);
 
 	// Spawn bullet
 	if (turret->CanShot() && !win)
 	{
 		turret->Shot();
-		bullet->GetRigidbody()->SetTransform(turret->GetRigidbody()->GetPosition() + b2Vec2(0,60),0);
+		bullet->GetRigidbody()->SetTransform(turret->GetRigidbody()->GetPosition() + b2Vec2(0, 60), 0);
 		bullet->GetRigidbody()->SetLinearVelocity(b2Vec2_zero);
-		bullet->Fired(turret->GetRigidbody()->GetPosition() + b2Vec2(0, 60),player->GetRigidbody()->GetPosition());
+		bullet->Fired(turret->GetRigidbody()->GetPosition() + b2Vec2(0, 100), player->GetRigidbody()->GetPosition());
 	}
 
+	if (turret2->CanShot() && !win)
+	{
+		turret2->Shot();
+		bullet2->GetRigidbody()->SetTransform(turret2->GetRigidbody()->GetPosition() + b2Vec2(0, 60), 0);
+		bullet2->GetRigidbody()->SetLinearVelocity(b2Vec2_zero);
+		bullet2->Fired(turret2->GetRigidbody()->GetPosition() + b2Vec2(0, 100), player->GetRigidbody()->GetPosition());
+	}
 	// Ground contact
 
 	for (b2ContactEdge* ce = landingPlatform->GetRigidbody()->GetContactList(); ce; ce = ce->next)
 	{
 		b2Contact* c = ce->contact;
-		b2Body* pbody = c->GetFixtureA()->GetBody();
-		if (pbody != NULL)
+		b2Body* pbodyA = c->GetFixtureA()->GetBody();
+		b2Body* pbodyB = c->GetFixtureB()->GetBody();
+		if (pbodyA->GetUserData() != NULL && pbodyB->GetUserData() != NULL)
 		{
-			if (pbody->GetLinearVelocity().y < -2.0f)
+			void *g = pbodyA->GetUserData();
+			void *b = pbodyB->GetUserData();
+			if (player->GetRigidbody()->GetUserData() == pbodyB->GetUserData())
 			{
-				pbody->SetTransform(player->GetInitialPos(), 0);
-				pbody->SetLinearVelocity(b2Vec2_zero);
-				player->Translate(player->GetInitialPos().x, player->GetInitialPos().y);
-			}
-			else
-			{
-				win = true;
+				if (pbodyB->GetLinearVelocity().y < -1.0f) {
+					pbodyB->SetTransform(player->GetInitialPos() + b2Vec2(-600, 0), 0);
+					pbodyB->SetLinearVelocity(b2Vec2_zero);
+				}
+				else
+				{
+					win = true;
+				}
 			}
 		}
 	}
@@ -115,20 +135,20 @@ bool Game::OnUpdate(float deltaTime)
 	for (b2ContactEdge* ce = ground->GetRigidbody()->GetContactList(); ce; ce = ce->next)
 	{
 		b2Contact* c = ce->contact;
-		b2Body* pbody = c->GetFixtureB()->GetBody();
-		void* p = pbody->GetUserData();
-		if (p)
+		b2Body* pbodyA = c->GetFixtureA()->GetBody();
+		b2Body* pbodyB = c->GetFixtureB()->GetBody();
+		if (pbodyA->GetUserData() != NULL && pbodyB->GetUserData() != NULL)
 		{
-			pbody->SetTransform(player->GetInitialPos(), 0);
-			pbody->SetLinearVelocity(b2Vec2_zero);
-			player->Translate(player->GetInitialPos().x, player->GetInitialPos().y);
+			if (player->GetRigidbody()->GetUserData() == pbodyB->GetUserData())
+			{
+				pbodyB->SetTransform(player->GetInitialPos() + b2Vec2(-600, 0), 0);
+				pbodyB->SetLinearVelocity(b2Vec2_zero);
+			}
 		}
 	}
 
-
-
 	if (loopCount > 10000)
-	{		
+	{
 		return false;
 	}
 
@@ -138,7 +158,7 @@ bool Game::OnUpdate(float deltaTime)
 void Game::CreateGameObjects()
 {
 	mat = new Material();
-	const b2Vec2 gravity = b2Vec2(0, -1);
+	const b2Vec2 gravity = b2Vec2(0, -10);
 	world2D = new b2World(gravity);
 	landingPlatform = new Platform(renderer);
 	player = new Player(renderer);
@@ -146,6 +166,9 @@ void Game::CreateGameObjects()
 	turret2 = new Turret(renderer);
 	ground = new Line2D(renderer);
 	bullet = new Bullet(renderer);
+	bullet2 = new Bullet(renderer);
+	bullet->SetScale(0.5f, 0.5f, 0.5f);
+	bullet2->SetScale(0.5f, 0.5f,0.5f);
 }
 
 void Game::CreateRigidbodies()
@@ -154,18 +177,17 @@ void Game::CreateRigidbodies()
 	ground->CreateRandomLine(LENGTH_TERRAIN, 2);
 	b2BodyDef chainDef;
 	chainDef.type = b2_staticBody;
-	chainDef.position.Set(0, 0); //set the starting position
+	chainDef.position.Set(0, -20); //set the starting position
 	chainDef.userData = &ground;
 	b2ChainShape chain;
 	b2Vec2 points[LENGTH_TERRAIN];
 	for (int i = 0; i < LENGTH_TERRAIN; i++)
 	{
-		points[i].Set(ground->points[i].x, ground->points[i].y - 15);
+		points[i].Set(ground->points[i].x, ground->points[i].y);
 	}
 	chain.CreateChain(points, LENGTH_TERRAIN);
 	b2FixtureDef chainFixture;
 	chainFixture.shape = &chain;
-	chainFixture.density = 1;
 	b2Body* groundRigid = world2D->CreateBody(&chainDef);
 	groundRigid->CreateFixture(&chainFixture);
 	ground->SetRigidbody(groundRigid);
@@ -173,18 +195,19 @@ void Game::CreateRigidbodies()
 	// Body def player
 	b2BodyDef myBodyDef;
 	myBodyDef.type = b2_dynamicBody; //this will be a dynamic body
-	myBodyDef.position.Set(0, 400); //set the starting position
+	myBodyDef.position.Set(1000, 500); //set the starting position
 	myBodyDef.angle = 90; //set the starting angle
-	myBodyDef.gravityScale = 0.05f;
+	myBodyDef.gravityScale = 1;
 	myBodyDef.userData = &player;
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(30, 30);
+	boxShape.SetAsBox(35, 35);
 	b2FixtureDef boxFixtureDef;
 	boxFixtureDef.shape = &boxShape;
 	boxFixtureDef.density = 0.1f;
 	b2Body* playerRigid = world2D->CreateBody(&myBodyDef);
 	playerRigid->CreateFixture(&boxFixtureDef);
 	player->SetRigidbody(playerRigid);
+	playerRigid->SetLinearVelocity(b2Vec2(100,0));
 
 	// Body def platform
 	b2BodyDef myBodyDefPlat;
@@ -222,17 +245,25 @@ void Game::CreateRigidbodies()
 
 	//body def Bullet
 	b2BodyDef bdb;
-	bdb.type = b2_dynamicBody; //this will be a dynamic body
-	bdb.position.Set(-500, -500); //set the starting position
-	bdb.gravityScale = 0.1f;
+	b2BodyDef bdb2;
+	bdb.type = bdb2.type = b2_dynamicBody; //this will be a dynamic body
+	bdb.position.Set(-1000, -1000); //set the starting position
+	bdb2.position.Set(-1000, -1000); //set the starting position
+	bdb.gravityScale = bdb2.gravityScale = 0.2f;
 	bdb.userData = &bullet;
-	bdb.bullet = true;
+	bdb2.userData = &bullet2;
+	bdb.bullet = bdb2.bullet = true;
 	b2PolygonShape boxShapeBull;
-	boxShapeBull.SetAsBox(8, 8);
+	boxShapeBull.SetAsBox(2, 2);
 	b2FixtureDef boxFixtureDefBull;
+	b2FixtureDef boxFixtureDefBull2;
 	boxFixtureDefBull.shape = &boxShapeBull;
-	boxFixtureDefBull.density = 0.5f;
+	boxFixtureDefBull2.shape = &boxShapeBull;
+	boxFixtureDefBull.density = boxFixtureDefBull2.density = 0.01f;
 	b2Body* bulletRigid = world2D->CreateBody(&bdb);
+	b2Body* bulletRigid2 = world2D->CreateBody(&bdb2);
 	bulletRigid->CreateFixture(&boxFixtureDefBull);
+	bulletRigid2->CreateFixture(&boxFixtureDefBull2);
 	bullet->SetRigidbody(bulletRigid);
+	bullet2->SetRigidbody(bulletRigid2);
 }

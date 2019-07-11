@@ -48,10 +48,10 @@ void Sprite::SetTexture(const char * imagepath)
 	widthTotal = TextureImporter::dataStruct.width;
 
 	float g_vertex_buffer_data[] = {
-		0.0f,heightFrame,0.0f,
-		widthFrame,heightFrame,0.0f,
-		0.0f,0.0f,0.0f,
-		widthFrame,0.0f,0.0f,
+		-38.0f,heightFrame+10,0.0f,
+		32,heightFrame+10,0.0f,
+		-38.0f,10.0f,0.0f,
+		32,10.0f,0.0f,
 	};	
 	SetVertices(g_vertex_buffer_data, 4);
 }

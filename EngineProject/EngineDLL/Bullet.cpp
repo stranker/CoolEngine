@@ -2,6 +2,7 @@
 
 Bullet::Bullet(Renderer* rend) : Sprite(rend)
 {
+	SetName("Bullet");
 }
 
 
@@ -38,5 +39,5 @@ void Bullet::Fired(b2Vec2 initPos, b2Vec2 playerPos)
 	b2Vec2 vec = playerPos - initialPos;
 	float norm = sqrt(vec.x * vec.x + vec.y * vec.y);
 	b2Vec2 direction = b2Vec2(vec.x / norm, vec.y / norm);
-	rigidBody->SetLinearVelocity(100 * direction);
+	rigidBody->SetLinearVelocity(200000 * direction);
 }

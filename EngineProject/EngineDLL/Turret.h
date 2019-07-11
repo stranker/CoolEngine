@@ -13,6 +13,7 @@ public:
 	b2Body* GetRigidbody();
 	bool CanShot();
 	void Shot();
+	float GetAngleTo(b2Vec2 pos);
 private:
 	Animation * idleAnimation;
 	AnimationPlayer * animator;

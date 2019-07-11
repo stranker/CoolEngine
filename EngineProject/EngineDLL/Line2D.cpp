@@ -12,7 +12,7 @@ Line2D::Line2D(Renderer* rend) : Shape(rend)
 	pivot.x = 0;
 	pivot.y = 0;
 	pivot.z = 0;
-	name = "Ground";
+	SetName("Ground");
 }
 
 Line2D::~Line2D()

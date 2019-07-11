@@ -9,7 +9,7 @@ Platform::Platform(Renderer* _renderer) : Sprite(_renderer)
 	landingAnimation->CreateAnimation("Landing", 0, 2, false);
 	animator->AddAnimation(idleAnimation);
 	animator->AddAnimation(landingAnimation);
-	name = "Platform";
+	SetName("Platform");
 }
 
 

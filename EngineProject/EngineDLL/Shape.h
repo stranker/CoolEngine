@@ -22,7 +22,8 @@ public:
 	void SetColorVertices(float* vertices);
 	void MoveIn(float x, float y, float z);
 	void Translate(float x, float y);
-	string name;
+	const char * GetName();
+	void SetName(const char * _name);
 protected:
 	Material * material;
 	unsigned int bufferData;
@@ -36,5 +37,6 @@ protected:
 	void UpdateModelMatrix();
 	glm::vec3 pivot;
 	Renderer::DrawTypes typeOfShape;
+	const char * name;
 };
 
