@@ -25,5 +25,7 @@ private:
 	b2Vec2 direction = b2Vec2_zero;
 	b2Vec2 initialPos;
 	bool alive = true;
+	float fuel = 0;
+	float maxFuel = 100;
 };
 

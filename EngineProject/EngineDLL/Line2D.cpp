@@ -50,16 +50,18 @@ void Line2D::CreateRandomLine(int _length, int turretCount)
 	vector<b2Vec2> randomPoints;
 	b2Vec2 initialPoint = b2Vec2_zero;
 	randomPoints.push_back(initialPoint);
+	b2Vec2 hPos = b2Vec2(0,-999);
 	for (int i = 1; i < _length; i++)
 	{
 		b2Vec2 point = b2Vec2(200 * i, RandRange(-300, 300));
-		randomPoints.push_back(point);
-		if (platPoint == b2Vec2_zero && i > _length / 3)
+		if (point.y > hPos.y)
 		{
-			if (RandRange(1,100) > 20)
-			{
-				platPoint = point;
-			}
+			hPos = point;
+		}
+		randomPoints.push_back(point);
+		if (platPoint == b2Vec2_zero && i > _length / 2)
+		{
+			platPoint = hPos;
 		}
 		else
 		{

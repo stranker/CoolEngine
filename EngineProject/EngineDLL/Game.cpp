@@ -74,7 +74,7 @@ bool Game::OnStop()
 }
 bool Game::OnUpdate(float deltaTime)
 {
-	world2D->Step(1 / 20.0, 8, 3);
+	world2D->Step(1 / 30.0, 8, 3);
 	renderer->CameraFollow(player->GetPos());
 	conta += deltaTime * 1;
 	turret->Draw();
@@ -97,7 +97,7 @@ bool Game::OnUpdate(float deltaTime)
 		turret->Shot();
 		bullet->GetRigidbody()->SetTransform(turret->GetRigidbody()->GetPosition() + b2Vec2(0, 60), 0);
 		bullet->GetRigidbody()->SetLinearVelocity(b2Vec2_zero);
-		bullet->Fired(turret->GetRigidbody()->GetPosition() + b2Vec2(0, 100), player->GetRigidbody()->GetPosition());
+		bullet->Fired(turret->GetRigidbody()->GetPosition() + b2Vec2(0, 100), player->GetRigidbody()->GetPosition() + b2Vec2(500,0));
 	}
 
 	if (turret2->CanShot() && !win)
@@ -105,7 +105,7 @@ bool Game::OnUpdate(float deltaTime)
 		turret2->Shot();
 		bullet2->GetRigidbody()->SetTransform(turret2->GetRigidbody()->GetPosition() + b2Vec2(0, 60), 0);
 		bullet2->GetRigidbody()->SetLinearVelocity(b2Vec2_zero);
-		bullet2->Fired(turret2->GetRigidbody()->GetPosition() + b2Vec2(0, 100), player->GetRigidbody()->GetPosition());
+		bullet2->Fired(turret2->GetRigidbody()->GetPosition() + b2Vec2(0, 100), player->GetRigidbody()->GetPosition() + b2Vec2(500, 0));
 	}
 	// Ground contact
 
@@ -116,18 +116,48 @@ bool Game::OnUpdate(float deltaTime)
 		b2Body* pbodyB = c->GetFixtureB()->GetBody();
 		if (pbodyA->GetUserData() != NULL && pbodyB->GetUserData() != NULL)
 		{
-			void *g = pbodyA->GetUserData();
-			void *b = pbodyB->GetUserData();
-			if (player->GetRigidbody()->GetUserData() == pbodyB->GetUserData())
+			if (player->GetRigidbody()->GetUserData() == pbodyA->GetUserData())
 			{
-				if (pbodyB->GetLinearVelocity().y < -1.0f) {
-					pbodyB->SetTransform(player->GetInitialPos() + b2Vec2(-600, 0), 0);
-					pbodyB->SetLinearVelocity(b2Vec2_zero);
+				if (pbodyA->GetLinearVelocity().y < -28.0f) {
+					cout << pbodyA->GetLinearVelocity().y << endl;
+					pbodyA->SetTransform(player->GetInitialPos() + b2Vec2(-600, 0), 0);
+					pbodyA->SetLinearVelocity(b2Vec2_zero);
 				}
 				else
 				{
+					cout << ">YOU WIN<" << endl;
 					win = true;
 				}
+			}
+		}
+	}
+
+	for (b2ContactEdge* ce = bullet->GetRigidbody()->GetContactList(); ce; ce = ce->next)
+	{
+		b2Contact* c = ce->contact;
+		b2Body* pbodyA = c->GetFixtureA()->GetBody();
+		b2Body* pbodyB = c->GetFixtureB()->GetBody();
+		if (pbodyA->GetUserData() != NULL && pbodyB->GetUserData() != NULL)
+		{
+			if (player->GetRigidbody()->GetUserData() == pbodyA->GetUserData())
+			{
+				pbodyA->SetTransform(player->GetInitialPos(), 0);
+				pbodyA->SetLinearVelocity(b2Vec2_zero);
+			}
+		}
+	}
+
+	for (b2ContactEdge* ce = bullet2->GetRigidbody()->GetContactList(); ce; ce = ce->next)
+	{
+		b2Contact* c = ce->contact;
+		b2Body* pbodyA = c->GetFixtureA()->GetBody();
+		b2Body* pbodyB = c->GetFixtureB()->GetBody();
+		if (pbodyA->GetUserData() != NULL && pbodyB->GetUserData() != NULL)
+		{
+			if (player->GetRigidbody()->GetUserData() == pbodyA->GetUserData())
+			{
+				pbodyA->SetTransform(player->GetInitialPos(), 0);
+				pbodyA->SetLinearVelocity(b2Vec2_zero);
 			}
 		}
 	}
@@ -252,14 +282,13 @@ void Game::CreateRigidbodies()
 	bdb.gravityScale = bdb2.gravityScale = 0.2f;
 	bdb.userData = &bullet;
 	bdb2.userData = &bullet2;
-	bdb.bullet = bdb2.bullet = true;
 	b2PolygonShape boxShapeBull;
 	boxShapeBull.SetAsBox(2, 2);
 	b2FixtureDef boxFixtureDefBull;
 	b2FixtureDef boxFixtureDefBull2;
 	boxFixtureDefBull.shape = &boxShapeBull;
 	boxFixtureDefBull2.shape = &boxShapeBull;
-	boxFixtureDefBull.density = boxFixtureDefBull2.density = 0.01f;
+	boxFixtureDefBull.density = boxFixtureDefBull2.density = 0.1f;
 	b2Body* bulletRigid = world2D->CreateBody(&bdb);
 	b2Body* bulletRigid2 = world2D->CreateBody(&bdb2);
 	bulletRigid->CreateFixture(&boxFixtureDefBull);

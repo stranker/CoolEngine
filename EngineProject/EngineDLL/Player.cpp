@@ -15,6 +15,7 @@ Player::Player(Renderer* _renderer) : Sprite(_renderer)
 	animator->AddAnimation(flyingAnimation);
 	animator->AddAnimation(dieAnimation);
 	SetName("Player");
+	fuel = maxFuel;
 }
 
 
@@ -25,10 +26,17 @@ Player::~Player()
 void Player::OnUpdate(float deltaTime)
 {
 	direction = b2Vec2(cos(((angleRotation * RADTODEG) + 90) * DEGTORAD), sin(((angleRotation * RADTODEG) + 90) * DEGTORAD));
+	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(), GLFW_KEY_F) == GLFW_PRESS)
+	{
+		fuel = maxFuel;
+	}
+	
 	// Move UP
-	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS) {
+	if (glfwGetKey((GLFWwindow*)renderer->window->GetWindowPrt(),GLFW_KEY_UP) == GLFW_PRESS && fuel>0) {
 		animator->Play("Flying", deltaTime);
 		rigidBody->ApplyForceToCenter(50000 * direction, true);
+		fuel -= deltaTime * 10;
+		cout << "Remaining Fuel: " << (int)fuel << endl;
 	}
 	else
 	{
